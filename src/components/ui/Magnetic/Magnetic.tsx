@@ -2,7 +2,7 @@ import React, { useEffect, useRef, ReactElement } from 'react';
 import gsap from 'gsap';
 
 interface MagneticProps {
-  children: ReactElement<any, any> & React.RefAttributes<any>;
+  children: ReactElement<HTMLDivElement> & React.RefAttributes<HTMLDivElement>;
 }
 
 export default function Magnetic({ children }: MagneticProps){
