@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Rounded from '../ui/RoundedButton/Roundend';
 import Magnetic from '../ui/Magnetic/Magnetic';
 
-export default function Header(): JSX.Element {
+export default function Header() {
     const header = useRef<HTMLDivElement | null>(null);
     const [isActive, setIsActive] = useState<boolean>(false);
     const pathname = usePathname();

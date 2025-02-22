@@ -8,7 +8,7 @@ interface RoundedProps extends React.HTMLAttributes<HTMLDivElement> {
   backgroundColor?: string;
 }
 
-export default function Rounded({ children, backgroundColor = "#455CE9", ...attributes }: RoundedProps): JSX.Element {
+export default function Rounded({ children, backgroundColor = "#455CE9", ...attributes }: RoundedProps){
   const circle = useRef<HTMLDivElement | null>(null);
   const timeline = useRef<gsap.core.Timeline | null>(null);
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
