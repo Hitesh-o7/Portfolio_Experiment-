@@ -12,7 +12,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
+    "types": ["react", "react-dom"], 
+    "incremental": true, 
     "plugins": [
       {
         "name": "next"
