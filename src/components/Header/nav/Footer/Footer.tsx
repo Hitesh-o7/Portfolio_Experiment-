@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './style.module.css';
 
-export default function Footer(): JSX.Element {
+export default function Footer() {
   return (
     <div className={styles.footerContainer}>
       <div className={styles.header}>Socials</div>
