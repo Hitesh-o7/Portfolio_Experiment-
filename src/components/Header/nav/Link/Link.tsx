@@ -14,7 +14,7 @@ interface LinkProps {
   setSelectedIndicator: (href: string) => void;
 }
 
-export default function Links({ data, isActive, setSelectedIndicator }: LinkProps): JSX.Element {
+export default function Links({ data, isActive, setSelectedIndicator }: LinkProps){
   const { title, href, index } = data;
 
   return (
