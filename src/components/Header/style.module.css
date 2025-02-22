@@ -1,0 +1,169 @@
+.header {
+    position: relative;
+    display: flex;
+    z-index: 1;
+    top: 30px;
+    color: white;
+    padding: 35px;
+    width: 100%;
+    height: 30px;
+    font-size: 23px;
+    font-weight: 300;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.header .testLogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+@media (max-width: 720px) {
+    .header .testLogo {
+        margin-top: 10px;
+        left: 25%;
+    }
+}
+
+.header .testLogo p {
+    color: white;
+    font-size: 3rem;
+    rotate: -8deg;
+    font-weight: 900;
+    font-family: 'Gistesy', sans-serif;
+}
+
+.header .logo {
+    display: flex;
+    cursor: pointer;
+}
+
+@media (max-width: 720px) {
+    .header .logo {
+        display: none;
+    }
+}
+
+.header .logo p {
+    margin: 0px;
+    transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.header .logo .name {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 5px;
+    transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.header .logo .name p {
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.header .logo .name p:nth-of-type(2) {
+    padding-left: 0.3em;
+}
+
+.header .logo .name p:nth-of-type(3) {
+    position: absolute;
+    left: 170px;
+    padding-left: 0.4em;
+}
+
+.header .logo:hover .copyright {
+    transform: rotate(360deg);
+}
+
+.header .logo:hover .name {
+    padding-right: 100px;
+}
+
+.header .logo:hover .name .codeBy {
+    transform: translateX(-100%);
+}
+
+.header .logo:hover .name .Hitesh {
+    transform: translateX(-105px);
+}
+
+.header .logo:hover .name .Thakur {
+    transform: translateX(-105px);
+}
+
+.headerButtonContainer {
+    transform: scale(1);
+    position: fixed;
+    right: 0px;
+    top: 20px;
+    z-index: 4;
+}
+
+.headerButtonContainer .button {
+    position: relative;
+    margin: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #0a0a0a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 580px) {
+    .headerButtonContainer .button {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.headerButtonContainer .burger {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.headerButtonContainer .burger::after,
+.headerButtonContainer .burger::before {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 40%;
+    margin: auto;
+    background-color: white;
+    position: relative;
+    transition: transform 0.5s;
+}
+
+.headerButtonContainer .burger::after {
+    top: -5px;
+}
+
+.headerButtonContainer .burger::before {
+    top: 5px;
+}
+
+.headerButtonContainer .burgerActive::after {
+    transform: rotate(45deg);
+    top: -1px;
+}
+
+.headerButtonContainer .burgerActive::before {
+    transform: rotate(-45deg);
+    top: 0px;
+}
+
+@media (max-width: 768px) {
+    .header .nav .el {
+        display: none;
+    }
+}

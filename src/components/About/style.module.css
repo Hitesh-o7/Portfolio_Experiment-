@@ -1,0 +1,120 @@
+.AboutMain {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: "About", Arial, sans-serif;
+}
+
+.AboutMain .text {
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+@media (min-width: 1441px) {
+    .AboutMain .text {
+        font-size: 1.35rem;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .AboutMain .text {
+        font-size: 1.35rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .AboutMain .text {
+        font-size: 1.35rem;
+        text-align: left;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .AboutMain .text {
+        font-size: 1.33rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .AboutMain .text {
+        font-size: 1.1rem;
+        text-align: left;
+    }
+}
+
+.AboutMain .text .line1 .fields {
+    font-family: JW.Sans-Bold;
+    position: relative;
+}
+
+.AboutMain .text .line1 .fields:after,
+.AboutMain .text .line1 .fields:before {
+    background-color: #dadad7;
+    bottom: -0.313rem;
+    content: "";
+    height: 0.063rem;
+    left: 0;
+    position: absolute;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+.AboutMain .text .line1 .fields:before {
+    transform: translateY(0) rotate(-2deg);
+}
+
+.AboutMain .text .line1 .fields:after {
+    transform: translateY(0) rotate(2deg);
+}
+
+.AboutMain .text .line1 span {
+    font-family: "Comic", Arial, sans-serif;
+}
+
+.AboutMain .text .line3 .tailor {
+    font-family: "JW.Sans-Bold", Arial, sans-serif;
+    position: relative;
+    text-align: center;
+}
+
+@media (max-width: 920px) {
+    .AboutMain .text .line3 .tailor {
+        display: none;
+    }
+}
+
+.AboutMain .text .line3 .tailor:before {
+    transform: translateY(-50%) rotate(-10deg);
+}
+
+.AboutMain .text .line3 .tailor:after,
+.AboutMain .text .line3 .tailor:before {
+    border: 0.128rem solid #dadad7;
+    border-radius: 50%;
+    content: "";
+    height: 3.75rem;
+    position: absolute;
+    top: 50%;
+    width: 7.25rem;
+    z-index: 1;
+}
+
+.AboutMain .text .line3 .tailor:after {
+    right: -0.4rem;
+    transform: translateY(-50%) rotate(-6deg);
+}
+
+.AboutMain .text .line6 span {
+    border: 0.063rem solid #dadad7;
+    border-radius: 100%;
+    display: inline-block;
+    font-family: "JW.Sans-Bold", Arial, sans-serif;
+    padding: 0.4rem;
+    transform: skew(-10deg);
+    position: relative;
+}
