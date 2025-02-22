@@ -1,11 +1,14 @@
 // Import the necessary components
 "use client";
+
+import Lanyard from '../Card/Lanyard';
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import Image from "next/image";
 import styles from "./style.module.css";
 const MainPage: React.FC = () => {
   return (
     <ParallaxProvider>
+        <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
       <main className={styles.MainPag}>
         {/* Left Side Content */}
         <div className={styles.left}>
