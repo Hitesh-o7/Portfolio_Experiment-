@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
 @font-face {
     font-family: 'Rosca';
     src: url('/fonts/rosca.otf') format('opentype');
