@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './style.module.css';
 import { usePathname } from 'next/navigation';
