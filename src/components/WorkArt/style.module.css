@@ -11,7 +11,8 @@
 }
 @media (min-width: 1441px) {
     .Main .title {
-        font-size: 3.15rem;
+        font-size: 4.15rem;
+        font-weight: 700;
         margin-bottom: 150px;
     }
 }

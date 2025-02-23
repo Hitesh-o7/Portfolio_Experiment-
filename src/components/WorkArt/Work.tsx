@@ -14,7 +14,7 @@ export default function Work() {
                 setBgColor("black");
             }
         };
-
+ 
         window.addEventListener("scroll", handleScroll);
 
         return () => {
@@ -27,7 +27,7 @@ export default function Work() {
             <div className={styles.title}>Work of Art</div>
             <div
                 className={styles.work_container}
-                style={{ backgroundColor: bgColor }}
+                
             >
                 {[
                     { src: "/powell.jpg", alt: "Work Image 1" },
