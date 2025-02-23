@@ -4,7 +4,7 @@ import { Canvas, extend, useThree, useFrame, useLoader } from "@react-three/fibe
 import { useTexture, Environment, Lightformer } from "@react-three/drei"
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from "@react-three/rapier"
 import { MeshLineGeometry, MeshLineMaterial } from "meshline"
-import * as THREE from "three"
+import * as THREE from "three" 
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import "./Lanyard.css"
 
@@ -21,7 +21,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
         gl={{ alpha: transparent, antialias: true, preserveDrawingBuffer: true }}
         onCreated={({ gl }) => {
           gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)
-          gl.outputEncoding = THREE.sRGBEncoding
+          gl.outputColorSpace = THREE.SRGBColorSpace
           gl.toneMapping = THREE.ACESFilmicToneMapping
           gl.toneMappingExposure = 1
         }}
@@ -66,7 +66,6 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
     </div>
   )
 }
-
 function Band({ maxSpeed = 50, minSpeed = 0 }) {
   const band = useRef(),
     fixed = useRef(),
