@@ -8,7 +8,10 @@ import styles from "./style.module.css";
 const MainPage: React.FC = () => {
   return (
     <ParallaxProvider>
-        <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+      <div className=" ">
+      <Lanyard position={[0, 0, 13]} gravity={[0, -40, 0]} />
+      </div>
+       
       <main className={styles.MainPag}>
         {/* Left Side Content */}
         <div className={styles.left}>
