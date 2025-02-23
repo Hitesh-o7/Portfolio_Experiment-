@@ -4,23 +4,7 @@ import styles from "./style.module.css";
 import Image from "next/image";
 
 export default function Work() {
-    const [setBgColor] = useState<string>("");
- 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 100) {
-                setBgColor("");
-            } else {
-                setBgColor("black");
-            }
-        };
- 
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+     
 
     return (
         <main className={styles.Main}>
