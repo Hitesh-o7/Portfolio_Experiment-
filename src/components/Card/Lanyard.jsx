@@ -149,6 +149,11 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
     }
   }
 
+  const handleTouchEnd = () => {
+    setDragged(false)
+    setIsTouchMoving(false)
+  }
+
   useFrame((state, delta) => {
     handlePointerMove(null, state)
 
@@ -204,6 +209,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
             onPointerDown={handlePointerDown}
             onPointerUp={handlePointerUp}
             onPointerMove={handlePointerMove}
+            onTouchEnd={handleTouchEnd}
           >
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial
