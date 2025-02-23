@@ -10,7 +10,7 @@ import "./Lanyard.css"
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 
-const cardGLB = "/cardmain1.glb"
+const cardGLB = "/cardmain.glb"
 const lanyardTexturePath = "/lanyard.png"
 
 export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true }) {
@@ -90,7 +90,8 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   )
   const [dragged, setDragged] = useState(false)
   const [hovered, setHovered] = useState(false)
-  const [touchStartPos, setTouchStartPos] = useState(new THREE.Vector3())
+  const [touchStartPos, setTouchStartPos] = useState(new THREE.Vector2())
+  const [isTouchMoving, setIsTouchMoving] = useState(false)
 
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1])
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1])
@@ -108,17 +109,37 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   }, [hovered, dragged])
 
   const handlePointerDown = (e) => {
-    e.target.setPointerCapture(e.pointerId)
-    setDragged(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
-    setTouchStartPos(new THREE.Vector3().copy(e.point))
+    if (e.pointerType === "touch") {
+      setTouchStartPos(new THREE.Vector2(e.clientX, e.clientY))
+      setIsTouchMoving(false)
+    } else {
+      e.target.setPointerCapture(e.pointerId)
+      setDragged(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
+    }
   }
 
   const handlePointerUp = (e) => {
-    e.target.releasePointerCapture(e.pointerId)
-    setDragged(false)
+    if (e.pointerType !== "touch") {
+      e.target.releasePointerCapture(e.pointerId)
+      setDragged(false)
+    }
   }
 
   const handlePointerMove = (e, state) => {
+    if (e && e.pointerType === "touch") {
+      const touchCurrentPos = new THREE.Vector2(e.clientX, e.clientY)
+      const touchDelta = touchCurrentPos.sub(touchStartPos)
+
+      if (touchDelta.length() > 10) {
+        setIsTouchMoving(true)
+      }
+
+      if (isTouchMoving) {
+        e.preventDefault() // Prevent scrolling only when moving the card
+        setDragged(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
+      }
+    }
+
     if (dragged) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera)
       dir.copy(vec).sub(state.camera.position).normalize()
