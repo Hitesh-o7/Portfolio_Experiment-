@@ -8,7 +8,7 @@
     align-items: center;
     transform: scale(1);
     transform-origin: center;
-    touch-action: pan-x ;
+    touch-action: pan-y;
     user-select: none;
   } 
   
