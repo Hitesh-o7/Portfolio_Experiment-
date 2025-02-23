@@ -1,9 +1,7 @@
 "use client";
 
 import Lanyard from "../Card/Lanyard";
-import { ParallaxProvider, Parallax } from "react-scroll-parallax";
-import Image from "next/image";
-import styles from "./style.module.css";
+import { ParallaxProvider } from "react-scroll-parallax"; 
 
 const MainPage: React.FC = () => {
   return (
