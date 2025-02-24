@@ -34,7 +34,18 @@
     src: url('/fonts/Manrope.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+} 
+@font-face {
+    font-family: 'Artine-L';
+    src: url('/fonts/Artine-Light.ttf') format('truetype'); 
 }
+
+@font-face {
+    font-family: 'Sage';
+    src: url('/fonts/Sagewold.ttf') format('truetype');
+    font-weight: normal;  
+    font-style: normal;
+  }
 
 html{
     scroll-behavior: smooth;

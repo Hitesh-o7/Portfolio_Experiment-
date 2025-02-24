@@ -18,10 +18,10 @@ const MainPage: React.FC = () => {
         <div className="relative z-0 p-10">
           {/* UI/UX Div */}
           <div className="mt-[150px]">
-            <h1 className="text-[180px] font-bold leading-[160px]">
-              Creative <br /> UI UX
+            <h1 className="text-[20px] font-sage font-bold ">
+              Creative <br /><span className="font-light ">UI UX</span>
             </h1>
-            <h1 className="text-[180px] mt-[-100px] font-bold  font-bold text-transparent [-webkit-text-stroke:4px_white] ">
+            <h1 className="text-[20px]   font-sage font-bold  font-bold text-transparent [-webkit-text-stroke:4px_white] ">
               Developer
             </h1>
           </div>

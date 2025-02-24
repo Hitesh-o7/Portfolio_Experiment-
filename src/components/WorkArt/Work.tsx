@@ -10,7 +10,6 @@ export default function Work() {
             <div className={styles.title}>Work of Art</div>
             <div
                 className={styles.work_container}
-                
             >
                 {[
                     { src: "/powell.jpg", alt: "Work Image 1" },
