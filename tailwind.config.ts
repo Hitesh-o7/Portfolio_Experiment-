@@ -10,6 +10,7 @@ export default {
     extend: {
       fontFamily: {
         sage: ['Sage', 'sans-serif'],
+        super: ['Super', 'sans-serif'],
       },
       colors: {
         background: "var(--background)",

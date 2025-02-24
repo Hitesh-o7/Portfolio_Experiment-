@@ -2,6 +2,7 @@
 
 import Lanyard from "../Card/Lanyard";
 import { ParallaxProvider } from "react-scroll-parallax"; 
+import TextPressure from "../ui/TextPressure/TextPressure";
 
 const MainPage: React.FC = () => {
   return (
@@ -17,12 +18,12 @@ const MainPage: React.FC = () => {
         {/* Content container */}
         <div className="relative z-0 p-10">
           {/* UI/UX Div */}
-          <div className="mt-[150px]">
-            <h1 className="text-[20px] font-sage font-bold ">
-              Creative <br /><span className="font-light ">UI UX</span>
-            </h1>
-            <h1 className="text-[20px]   font-sage font-bold  font-bold text-transparent [-webkit-text-stroke:4px_white] ">
-              Developer
+          <div className="mt-[150px] ml-[5%] flex flex-col gap-16">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[170px] font-super font-bold">
+              Creative  
+            </h1> 
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[170px] font-super font-bold">
+              <span className="font-light text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-[50px]">UI UX</span> Developer
             </h1>
           </div>
         </div>
