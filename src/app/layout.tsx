@@ -3,8 +3,7 @@ import "./globals.css";
 import { AnimationProvider } from "@/context/AnimationContext";
 
 export const metadata: Metadata = {
-  title: "My Next.js App",
-  description: "A smooth scrolling website with dynamic background and text colors",
+  title: "Portfolio", 
 };
 
 export default function RootLayout({
