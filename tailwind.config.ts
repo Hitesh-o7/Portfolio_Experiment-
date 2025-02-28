@@ -11,6 +11,9 @@ export default {
       fontFamily: {
         sage: ['Sage', 'sans-serif'],
         super: ['Super', 'sans-serif'],
+        rosca: ['Rosca', 'sans-serif'],
+        zen: ['zen', 'sans-serif'],
+        ux: ['UIUX', 'sans-serif'],
       },
       colors: {
         background: "var(--background)",

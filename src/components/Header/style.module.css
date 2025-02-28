@@ -74,7 +74,7 @@
 
 .header .logo .name p:nth-of-type(3) {
     position: absolute;
-    left: 170px;
+    left: 175px;
     padding-left: 0.4em;
 }
 
@@ -95,9 +95,8 @@
 }
 
 .header .logo:hover .name .Thakur {
-    transform: translateX(-105px);
+    transform: translateX(-100px);
 }
-
 .headerButtonContainer {
     transform: scale(1);
     position: fixed;
