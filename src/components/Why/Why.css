@@ -102,43 +102,54 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 30px;
-}
+  }
 
 .number {
-    font-size: 80px;
+    font-size: 50px;
+    width: 60px;
+    height: 100px;
     font-weight: bold;
-    margin-right: 20px;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0px;
+  }
 
 @media (min-width: 1441px) {
     .number {
-        font-size: 96px;
+        font-size: 50px;
     }
 }
 
 @media (min-width: 1025px) and (max-width: 1440px) {
     .number {
-        font-size: 88px;
+        font-size: 45px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .number {
-        font-size: 72px;
+        font-size: 40px;
     }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
     .number {
-        font-size: 60px;
+        font-size: 35px;
     }
 }
 
 @media (max-width: 480px) {
     .number {
-        font-size: 48px;
+        font-size: 30px;
     }
 }
+
+.text {
+    flex: 1;
+    width: calc(100% - 120px); /* 100px for number width + 20px for margin-right */
+    min-width: 0; /* Prevents flex items from overflowing */
+  }
 
 .text h3 {
     margin: 0 0 5px 0;
@@ -185,18 +196,19 @@
 .text p {
     margin: 0;
     font-size: 16px;
+    padding: 10px;
     margin-bottom: 100px;
 }
 
 @media (min-width: 1441px) {
     .text p {
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 
 @media (min-width: 1025px) and (max-width: 1440px) {
     .text p {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 

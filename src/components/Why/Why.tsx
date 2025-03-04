@@ -31,7 +31,7 @@ const Why: React.FC = () => {
     <div className="why-container">
       <div className="left-section">
         <div className="sticky-container">
-          <div className="sticky-text">Why Work With Me</div>
+          <div className="sticky-text ">Why Work With Me</div>
         </div>
       </div>
 

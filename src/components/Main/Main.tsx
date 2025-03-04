@@ -7,20 +7,16 @@ import "./style.css"; // Import external CSS
 const MainPage: React.FC = () => {
   return (
     <ParallaxProvider>
-      <div className="main-container">
-        {/* Lanyard positioned absolutely with overflow allowed */}
+      <div className="main-container"> 
         <div className="lanyard-container hidden md:block">
           <div className="lanyard-wrapper">
-            <Lanyard position={[0, 0, 14]} gravity={[0, -40, 0]} />
+            <Lanyard position={[0, 0, 16]} gravity={[0, -40, 0]} />
           </div>
         </div>
-
-        {/* Content container */}
         <div className="content-container flex flex-col  items-center">
-          <div className="text-container w-full text-center ">
+          <div className="text-container flex  flex-col w-full h-screen justify-center lg:px-16 md:px-8 sm:px-2 ">
             <h1 className="heading-main">Creative</h1>
             <h1 className="heading-sub flex flex-row justify-center gap-8">
-              <span className="uiux-text text-ux  hidden md:block">UI UX</span>{" "}
               Developer
             </h1>
           </div>
