@@ -1,7 +1,8 @@
  
+
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import styles from "./Preloader.module.css";
@@ -13,7 +14,7 @@ if (typeof window !== "undefined") {
 }
 
 const Preloader = () => {
-  const counterRef = useRef<HTMLSpanElement>(null);  
+  const counterRef = useRef<HTMLSpanElement>(null); 
 
   useEffect(() => {
     const customEase = CustomEase.create("custom", ".87,0,.13,1");

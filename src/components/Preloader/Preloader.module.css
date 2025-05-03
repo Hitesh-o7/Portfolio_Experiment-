@@ -30,9 +30,14 @@
 .lanyardAbsolute {
   position: absolute;
   width: 100%;
-  right: -20vw; /* Adjust as needed */
-  top: 50%;   /* Center vertically if desired */
+  right: -20vw;  
+  top: 50%;   
   transform: translateY(-50%); 
+}
+@media (max-width: 900px) {
+  .lanyardAbsolute {
+    display: none;
+  }
 }
 
 .header {
@@ -43,8 +48,14 @@
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column; 
-  padding: 50px; 
+  padding: 0px; 
   font-family: "reddit", sans-serif;
+}
+@media (max-width: 900px) {
+  .header h1 {
+    padding: 10px;
+    font-size: 50px;
+  }
 }
 
 .header h1 {
@@ -58,6 +69,7 @@
 
 .header p {
   margin-top: 1em;
+  padding: 10px;
 }
 
  
