@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    cursor: none !important;
+  }
+  
 @font-face {
     font-family: 'Rosca';
     src: url('/fonts/rosca.otf') format('opentype');
@@ -72,6 +76,13 @@
     font-weight: normal;  
     font-style: normal;
   }
+  @font-face { 
+    font-family: 'reddit';
+    src: url('/fonts/RedditSans.ttf') format('truetype');
+    font-weight: normal;  
+    font-style: normal;
+  }
+
 
 html{
     scroll-behavior: smooth;

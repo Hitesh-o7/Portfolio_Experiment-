@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     z-index: 20;
-    top: 30px;
+    top: 30px; 
     color: white;
     padding: 35px;
     width: 100%;
@@ -11,6 +11,7 @@
     font-weight: 300;
     box-sizing: border-box;
     align-items: center;
+    margin-bottom: -70px;
 }
 
 .header .testLogo {
@@ -110,8 +111,9 @@
     margin: 20px;
     width: 80px;
     height: 80px;
-    border-radius: 50%;
-    background-color: #0a0a0a;
+    border-radius: 50%; 
+    border-color: rgb(0, 0, 0);
+    border-width: 1px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -138,27 +140,29 @@
     height: 3px;
     width: 40%;
     margin: auto;
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     position: relative;
     transition: transform 0.5s;
 }
 
 .headerButtonContainer .burger::after {
-    top: -5px;
+    top: -5px; 
 }
 
 .headerButtonContainer .burger::before {
-    top: 5px;
+    top: 5px; 
 }
 
 .headerButtonContainer .burgerActive::after {
     transform: rotate(45deg);
     top: -1px;
+    background-color: rgb(255, 255, 255);
 }
 
 .headerButtonContainer .burgerActive::before {
     transform: rotate(-45deg);
     top: 0px;
+    background-color: rgb(255, 255, 255);
 }
 
 @media (max-width: 768px) {

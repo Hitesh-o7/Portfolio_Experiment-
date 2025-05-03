@@ -36,7 +36,7 @@ const Why: React.FC = () => {
       </div>
 
       <div className="right-section">
-        {content.map((item) => (
+        {/* {content.map((item) => (
           <div className="content-block" key={item.number}>
             <div className="number">{item.number}.</div>
             <div className="text">
@@ -45,7 +45,25 @@ const Why: React.FC = () => {
               <p>{item.text}</p>
             </div>
           </div>
-        ))}
+        ))} */}
+        <div className="grid grid-cols-2 mt-200">
+          <div className="border border-white/30    text-2xl h-[350px] p-4 flex items-end  ">
+            UI DESIGN
+          </div>
+          <div className="p-4 h-[350px] flex items-end  "> </div>
+          <div className="p-4 h-[350px] flex items-end  "> </div>
+          <div className="border border-white/30 h-[350px] text-2xl border-white/50 p-4 flex items-end  ">
+            Brand Design
+          </div>
+          <div className="border border-white/30 h-[350px] text-2xl border-white/50 p-4 flex items-end  ">
+            UX Design
+          </div>
+          <div className="p-4 h-[350px] flex items-end justify-center"> </div>
+          <div className="p-4 h-[350px] flex items-end justify-center"> </div>
+          <div className="border border-white/30 h-[350px]  text-2xl border-white/50 p-4 flex items-end  ">
+            No-code development
+          </div>
+        </div>
       </div>
     </div>
   );

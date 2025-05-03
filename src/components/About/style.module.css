@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    font-family: "About", Arial, sans-serif;
+    font-family: "reddit", sans-serif;
 }
 
 .AboutMain .text {
@@ -16,26 +16,26 @@
 
 @media (min-width: 1441px) {
     .AboutMain .text {
-        font-size: 1.35rem;
+        font-size: 1.65rem;
     }
 }
 
 @media (min-width: 1025px) and (max-width: 1440px) {
     .AboutMain .text {
-        font-size: 1.35rem;
+        font-size: 1.55rem;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .AboutMain .text {
-        font-size: 1.35rem;
+        font-size: 1.45rem;
         text-align: left;
     }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
     .AboutMain .text {
-        font-size: 1.33rem;
+        font-size: 1.3rem;
         text-align: left;
     }
 }

@@ -14,7 +14,8 @@ export default {
         rosca: ['Rosca', 'sans-serif'],
         zen: ['zen', 'sans-serif'],
         ux: ['UIUX', 'sans-serif'],
-        AboutMe: ['aboutme','sans-serif']
+        AboutMe: ['aboutme','sans-serif'],
+        reddit: ['RedditSans', 'sans-serif']
       },
       colors: {
         background: "var(--background)",

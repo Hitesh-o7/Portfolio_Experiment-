@@ -1,0 +1,107 @@
+  
+.hero {
+  position: relative;
+  width: full;
+  height: 100svh; 
+  display: flex;
+  flex-direction: column;  
+  justify-content: space-between;
+  clip-path: polygon(0% 45%, 0% 45%, 0% 55%, 0% 55%);
+  will-change: clip-path; 
+  overflow: hidden;
+}
+
+.progressBar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 25vw;
+  height: 100%;
+  padding: 2em; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffbb00;
+  background-color: #000000;
+  z-index: 10; 
+  pointer-events: none;
+}
+.lanyardAbsolute {
+  position: absolute;
+  width: 100%;
+  right: -20vw; /* Adjust as needed */
+  top: 50%;   /* Center vertically if desired */
+  transform: translateY(-50%); 
+}
+
+.header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column; 
+  padding: 50px; 
+  font-family: "reddit", sans-serif;
+}
+
+.header h1 {
+  width: 100%; 
+  text-transform: uppercase;
+  font-size: 8vw;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.075rem; 
+}
+
+.header p {
+  margin-top: 1em;
+}
+
+ 
+
+ 
+ 
+.charAnimOut h1 {
+  position: relative;
+  will-change: transform;
+}
+
+.header h1,
+.header p,
+.charAnimOut {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.header span,
+.coordinates span {
+  position: relative;
+  display: block;
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+@media (max-width: 900px) {
+  .progressBar {
+    justify-content: flex-end;
+  }
+
+  .progressBar p:nth-child(1) {
+    display: none;
+  }
+
+  .header h1 {
+    font-size: 10vw;
+  }
+
+  .coordinates {
+    top: 65%;
+    justify-content: center;
+    gap: 1em;
+    color: #fff;
+    opacity: 0.5;
+  }
+}
+ 

@@ -27,7 +27,7 @@ const AboutMain = () => {
             <span className='mt-[-40px]'>&amp; GUIDELINES</span>
             </h1>
         </div>
-        <div className='w-[]'>
+        <div className='w-[500px]'>
             <h2>
             I am dedicated to accountability and excellence, always meeting deadlines and putting forth maximum effort.
             Driven by passion, I take on projects that captivate me, ensuring innovative and unique solutions.

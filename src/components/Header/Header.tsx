@@ -44,19 +44,14 @@ export default function Header() {
         <>
             <div ref={header} className={styles.header}>
                 <div className={styles.testLogo}>
-                    <p>Hitesh</p>
+                    
                 </div>
-                <Magnetic>
+                <Magnetic> 
                     <div className={styles.logo}>
-                        <p className={styles.copyright}>©</p>
-                        <div className={styles.name}>
-                            <p className={styles.codeBy}>Curated by</p>
-                            <p className={styles.Hitesh}>Hitesh</p>
-                            <p className={styles.Thakur}>&nbsp;&nbsp;Thakur</p>
-                        </div>
+                    <img src="/Black_Logo.png" alt=""  className="h-12    auto"/>
                     </div>
                 </Magnetic>
-            </div>
+            </div> 
 
             <div ref={button} className={styles.headerButtonContainer}>
                 <Rounded onClick={() => setIsActive(!isActive)} className={styles.button}>

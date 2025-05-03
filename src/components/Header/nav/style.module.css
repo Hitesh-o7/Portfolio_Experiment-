@@ -7,14 +7,14 @@
     color: white;
     z-index: 12;
 }
-
+ 
 .menu .body {
     box-sizing: border-box;
     height: 100%;
     padding: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; 
 }
 
 .menu .body .nav {
