@@ -1,5 +1,4 @@
-// File: src/components/Preloader/Preloader.tsx
-
+ 
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -14,8 +13,7 @@ if (typeof window !== "undefined") {
 }
 
 const Preloader = () => {
-  const counterRef = useRef<HTMLSpanElement>(null);
-  const [logoSlideLeft, setLogoSlideLeft] = useState(false);
+  const counterRef = useRef<HTMLSpanElement>(null);  
 
   useEffect(() => {
     const customEase = CustomEase.create("custom", ".87,0,.13,1");
@@ -93,10 +91,7 @@ const Preloader = () => {
           ease: customEase,
           delay: 0.25,
         });
-      },
-      onComplete: () => {
-        setLogoSlideLeft(true);
-      },
+      }, 
     });
 
     gsap.to([`.${styles.header} span`, `.${styles.coordinates} span`], {

@@ -1,6 +1,4 @@
-import Image from 'next/image'
-
-const AboutMain = () => {
+ const AboutMain = () => {
   return (
     <section className="container flex flex-col justify-center items-center  mx-auto px-4 py-16">
        <div className='w-full flex justify-center mt-[10%] '>
