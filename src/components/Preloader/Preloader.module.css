@@ -37,7 +37,7 @@
 @media (max-width: 900px) {
   .lanyardAbsolute {
      right: 0;
-     top: 35%;
+     top: 40%;
   }
 }
 
@@ -45,12 +45,17 @@
   position: absolute;
   top: 70%;
   left: 50%;
-  width: 100%;
+  width: 100%; 
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column; 
   padding: 4vw; 
   font-family: "NeueBold", sans-serif;
+}
+@media (max-width: 900px) {
+  .header{
+    top: 85%;
+  }
 }
 @media (max-width: 900px) {
   .header h1 , .header p {
@@ -60,6 +65,7 @@
     justify-content: center; 
   }
 }
+ 
   
 .header h1 {
   width: 100%; 

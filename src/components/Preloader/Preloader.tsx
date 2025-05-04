@@ -117,7 +117,7 @@ const Preloader = () => {
       <div className={styles.header}>
         <h1>
           <span>Creative</span>
-        </h1>
+        </h1> 
         <h1>
           <span>Designer</span>
         </h1>
