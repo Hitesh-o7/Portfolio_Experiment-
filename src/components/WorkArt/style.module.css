@@ -228,10 +228,47 @@
 .Main .work_container .card .work_img {
     pointer-events: none;
     object-fit: cover;
-    border-radius: 0.9em;
+    border-radius: 0.em;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+@media (min-width: 1441px) {
+    .Main .work_container .card .image_wrapper,
+    .Main .work_container .card .work_img  { 
+        border-radius: 1em;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .Main .work_container .card .image_wrapper,
+    .Main .work_container .card .work_img { 
+        border-radius: 0.9em;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .Main .work_container .card .image_wrapper,
+    .Main .work_container .card .work_img {
+        border-radius: 0.9em;
+    }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+    .Main .work_container .card .image_wrapper,
+    .Main .work_container .card .work_img { 
+        border-radius: 0.6em;
+    }
+}
+@media (max-width: 480px) {
+    .Main .work_container .card .image_wrapper,
+    .Main .work_container .card .work_img {
+        border-radius: 0.6em;
+    }
+}
+@media (max-width: 400px) {
+    .Main .work_container .card .image_wrapper,
+    .Main .work_container .card .work_img {
+        border-radius: 0.4em;
+    }
 }

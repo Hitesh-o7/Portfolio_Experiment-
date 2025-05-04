@@ -48,10 +48,10 @@ export default function Header() {
                 </div>
                 <Magnetic> 
                     <div className={styles.logo}>
-                    <img src="/Black_Logo.png" alt=""  className="h-12    auto"/>
+                    <img src="/Black_Logo.png" alt=""  className="h-10 md:h-16 "/>
                     </div>
                 </Magnetic>
-            </div> 
+            </div>  
 
             <div ref={button} className={styles.headerButtonContainer}>
                 <Rounded onClick={() => setIsActive(!isActive)} className={styles.button}>
@@ -62,5 +62,5 @@ export default function Header() {
                 {isActive && <Nav />}
             </AnimatePresence>
         </>
-    );
+    ); 
 }

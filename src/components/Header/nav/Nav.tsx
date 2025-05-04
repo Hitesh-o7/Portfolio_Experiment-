@@ -26,16 +26,14 @@ export default function Nav() {
   return (
     <motion.div
       variants={menuSlide}
-      initial="initial"
+      initial="initial" 
       animate="enter"
       exit="exit"
       className={styles.menu}
     >
       <div className={styles.body}>
         <div onMouseLeave={() => setSelectedIndicator(pathname)} className={styles.nav}>
-          <div className={styles.header}>
-            <p>Navigation</p>
-          </div>
+           
           {navItems.map((data, index) => (
             <Link
               key={index}
@@ -44,8 +42,7 @@ export default function Nav() {
               setSelectedIndicator={setSelectedIndicator}
             />
           ))}
-        </div>
-        <Footer />
+        </div> 
       </div>
       <Curve />
     </motion.div>

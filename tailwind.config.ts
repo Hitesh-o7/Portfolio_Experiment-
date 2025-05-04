@@ -15,7 +15,8 @@ export default {
         zen: ['zen', 'sans-serif'],
         ux: ['UIUX', 'sans-serif'],
         AboutMe: ['aboutme','sans-serif'],
-        reddit: ['RedditSans', 'sans-serif']
+        reddit: ['RedditSans', 'sans-serif'],
+        NeueBold: ['Neue-Bold', 'sans-serif']
       },
       colors: {
         background: "var(--background)",
