@@ -28,7 +28,7 @@ export default function Header() {
                     trigger: document.documentElement,
                     start: "top top",
                     end: window.innerHeight,
-                    onLeave: () => {
+                     onLeave: () => {
                         gsap.to(button.current, { scale: 1, duration: 0.25, ease: "power1.out" });
                     },
                     onEnterBack: () => {

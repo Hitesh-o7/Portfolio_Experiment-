@@ -106,8 +106,9 @@
     width: 80px;
     height: 80px;
     border-radius: 50%; 
-    border-color: rgb(132, 0, 255);
-    border-width: 1px;
+    background-color: transparent;
+    border-color: rgb(0, 0, 0);
+    border-width: 1.5px;
     cursor: pointer;
     display: flex;
     align-items: center;

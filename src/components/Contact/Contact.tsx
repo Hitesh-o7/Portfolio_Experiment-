@@ -27,7 +27,7 @@ export default function Contact() {
                     <motion.div style={{ x }} className={styles.buttonContainer}>
                         <a href='/contact'>
                             <Rounded backgroundColor={"#334BD3"} className={styles.button}>
-                                <p>Get in touch</p>
+                                 <p>Get in touch</p>
                             </Rounded>
                         </a>
                     </motion.div>

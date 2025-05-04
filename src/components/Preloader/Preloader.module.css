@@ -27,6 +27,15 @@
   z-index: 10; 
   pointer-events: none;
 }
+
+.progressBar p{ 
+  font-size: 1vw;
+  font-weight: 900  ;
+  font-family: 'NeueReg', sans-serif;
+}
+ 
+
+
 .lanyardAbsolute {
   position: absolute;
   width: 100%;
@@ -80,10 +89,6 @@
   margin-top: 1em;
   padding: 10px;
 }
-
- 
-
- 
  
 .charAnimOut h1 {
   position: relative;
@@ -105,24 +110,14 @@
 }
 
 @media (max-width: 900px) {
-  .progressBar {
-    justify-content: flex-end;
+  .progressBar{
+    padding: 1em;
   }
-
-  .progressBar p:nth-child(1) {
-    display: none;
+  .progressBar p:nth-child(1){
+   font-size: 4vw;  
   }
-
   .header h1 {
     font-size: 10vw;
-  }
-
-  .coordinates {
-    top: 65%;
-    justify-content: center;
-    gap: 1em;
-    color: #fff;
-    opacity: 0.5;
   }
 }
  

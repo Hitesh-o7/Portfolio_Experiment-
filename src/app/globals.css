@@ -88,8 +88,19 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'NeueMed';
+    src: url('/fonts/Neue-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
-
+@font-face {
+    font-family: 'NeueReg';
+    src: url('/fonts/Neue-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 html{
     scroll-behavior: smooth;
     overscroll-behavior: none;

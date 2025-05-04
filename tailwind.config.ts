@@ -16,7 +16,9 @@ export default {
         ux: ['UIUX', 'sans-serif'],
         AboutMe: ['aboutme','sans-serif'],
         reddit: ['RedditSans', 'sans-serif'],
-        NeueBold: ['Neue-Bold', 'sans-serif']
+        NeueBold: ['Neue-Bold', 'sans-serif'],
+        NeueMed: ['Neue-Medium', 'sans-serif'],
+        NeueReg: ['Neue-Regular', 'sans-serif']
       },
       colors: {
         background: "var(--background)",
