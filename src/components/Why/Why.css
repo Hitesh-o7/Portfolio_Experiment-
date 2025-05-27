@@ -3,7 +3,7 @@
     flex-direction: row;
     height: auto;
     position: relative;
-    z-index: 1;
+    z-index: 1; 
     margin-bottom: 300px;
     padding: 100px;
 }
@@ -48,15 +48,16 @@
 .sticky-text {
     position: sticky;
     top: 300px;
-    font-size: 58px;
+    font-size: 48px;
     font-weight: bold;
     margin: 0;
     padding: 10px;
+    font-family: 'Reddit', sans-serif;
 }
 
 @media (min-width: 1441px) {
     .sticky-text {
-        font-size: 72px;
+        font-size: 64px;
     }
 }
 
@@ -92,9 +93,30 @@
     overflow-y: auto;
 }
 
+.right-section p{
+    width: 100%; 
+}
+
 @media (max-width: 920px) {
-    .right-section {
-        width: 100%;
+    .right-section { 
+        display: flex; 
+        align-self: center;     
+        width: 80%;
+        place-items: center; 
+        text-align: center;
+    }
+
+    .right-section .grid {
+        display: grid;
+        grid-template-columns: 1fr !important; /* stack vertically */
+    }
+
+    .right-section .grid > div:empty {
+        display: none;  
+    }
+
+    .right-section .grid > div {
+        text-align: center;
     }
 }
 
@@ -102,7 +124,7 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 30px;
-  }
+}
 
 .number {
     font-size: 50px;
@@ -113,7 +135,7 @@
     justify-content: center;
     align-items: center;
     margin-right: 0px;
-  }
+}
 
 @media (min-width: 1441px) {
     .number {
@@ -148,8 +170,8 @@
 .text {
     flex: 1;
     width: calc(100% - 120px); /* 100px for number width + 20px for margin-right */
-    min-width: 0; /* Prevents flex items from overflowing */
-  }
+    min-width: 0;
+}
 
 .text h3 {
     margin: 0 0 5px 0;
