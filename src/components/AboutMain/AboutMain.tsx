@@ -5,7 +5,7 @@ const AboutMain = () => {
     <section className="w-full bg-white flex flex-col items-center px-4 py-16">
       {/* Heading */}
       <div className="w-full flex justify-center mt-[10%]">
-        <h1 className="text-black font-AboutMe font-bold tracking-[-8px]  sm:tracking-[-10px] md:tracking-[-15px] text-[74px] sm:text-[80px] md:text-[120px] lg:text-[150px] leading-none text-center">
+        <h1 className="text-black font-AboutMe font-extrabold tracking-[-8px]  sm:tracking-[-10px] md:tracking-[-24px] text-[74px] sm:text-[80px] md:text-[120px] lg:text-[200px] leading-none text-center">
           ABOUT ME
         </h1>
       </div>
