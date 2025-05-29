@@ -3,19 +3,19 @@
     flex-direction: row;
     height: auto;
     position: relative;
-    z-index: 1; 
+    z-index: 1;
     margin-bottom: 300px;
     padding: 100px;
-}
-
-@media (max-width: 920px) {
+  }
+  
+  @media (max-width: 920px) {
     .why-container {
-        flex-direction: column;
-        padding: 10px;
+      flex-direction: column;
+      padding: 10px;
     }
-}
-
-.left-section {
+  }
+  
+  .left-section {
     width: 45%;
     display: flex;
     flex-direction: column;
@@ -23,29 +23,29 @@
     justify-content: center;
     padding: 30px 100px 100px 100px;
     position: relative;
-}
-
-@media (max-width: 1300px) {
+  }
+  
+  @media (max-width: 1300px) {
     .left-section {
-        padding: 10px;
-        margin-bottom: 20px;
+      padding: 10px;
+      margin-bottom: 20px;
     }
-}
-
-@media (max-width: 920px) {
+  }
+  
+  @media (max-width: 920px) {
     .left-section {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
     }
-}
-
-.sticky-container {
+  }
+  
+  .sticky-container {
     height: 100%;
     position: relative;
-}
-
-.sticky-text {
+  }
+  
+  .sticky-text {
     position: sticky;
     top: 300px;
     font-size: 48px;
@@ -53,203 +53,76 @@
     margin: 0;
     padding: 10px;
     font-family: 'Reddit', sans-serif;
-}
-
-@media (min-width: 1441px) {
+  }
+  
+  @media (min-width: 1441px) {
     .sticky-text {
-        font-size: 64px;
+      font-size: 64px;
     }
-}
-
-@media (min-width: 1025px) and (max-width: 1440px) {
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) {
     .sticky-text {
-        font-size: 64px;
+      font-size: 64px;
     }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
     .sticky-text {
-        font-size: 56px;
+      font-size: 56px;
     }
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
+  }
+  
+  @media (min-width: 481px) and (max-width: 767px) {
     .sticky-text {
-        font-size: 48px;
+      font-size: 48px;
     }
-}
-
-@media (max-width: 480px) {
+  }
+  
+  @media (max-width: 480px) {
     .sticky-text {
-        font-size: 36px;
+      font-size: 36px;
     }
-}
-
-.right-section {
-    width: 50%;
-    padding: 20px;
+  }
+  
+  .right-section {
+    width: 50%; 
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-}
-
-.right-section p{
-    width: 100%; 
-}
-
-@media (max-width: 920px) {
-    .right-section { 
-        display: flex; 
-        align-self: center;     
-        width: 80%;
-        place-items: center; 
-        text-align: center;
+  }
+  
+  .right-section p {
+    width: 100%;
+  }
+  
+  /* Responsive square boxes */
+  .right-section .grid > .box {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: 920px) {
+    .right-section {
+      display: flex;
+      align-self: center;
+      width: 80%;
+      place-items: center;
+      text-align: center;
     }
-
+  
     .right-section .grid {
-        display: grid;
-        grid-template-columns: 1fr !important; /* stack vertically */
+      display: grid;
+      grid-template-columns: 1fr !important;
     }
-
+  
     .right-section .grid > div:empty {
-        display: none;  
+      display: none;
     }
-
+  
     .right-section .grid > div {
-        text-align: center;
+      text-align: center;
     }
-}
-
-.content-block {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 30px;
-}
-
-.number {
-    font-size: 50px;
-    width: 60px;
-    height: 100px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 0px;
-}
-
-@media (min-width: 1441px) {
-    .number {
-        font-size: 50px;
-    }
-}
-
-@media (min-width: 1025px) and (max-width: 1440px) {
-    .number {
-        font-size: 45px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-    .number {
-        font-size: 40px;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-    .number {
-        font-size: 35px;
-    }
-}
-
-@media (max-width: 480px) {
-    .number {
-        font-size: 30px;
-    }
-}
-
-.text {
-    flex: 1;
-    width: calc(100% - 120px); /* 100px for number width + 20px for margin-right */
-    min-width: 0;
-}
-
-.text h3 {
-    margin: 0 0 5px 0;
-    font-size: 44px;
-    margin-top: 10px;
-}
-
-@media (min-width: 1441px) {
-    .text h3 {
-        font-size: 52px;
-    }
-}
-
-@media (min-width: 1025px) and (max-width: 1440px) {
-    .text h3 {
-        font-size: 48px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-    .text h3 {
-        font-size: 40px;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-    .text h3 {
-        font-size: 36px;
-    }
-}
-
-@media (max-width: 480px) {
-    .text h3 {
-        font-size: 30px;
-    }
-}
-
-.text hr {
-    margin: 0 0 10px 0;
-    border: none;
-    border-bottom: 2px solid #666;
-}
-
-.text p {
-    margin: 0;
-    font-size: 16px;
-    padding: 10px;
-    margin-bottom: 100px;
-}
-
-@media (min-width: 1441px) {
-    .text p {
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 1025px) and (max-width: 1440px) {
-    .text p {
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-    .text p {
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-    .text p {
-        font-size: 14px;
-        margin-bottom: 70px;
-    }
-}
-
-@media (max-width: 480px) {
-    .text p {
-        font-size: 12px;
-        margin-bottom: 20px;
-    }
-}
+  }
+  
