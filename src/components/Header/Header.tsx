@@ -9,6 +9,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Rounded from '../ui/RoundedButton/Roundend';
 import Magnetic from '../ui/Magnetic/Magnetic';
+import Image from 'next/image';
 
 export default function Header() {
     const header = useRef<HTMLDivElement | null>(null);
@@ -48,7 +49,15 @@ export default function Header() {
                 </div>
                 <Magnetic> 
                     <div className={styles.logo}>
-                    <img src="/Black_Logo.png" alt=""  className="h-10 md:h-16 "/>
+                    <Image 
+                        src="/Black_Logo.png" 
+                        alt="Logo" 
+                        width={180}
+                        height={180}
+                        className="w-auto h-10 md:h-16"
+                        priority
+                        style={{ objectFit: 'contain' }}
+                    />
                     </div>
                 </Magnetic>
             </div>  

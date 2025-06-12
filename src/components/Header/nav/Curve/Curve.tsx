@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import styles from './style.module.css';
 
 export default function Curve() {
@@ -12,7 +12,7 @@ export default function Curve() {
     []
   );
 
-  const curve = {
+  const curve: Variants = {
     initial: {
       d: initialPath,
     },
