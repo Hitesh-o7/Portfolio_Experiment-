@@ -1,6 +1,8 @@
 .menu {
     height: 100vh;
-    background-color: rgb(13, 13, 13);
+    background-color: rgba(0, 0, 0, 0.90);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     position: fixed;
     right: 0;
     top: 0;

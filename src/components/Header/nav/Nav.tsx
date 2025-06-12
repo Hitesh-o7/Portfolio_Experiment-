@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './style.module.css';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
@@ -22,6 +22,13 @@ export default function Nav() {
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState<string>(pathname);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   return (
     <motion.div
       variants={menuSlide}
@@ -32,7 +39,6 @@ export default function Nav() {
     >
       <div className={styles.body}>
         <div onMouseLeave={() => setSelectedIndicator(pathname)} className={styles.nav}>
-           
           {navItems.map((data, index) => (
             <Link
               key={index}

@@ -1,5 +1,3 @@
- 
-
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -7,6 +5,7 @@ import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import styles from "./Preloader.module.css";
 import Lanyard from "../Card/Lanyard";
+import { TypingAnimation } from "@/components/magicui/typing-animation";
 
 // Register CustomEase
 if (typeof window !== "undefined") {
@@ -108,7 +107,7 @@ const Preloader = () => {
     <div className={styles.hero}>
       <div className="h-full w-full  ">
       <div className={styles.progressBar}>
-        <p>LOADING</p>
+           <TypingAnimation className={styles.typingWrapper}>LOADING</TypingAnimation>
         <p>
           /<span ref={counterRef}>0</span>
         </p> 
