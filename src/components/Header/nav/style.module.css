@@ -10,8 +10,7 @@
     color: white;
     z-index: 12;
     width: 100%;
-    font-family: 'NeueBold';
-    overflow-y: auto;
+    font-family: 'NeueBold'; 
     -webkit-overflow-scrolling: touch;
 }
  
