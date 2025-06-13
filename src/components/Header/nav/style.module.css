@@ -25,6 +25,12 @@
     padding-bottom: env(safe-area-inset-bottom); /* Account for safe area on iOS */
 }
 
+@media (max-width: 720px) {
+    .menu .body {
+        padding: 0 0 20px 30px;
+    }
+}
+
 .menu .body .nav {
     display: flex;
     flex-direction: column;
