@@ -48,13 +48,15 @@
 .main .left .formItem .labelContainer {
     display: flex;
     padding: 10px;
-    align-items: center;
-    gap: 20px;
+    align-items: flex-start;
+    gap: 20px; 
 }
 
 .main .left .formItem .labelContainer h1 {
     color:  rgba(0, 0, 0, 0.3);
-    font-size: 20px;
+    font-size: 20px; 
+    margin: 0;
+    padding-top: 8px;
 }
 
 .main .left .formItem .labelContainer label {
@@ -180,9 +182,7 @@
 .main .bottom {
     display: none;
     justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    margin-left: 30px;
+    gap: 20px; 
 }
 
 .main .bottom .round {
@@ -211,13 +211,15 @@
     .main .left {
         width: 100%;
         padding-top: 30px;
+
     }
     .main .left .hh {
         display: flex;
         font-size: 42px;
         margin-bottom: 20px;
         margin-top: 130px;
-        flex-wrap: wrap;
+        flex-wrap: wrap; 
+        padding-left: 5%;
     }
     .main .left .form {
         align-self: center;
@@ -241,6 +243,7 @@
         margin-top: 10px;
         margin-bottom: 50px;
         width: 100%;
+        
     }
     .main .footer {
         display: flex;

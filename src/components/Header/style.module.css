@@ -14,7 +14,13 @@
     margin-bottom: -70px;
 }
 
-.header .testLogo {
+@media (max-width: 720px) {
+    .header {
+        padding:    15px;
+    }
+}
+
+/* .header .testLogo {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -22,46 +28,46 @@
     font-weight: bold;
     color: white;
     text-align: center;
-}
+} */
 
-@media (max-width: 720px) {
+/* @media (max-width: 720px) {
     .header .testLogo {
         margin-top: 10px;
         left: 25%;
     }
-}
+} */
 
-.header .testLogo p {
+/* .header .testLogo p {
     color: white;
     font-size: 3rem;
     rotate: -8deg;
     font-weight: 900;
     font-family: 'Gistesy', sans-serif;
-}
+} */
 
 .header .logo {
     display: flex;
     cursor: pointer;
 }
  
-.header .logo p {
+/* .header .logo p {
     margin: 0px;
     transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-}
+} */
 
-.header .logo .name {
+/* .header .logo .name {
     display: flex;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
     margin-left: 5px;
     transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-}
+} */
 
-.header .logo .name p {
+/* .header .logo .name p {
     position: relative;
     transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-}
+} */
 
 .header .logo .name p:nth-of-type(2) {
     padding-left: 0.3em;

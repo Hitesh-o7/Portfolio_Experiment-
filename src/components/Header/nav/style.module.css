@@ -1,5 +1,6 @@
 .menu {
     height: 100vh;
+    height: 100dvh; /* Use dynamic viewport height */
     background-color: rgba(0, 0, 0, 0.90);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -10,6 +11,8 @@
     z-index: 12;
     width: 100%;
     font-family: 'NeueBold';
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
  
 .menu .body {
@@ -20,6 +23,7 @@
     flex-direction: column; 
     justify-content: flex-end;
     align-items: flex-start;
+    padding-bottom: env(safe-area-inset-bottom); /* Account for safe area on iOS */
 }
 
 .menu .body .nav {

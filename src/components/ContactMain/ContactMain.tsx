@@ -80,7 +80,7 @@ export default function ContactMain() {
                         { id: '05', label: 'Your message', name: 'message', placeholder: 'Hello Hitesh, can you help me with...*' },
                     ].map(({ id, label, name, placeholder }) => (
                         <div key={name} className={styles.formItem}>
-                            <div className={styles.labelContainer}>
+                            <div className={styles.labelContainer}>  
                                 <h1>{id}</h1>
                                 <label htmlFor={name} className={isFilled(inputValues[name as keyof FormValues]) ? styles.filled : ''}>
                                     {label}
@@ -112,7 +112,7 @@ export default function ContactMain() {
                 </div>
                 <div className={styles.contactDetails}>
                     <Magnetic>
-                        <h2>Contact Details</h2>
+                        <h2>Contact  Details</h2>
                     </Magnetic>
                     <p>hiteshthakur695@gmail.com</p>
                     <p>+91 78761 80311</p>
@@ -121,7 +121,7 @@ export default function ContactMain() {
                     <Magnetic>
                         <h2>Follow Me</h2>
                     </Magnetic>
-                    <a href="https://github.com/HiteshO7" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/Hitesh-o7" target="_blank" rel="noopener noreferrer">
                         GitHub
                     </a>
                     <a href="https://www.instagram.com/_hitesh.thakur/" target="_blank" rel="noopener noreferrer">

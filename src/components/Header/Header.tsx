@@ -43,10 +43,7 @@ export default function Header() {
 
     return (
         <>
-            <div ref={header} className={styles.header}>
-                <div className={styles.testLogo}>
-                    
-                </div>
+            <div ref={header} className={styles.header}> 
                 <Magnetic> 
                     <div className={styles.logo}>
                     <Image 
@@ -67,7 +64,7 @@ export default function Header() {
                     <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
                 </Rounded>
             </div>
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait">~
                 {isActive && <Nav />}
             </AnimatePresence>
         </>
