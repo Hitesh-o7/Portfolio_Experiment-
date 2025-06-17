@@ -127,7 +127,7 @@ const Preloader = () => {
           <span>( Hitesh Thakur )</span>
         </p>
       </div><div className={styles.lanyardAbsolute}>
-        <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+        <Lanyard position={[0, 0, 18]} gravity={[0, -40, 0]} />
       </div>
  
     </div>

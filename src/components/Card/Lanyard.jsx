@@ -220,7 +220,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           useMap
           map={texture}
           repeat={[-4, 1]}
-          lineWidth={0.6}
+          lineWidth={0.69}
         />
       </mesh>
     </>
