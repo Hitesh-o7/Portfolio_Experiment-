@@ -13,7 +13,7 @@ const AboutMain = () => {
       {/* Description */}
       <div className="w-full max-w-6xl mt-[15%]  px-4">
         <h2 className="text-black text-[16px] sm:text-[24px] md:text-[30px] text-center leading-relaxed">
-          years of extensive experience in web agencies, collaborating with
+          hitesh thakur gityears of extensive experience in web agencies, collaborating with
           both large-scale companies and innovative smaller ones. This has
           equipped me with the ability to effectively understand and meet
           companies&rsquo; preferences and needs.
