@@ -99,11 +99,19 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
     return false
   })
 
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
+
   useEffect(() => {
     const handleResize = () => {
       setIsSmall(window.innerWidth < 1024)
     }
 
+    // Check if device supports touch
+    const checkTouchDevice = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+    }
+
+    checkTouchDevice()
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
@@ -117,11 +125,11 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   ])
 
   useEffect(() => {
-    if (hovered) {
+    if (hovered && !isTouchDevice) {
       document.body.style.cursor = dragged ? "grabbing" : "grab"
       return () => void (document.body.style.cursor = "auto")
     }
-  }, [hovered, dragged])
+  }, [hovered, dragged, isTouchDevice])
 
   useFrame((state, delta) => {
     if (dragged && typeof dragged !== "boolean") {
@@ -185,15 +193,52 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           <group
             scale={2.25}
             position={[0, -1.2, -0.05]}
-            onPointerOver={() => setHovered(true)}
-            onPointerOut={() => setHovered(false)}
+            onPointerOver={() => !isTouchDevice && setHovered(true)}
+            onPointerOut={() => !isTouchDevice && setHovered(false)}
             onPointerUp={(e) => {
-              e.target.releasePointerCapture(e.pointerId)
-              setDragged(false)
+              if (isTouchDevice) {
+                // On touch devices, only handle if it's a tap (not a scroll)
+                if (Math.abs(e.movementX) < 10 && Math.abs(e.movementY) < 10) {
+                  e.target.releasePointerCapture(e.pointerId)
+                  setDragged(false)
+                }
+              } else {
+                e.target.releasePointerCapture(e.pointerId)
+                setDragged(false)
+              }
             }}
             onPointerDown={(e) => {
-              e.target.setPointerCapture(e.pointerId)
-              setDragged(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
+              if (isTouchDevice) {
+                // On touch devices, only start dragging if it's a deliberate tap
+                // and not part of a scroll gesture
+                const startX = e.clientX
+                const startY = e.clientY
+                
+                const handlePointerMove = (moveEvent) => {
+                  const deltaX = Math.abs(moveEvent.clientX - startX)
+                  const deltaY = Math.abs(moveEvent.clientY - startY)
+                  
+                  // If movement is primarily vertical, it's likely a scroll - don't drag
+                  if (deltaY > deltaX && deltaY > 10) {
+                    e.target.releasePointerCapture(e.pointerId)
+                    document.removeEventListener('pointermove', handlePointerMove)
+                    return
+                  }
+                  
+                  // If movement is primarily horizontal or minimal, allow dragging
+                  if (deltaX > deltaY || (deltaX < 10 && deltaY < 10)) {
+                    e.target.setPointerCapture(e.pointerId)
+                    setDragged(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
+                  }
+                  
+                  document.removeEventListener('pointermove', handlePointerMove)
+                }
+                
+                document.addEventListener('pointermove', handlePointerMove, { once: true })
+              } else {
+                e.target.setPointerCapture(e.pointerId)
+                setDragged(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
+              }
             }}
           >
             <mesh geometry={nodes.card.geometry}>

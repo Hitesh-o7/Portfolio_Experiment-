@@ -45,7 +45,7 @@ export default function Home() {
 
   return (
     <div
-      className="transition-colors duration-700 min-h-screen"
+      className="transition-colors duration-700 min-h-screen touch-scroll-enabled"
       style={{ backgroundColor: currentBg, color: currentTextColor }}
     >
        <SmoothCursor />

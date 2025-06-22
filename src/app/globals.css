@@ -104,6 +104,7 @@
 html{
     scroll-behavior: smooth;
     overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
 }
 body {
   color: #FFF7E9;
@@ -114,6 +115,36 @@ body {
   background-attachment: scroll;
   background-blend-mode: multiply;
   font-family: Manrope, sans-serif;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+/* Ensure proper scrolling on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  html, body {
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+  
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Touch scroll enabled class */
+.touch-scroll-enabled {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Specific iPad and tablet optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .touch-scroll-enabled {
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
 }
 
 @layer base {

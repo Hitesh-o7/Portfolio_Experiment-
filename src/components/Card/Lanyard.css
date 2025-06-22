@@ -8,13 +8,31 @@
   align-items: center;
   transform: scale(1);
   transform-origin: center;
-  touch-action: none;
+  touch-action: pan-y;
   user-select: none;
+  -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 768px) {
+/* Target tablets and iPads specifically */
+@media (min-width: 768px) and (max-width: 1024px) {
   .lanyard-wrapper {
     height: 80vh;
     touch-action: pan-y;
+  }
+}
+
+/* Target mobile devices */
+@media (max-width: 767px) {
+  .lanyard-wrapper {
+    height: 80vh;
+    touch-action: pan-y;
+  }
+}
+
+/* Ensure scrolling works on all touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .lanyard-wrapper {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
   }
 }
