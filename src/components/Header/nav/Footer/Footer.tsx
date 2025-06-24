@@ -6,7 +6,7 @@ export default function Footer() {
     <div className={styles.footerContainer}>
       <div className={styles.header}>Socials</div>
       <div className={styles.footer}>
-        <a href="https://github.com/HiteshO7" target="_blank" rel="noopener noreferrer" className={styles.link}>
+        <a href="https://github.com/Hitesh-o7" target="_blank" rel="noopener noreferrer" className={styles.link}>
           Github
         </a>
         <a href="https://www.instagram.com/_hitesh.thakur/" target="_blank" rel="noopener noreferrer" className={styles.link}>

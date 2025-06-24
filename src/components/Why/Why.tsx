@@ -12,20 +12,20 @@ const Why: React.FC = () => {
 
       <div className="right-section">
         <div className="grid grid-cols-2  ">
-          <div className="box border border-[#191919] text-2xl p-2 flex items-end">
+          <div className="box border border-[#191919] text-2xl p-4 flex items-end">
             <p>UI DESIGN</p>
           </div>
           <div className="box  p-2 flex items-end"></div>
           <div className="box p-2 flex items-end"></div>
-          <div className="box border border-[#191919] text-2xl p-2 flex items-end">
-            <p>BRAND DESIGN</p>
+          <div className="box border border-[#191919] text-2xl p-4 flex items-end">
+            <p>FRONTEND DEVELOPMENT</p>
           </div>
-          <div className="box border border-[#191919] text-2xl p-2 flex items-end">
+          <div className="box border border-[#191919] text-2xl p-4 flex items-end">
             <p>UX DESIGN</p>
           </div>
           <div className="box p-2 flex items-end justify-center"></div>
           <div className="box p-2 flex items-end justify-center"></div>
-          <div className="box border border-[#191919] text-2xl p-2 flex items-end">
+          <div className="box border border-[#191919] text-2xl p-4 flex items-end">
             <p>NO-CODE DEVELOPMENT</p>
           </div>
         </div>
