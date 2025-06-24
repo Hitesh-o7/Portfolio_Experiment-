@@ -290,7 +290,7 @@ export default function Work() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         {filteredProjects.length > 0 ? (
           <div className="space-y-20">
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <div key={project.id} className="group flex items-end gap-8 md:gap-8">
                 {/* Project Image Card */}
                 <div
@@ -436,7 +436,7 @@ export default function Work() {
         <div className="max-w-7xl mx-auto px-6 py-12 text-center">
           <h2 className="text-3xl font-light text-gray-900 mb-4">Interested in working together?</h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities and interesting projects.
+            I&apos;m always open to discussing new opportunities and interesting projects.
           </p>
           <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full">Get In Touch</Button>
         </div>
