@@ -14,7 +14,7 @@ const projects = [
     id: 1,
     title: "E-Commerce Dashboard",
     description: "A comprehensive admin dashboard for managing online stores with real-time analytics.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/powell.jpg",
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
     category: "Web Application",
     liveUrl: "https://example.com",
@@ -26,7 +26,7 @@ const projects = [
     id: 2,
     title: "Task Management App",
     description: "Collaborative task management with drag-and-drop functionality.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/powell.jpg",
     technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
     category: "Web Application",
     liveUrl: "https://example.com",
@@ -38,7 +38,7 @@ const projects = [
     id: 3,
     title: "Weather Mobile App",
     description: "Beautiful weather application with location-based forecasts.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/wix.jpg",
     technologies: ["React Native", "TypeScript", "Redux"],
     category: "Mobile App",
     liveUrl: "https://example.com",
@@ -50,7 +50,7 @@ const projects = [
     id: 4,
     title: "Portfolio Website",
     description: "Responsive portfolio website with smooth animations.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/powell.jpg",
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
     category: "Website",
     liveUrl: "https://example.com",
@@ -62,7 +62,7 @@ const projects = [
     id: 5,
     title: "AI Chat Bot",
     description: "Intelligent chatbot powered by machine learning.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/silencio.png",
     technologies: ["Python", "TensorFlow", "React", "OpenAI API"],
     category: "AI/ML",
     liveUrl: "https://example.com",
@@ -74,7 +74,7 @@ const projects = [
     id: 6,
     title: "Blockchain Voting System",
     description: "Secure voting system built on blockchain technology.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/lanyard.png",
     technologies: ["Solidity", "Web3.js", "React", "Ethereum"],
     category: "Blockchain",
     liveUrl: "https://example.com",
@@ -199,11 +199,9 @@ export default function Work() {
       {/* Header */}
       <div className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-4 tracking-tight">Selected Works</h1>
-            <p className="text-xl text-gray-600 font-light max-w-2xl mx-auto">
-              A curated collection of projects showcasing design and development expertise
-            </p>
+          <div className="text-center mt-[20vh] mb-12">
+            <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-4 tracking-tight">Projects</h1>
+             
           </div>
 
           {/* Search Bar */}
