@@ -1,18 +1,20 @@
 .Main {
     position: relative;
     z-index: 1;
+    font-family: 'Reddit', sans-serif; 
 }
 .Main .title {
     height: 10vh;
     width: 100%;
     padding-left: 10%;
-    font-size: 3.5rem;
+    font-weight: bold;
+    font-size: 3.5rem; 
     margin-bottom: 150px;
 }
 @media (min-width: 1441px) {
     .Main .title {
         font-size: 4.15rem;
-        font-weight: 700;
+        font-weight: bold;
         margin-bottom: 150px;
     }
 }
@@ -45,8 +47,7 @@
 }
 .Main .work_container {
     display: grid;
-    padding-bottom: 200px;
-    background-color: transparent;
+    padding-bottom: 200px; 
     height: auto;
     grid-template-columns: 1fr 1fr;
     gap: 150px;
@@ -63,6 +64,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    justify-content: center;
+    align-items: center; 
 }
 .Main .work_container .card_wrapper .title1 {
     margin-left: 20px;

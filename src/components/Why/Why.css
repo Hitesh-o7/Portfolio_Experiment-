@@ -1,128 +1,156 @@
 .why-container {
-    display: flex;
-    flex-direction: row;
-    height: auto;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 300px;
-    padding: 100px;
-  }
-  
-  @media (max-width: 920px) {
-    .why-container {
-      flex-direction: column;
-      padding: 10px;
-    }
-  }
-  
-  .left-section {
-    width: 45%;
-    display: flex;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 200px;
+  padding: 100px; 
+}
+
+@media (max-width: 920px) {
+  .why-container {
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 30px 100px 100px 100px;
-    position: relative;
-  }
-  
-  @media (max-width: 1300px) {
-    .left-section {
-      padding: 10px;
-      margin-bottom: 20px;
-    }
-  }
-  
-  @media (max-width: 920px) {
-    .left-section {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-    }
-  }
-  
-  .sticky-container {
-    height: 100%;
-    position: relative;
-  }
-  
-  .sticky-text {
-    position: sticky;
-    top: 300px;
-    font-size: 48px;
-    font-weight: bold;
-    margin: 0;
     padding: 10px;
-    font-family: 'Reddit', sans-serif;
   }
-  
-  @media (min-width: 1441px) {
-    .sticky-text {
-      font-size: 64px;
-    }
+}
+
+.left-section {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 30px 100px 100px 100px;
+  position: relative;
+}
+
+@media (max-width: 1300px) {
+  .left-section {
+    padding: 10px;
+    margin-bottom: 20px;
   }
-  
-  @media (min-width: 1025px) and (max-width: 1440px) {
-    .sticky-text {
-      font-size: 64px;
-    }
+}
+
+@media (max-width: 920px) {
+  .left-section {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
   }
-  
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .sticky-text {
-      font-size: 56px;
-    }
+}
+
+.sticky-container {
+  height: 100%;
+  position: relative;
+}
+
+.sticky-text {
+  position: sticky;
+  top: 300px;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px;
+  font-family: 'Reddit', sans-serif;
+}
+
+@media (min-width: 1441px) {
+  .sticky-text {
+    font-size: 64px;
   }
-  
-  @media (min-width: 481px) and (max-width: 767px) {
-    .sticky-text {
-      font-size: 48px;
-    }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .sticky-text {
+    font-size: 64px;
   }
-  
-  @media (max-width: 480px) {
-    .sticky-text {
-      font-size: 36px;
-    }
+}
+@media (max-width: 920px) {
+  .sticky-text {
+    display: none;
   }
-  
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sticky-text {
+    font-size: 56px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .sticky-text {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sticky-text {
+    font-size: 36px;
+  }
+}
+
+.right-section {
+  width: 50%; 
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.right-section p {
+  width: 100%;
+}
+
+/* Responsive square boxes */
+.right-section .grid > .box {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 920px) {
   .right-section {
-    width: 50%; 
     display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-  }
-  
-  .right-section p {
+    align-self: center; 
     width: 100%;
+    place-items: center;
+    text-align: center;
   }
-  
-  /* Responsive square boxes */
+
+  .right-section .grid {
+    display: grid; 
+    width: 100%;
+    grid-template-columns: 1fr !important;  
+  }
+
+  .right-section .grid > div:empty {
+    display: none;
+  }
+
+  .right-section .grid > div {
+    text-align: center;
+  }
+
   .right-section .grid > .box {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    box-sizing: border-box;
+    height: 60dvw;      
+    min-height: 100px;  
+    aspect-ratio: unset; 
   }
-  
-  @media (max-width: 920px) {
-    .right-section {
-      display: flex;
-      align-self: center;
-      width: 80%;
-      place-items: center;
-      text-align: center;
-    }
-  
-    .right-section .grid {
-      display: grid;
-      grid-template-columns: 1fr !important;
-    }
-  
-    .right-section .grid > div:empty {
-      display: none;
-    }
-  
-    .right-section .grid > div {
-      text-align: center;
-    }
+}
+
+/* Hide SVG by default, show grid by default */
+.responsive-svg {
+  display: none;
+  width: 100%; 
+  height: auto;
+  max-width: 400px; /* adjust as needed */
+  margin: 0 auto;
+}
+
+@media (max-width: 920px) {
+  .right-section .grid {
+    display: none !important;
   }
-  
+  .responsive-svg {
+    display: block;
+  }
+}

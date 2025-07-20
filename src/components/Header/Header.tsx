@@ -47,11 +47,11 @@ export default function Header() {
                 <Magnetic> 
                     <div className={styles.logo}>
                     <Image 
-                        src="/Black_Logo.png" 
+                        src="/BlackMain.svg" 
                         alt="Logo" 
                         width={180}
                         height={180}
-                        className="w-auto h-10 md:h-16"
+                        className="w-auto h-12 md:h-16"
                         priority
                         style={{ objectFit: 'contain' }}
                     />

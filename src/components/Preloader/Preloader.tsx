@@ -30,7 +30,7 @@ const Preloader = () => {
       delay: 1,
     });
 
-    gsap.to(`.${styles.hero}`, {
+    gsap.to(`.${styles.hero}`, { 
       clipPath: "polygon(0% 45%, 100% 45%, 100% 55%, 0% 55%)",
       duration: 2,
       ease: customEase,

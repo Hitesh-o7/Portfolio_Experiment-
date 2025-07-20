@@ -6,6 +6,7 @@
     padding-top: 13%;
     color: black;
     overflow: hidden;
+    font-family: 'Reddit', sans-serif;
 }
 
 .main .left {
@@ -15,7 +16,7 @@
 }
 
 .main .left .hh {
-    font-size: 5.5rem;
+    font-size: 5.5dvh;
     margin-bottom: 90px;
 }
 
@@ -38,8 +39,8 @@
 }
 
 .main .left .formItem {
-    padding: 60px 0px;
-    border-top: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 4dvh 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.075);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -54,13 +55,13 @@
 
 .main .left .formItem .labelContainer h1 {
     color:  rgba(0, 0, 0, 0.3);
-    font-size: 20px; 
+    font-size: 2.2dvh;
     margin: 0;
     padding-top: 8px;
 }
 
 .main .left .formItem .labelContainer label {
-    font-size: 32px;
+    font-size: 3.2dvh;
     color: black;
     margin: 0;
     flex: 1;
@@ -77,7 +78,7 @@
     border: none;
     margin-left: 45px;
     padding: 15px;
-    font-size: 26px;
+    font-size: 2.6dvh;
     border-radius: 4px;
     width: 100%;
 }
@@ -102,7 +103,7 @@
 }
 
 .main .button p {
-    font-size: 24px;
+    font-size: 2.4dvh;
     z-index: 99;
 }
 
@@ -132,7 +133,7 @@
 }
 
 .main .right .profileContainer .arrow {
-    font-size: 36px;
+    font-size: 3.6dvh;
     color: black;
     margin-bottom: 100px;
 }
@@ -145,14 +146,14 @@
 
 .main .right .contactDetails h2 {
     margin: 0;
-    font-size: 16px;
+    font-size: 1.6dvh;
     margin-bottom: 20px;
     color: rgba(0, 0, 0, 0.3);
 }
 
 .main .right .contactDetails p {
     margin: 5px 0;
-    font-size: 24px;
+    font-size: 2.4dvh;
     margin-bottom: 10px;
 }
 
@@ -164,7 +165,7 @@
 
 .main .right .socialLinks h2 {
     margin: 0;
-    font-size: 16px;
+    font-size: 1.6dvh;
     margin-bottom: 20px;
     color: rgba(0, 0, 0, 0.3);
 }
@@ -172,7 +173,7 @@
 .main .right .socialLinks a {
     display: inline-block;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 2.4dvh;
     color: black;
     text-decoration: none;
     position: relative;
@@ -195,27 +196,23 @@
 }
 
 .main .bottom .round p {
-    font-size: 10px;
+    font-size: 1dvh;
 }
 
 .main .footer {
     display: none;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1200px) {
     .main {
         flex-direction: column;
         align-items: center;
         padding-top: 0;
     }
-    .main .left {
-        width: 100%;
-        padding-top: 30px;
-
-    }
+    
     .main .left .hh {
         display: flex;
-        font-size: 42px;
+        font-size: 4.2dvh;
         margin-bottom: 20px;
         margin-top: 130px;
         flex-wrap: wrap; 
@@ -227,11 +224,11 @@
     }
     .main .left .form .formItem input {
         margin-left: 35px;
-        font-size: 16px;
+        font-size: 1.6dvh;
     }
     .main .left .form .button {
-        height: 60px;
-        width: 100px;
+        height: 6dvh;
+        width: 10dvh;
         margin-right: 120px;
     }
     .main .right {
@@ -253,7 +250,7 @@
     }
     .main .footer .title {
         text-align: center;
-        font-size: 10px;
+        font-size: 1dvh;
         margin-bottom: 20px;
         color: rgba(0, 0, 0, 0.3);
     }
@@ -263,8 +260,18 @@
         gap: 20px;
     }
     .main .footer .links a {
-        font-size: 12px;
+        font-size: 1.2dvh;
         color: black;
         text-decoration: none;
+    }
+}
+@media (max-width: 1200px) {
+    .main .right {
+        display: none;
+    }
+    .main .left {
+        width: 100%;
+        padding-top: 30px;
+
     }
 }

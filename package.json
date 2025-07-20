@@ -13,11 +13,12 @@
     "@react-three/drei": "^10.0.7",
     "@react-three/fiber": "^9.0.4",
     "@react-three/rapier": "^1.5.0",
+    "@studio-freight/lenis": "^1.0.42",
     "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gasp": "^0.0.2",
-    "gsap": "^3.12.7",
+    "gsap": "^3.13.0",
     "leva": "^0.10.0",
     "locomotive-scroll": "^4.1.4",
     "lucide-react": "^0.514.0",
@@ -26,6 +27,7 @@
     "next": "^15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
     "react-scroll-parallax": "^3.4.5",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
@@ -33,6 +35,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/bun": "latest",
     "@types/node": "^20",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
@@ -40,8 +43,7 @@
     "eslint-config-next": "15.1.7",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.7.3",
-    "@types/bun": "latest"
+    "typescript": "^5.7.3"
   },
   "module": "index.ts",
   "type": "module"

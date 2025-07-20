@@ -26,15 +26,15 @@ export default function Home() {
         start: "top 50%",
         end: "bottom 50%",
         onEnter: () => {
-          setCurrentBg(section.getAttribute("data-bgcolor") || "#ffffff");
+          setCurrentBg(section.getAttribute("data-bgcolor") || "rgba(255,255,255,0.9)");
           setCurrentTextColor(
-            section.getAttribute("data-textcolor") || "#000000"
+            section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)"
           );
         },
         onEnterBack: () => {
-          setCurrentBg(section.getAttribute("data-bgcolor") || "#ffffff");
+          setCurrentBg(section.getAttribute("data-bgcolor") || "rgba(255,255,255,0.9)");
           setCurrentTextColor(
-            section.getAttribute("data-textcolor") || "#000000"
+            section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)"
           );
         },
       });
@@ -49,17 +49,17 @@ export default function Home() {
       style={{ backgroundColor: currentBg, color: currentTextColor }}
     >
        <SmoothCursor />
-      <section data-bgcolor="#ffffff" data-textcolor="#000000">
+      <section data-bgcolor="rgba(255,255,255,0.9)" data-textcolor="rgba(0,0,0,0.9)">
         <Header />
         <Preloader /> 
       </section>
-      <section data-bgcolor="#000000" data-textcolor="#ffffff">
+      <section data-bgcolor="rgba(0,0,0,0.9)" data-textcolor="rgba(255,255,255,0.9)">
         <About />
       </section>
-      <section data-bgcolor="#ffffff" data-textcolor="#000000">
+      <section data-bgcolor="rgba(255,255,255,0.9)" data-textcolor="rgba(0,0,0,0.9)">
         <Work />
       </section>
-      <section data-bgcolor="#000000" data-textcolor="#ffffff">
+      <section data-bgcolor="rgba(0,0,0,0.9)" data-textcolor="rgba(255,255,255,0.9)">
         <Why />
         <Contact />
       </section>
