@@ -34,7 +34,7 @@ const Why: React.FC = () => {
           </div>
         </div>
         <div className="responsive-svg">
-          <img src="/work.svg" alt="Work SVG" style={{ width: "100%", height: "auto", display: "block", margin: "0 auto" }} />
+          <img src="/Work.svg" alt="Work SVG" style={{ width: "100%", height: "auto", display: "block", margin: "0 auto" }} />
         </div>
       </div>
     </div>
