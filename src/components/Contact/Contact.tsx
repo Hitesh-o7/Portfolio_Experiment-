@@ -1,8 +1,7 @@
 'use client';
 import styles from './style.module.css'; 
 import { useRef } from 'react';
-import { useScroll, motion, useTransform, useSpring } from 'framer-motion'; 
-import { FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { useScroll, motion, useTransform, useSpring } from 'framer-motion';  
 
 export default function Contact() {
     const container = useRef<HTMLDivElement>(null);
