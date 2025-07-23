@@ -329,7 +329,7 @@ export default function GLBShowcase() {
         <div className="max-w-7xl mx-auto px-6 py-12 text-center">
           <h2 className="text-3xl font-light text-gray-900 mb-4">Like what you see?</h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Each 3D model represents hours of creative work in Blender. I'm always exploring new techniques and styles.
+            Each 3D model represents hours of creative work in Blender. I&apos;m always exploring new techniques and styles.
           </p>
           <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full">Get In Touch</Button>
         </div>

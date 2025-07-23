@@ -268,7 +268,7 @@ export default function ArtShowcase() {
         <div className="max-w-7xl mx-auto px-6 py-12 text-center">
           <h2 className="text-3xl font-light text-gray-900 mb-4">Love what you see?</h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Each piece represents my artistic journey and creative exploration. I'm always experimenting with new styles and techniques.
+            Each piece represents my artistic journey and creative exploration. I&apos;m always experimenting with new styles and techniques.
           </p>
           <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full">Get In Touch</Button>
         </div>

@@ -9,7 +9,7 @@ export default function GLBGallery() {
         <main className={styles.Main}>
             <div className={styles.title}>3D Showcase</div>
             <div className={styles.work_container}>
-                {glbProjects.map((project, index) => (
+                {glbProjects.map((project) => (
                     <TransitionLink href={`/3d-showcase/${project.id}`} key={project.id}>
                         <div className={styles.card_wrapper}>
                             <div className={styles.card}>

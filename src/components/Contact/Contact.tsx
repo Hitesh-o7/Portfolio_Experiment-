@@ -1,7 +1,8 @@
 'use client';
 import styles from './style.module.css'; 
 import { useRef } from 'react';
-import { useScroll, motion, useTransform, useSpring } from 'framer-motion';  
+import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
+import Image from 'next/image';  
 
 interface ContactProps {
     backgroundColor?: string;
@@ -38,18 +39,18 @@ export default function Contact({
                     <h1 className="text-lg font-bold" style={{ color: textColor }}>hitesh.design7@gmail.com</h1> 
                     <div className="flex flex-row gap-4 mt-6">
                         <a href="https://www.linkedin.com/in/hitesh-thakur07/" target="_blank" rel="noopener noreferrer">
-                            <img src="/linkedin.svg" alt="LinkedIn" className={`w-6 h-6 ${styles.socialIcon}`} />
+                            <Image src="/linkedin.svg" alt="LinkedIn" width={24} height={24} className={`w-6 h-6 ${styles.socialIcon}`} />
                         </a>
                         <a href="https://www.artstation.com/hiteshthakur2" target="_blank" rel="noopener noreferrer">
-                            <img src="/artstation.svg" alt="Instagram" className={`w-6 h-6 ${styles.socialIcon}`} />
+                            <Image src="/artstation.svg" alt="Instagram" width={24} height={24} className={`w-6 h-6 ${styles.socialIcon}`} />
                         </a>
                         <a href="https://github.com/Hitesh-o7" target="_blank" rel="noopener noreferrer" className="scale-[1.4] transition-all duration-300">
-                            <img src="/github.svg" alt="GitHub" className={`w-6 h-6 ${styles.socialIcon}`} />
+                            <Image src="/github.svg" alt="GitHub" width={24} height={24} className={`w-6 h-6 ${styles.socialIcon}`} />
                         </a>
                     </div>
                 </div>
                 <div className={styles.logoBottomRight}>
-                    <img src="/BottomLogo.svg" alt="Logo" className={`w-20 h-20 ${styles.logoIcon}`} />
+                    <Image src="/BottomLogo.svg" alt="Logo" width={80} height={80} className={`w-20 h-20 ${styles.logoIcon}`} />
                 </div>
             </div>
         </motion.div>
