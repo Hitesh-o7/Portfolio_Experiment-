@@ -12,14 +12,14 @@ export interface ArtworkImage {
   medium?: string;
 }
 
-// Add your own images to this array when you upload them to public/2d-art/
+// Add your own images to this array when you upload them to public/2dArt/
 export const artworkImages: ArtworkImage[] = [
   // Example entries - replace these with your actual artwork
-  // Upload your images to public/2d-art/ folder and update the paths below
+  // Upload your images to public/2dArt/ folder and update the paths below
   
   {
     id: "my-artwork-1",
-    src: "/2d-art/2B.jpg",
+    src: "/2dArt/2B.JPG",
     title: "2B",
     description: "Description of your artwork and creative process.",
     category: "Digital Painting",
@@ -28,7 +28,7 @@ export const artworkImages: ArtworkImage[] = [
   },
   {
     id: "my-artwork-2", 
-    src: "/2d-art/CamGirl.jpg",
+    src: "/2dArt/CamGirl.JPG",
     title: "CamGirl",
     description: "Your character design description and inspiration.",
     category: "Character Design",
@@ -37,7 +37,7 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-3", 
-    src: "/2d-art/CyberGirl.png",
+    src: "/2dArt/CyberGirl.PNG",
     title: "CyberGirl",
     description: "Your character design description and inspiration.",
     category: "Digital Painting",
@@ -46,7 +46,7 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-4", 
-    src: "/2d-art/Makima.jpg",
+    src: "/2dArt/Makima.JPG",
     title: "Makima",
     description: "Your character design description and inspiration.",
     category: "Digital Painting",
@@ -55,8 +55,8 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-5", 
-    src: "/2d-art/MakimaPoster.jpg",
-    title: "Makima",
+    src: "/2dArt/MakimaPoster.JPG",
+    title: "Makima Poster",
     description: "Your character design description and inspiration.",
     category: "Digital Painting",
     year: "2024",
@@ -64,8 +64,8 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-6", 
-    src: "/2d-art/StuntDude.jpg",
-    title: "StuntDud",
+    src: "/2dArt/StuntDude.JPG",
+    title: "Stunt Dude",
     description: "Your character design description and inspiration.",
     category: "Digital Painting",
     year: "2024",
