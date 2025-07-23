@@ -3,14 +3,12 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import TransitionLink from "@/components/Transition/TransitionLink";
 import Image from "next/image";
-import { Search, ExternalLink, Github, X, Eye } from "lucide-react";
+import { Search, X, Eye } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import GLBViewer from "@/components/GLBViewer/GLBViewer";
-import { glbProjects, GLBProject } from "@/data/glbProjects";
-
-// Get unique categories and techniques from projects
+import { glbProjects  } from "@/data/glbProjects";
+ 
 const categories = ["All", ...Array.from(new Set(glbProjects.map(p => p.category)))];
 const techniques = Array.from(new Set(glbProjects.flatMap(p => p.techniques)));
 

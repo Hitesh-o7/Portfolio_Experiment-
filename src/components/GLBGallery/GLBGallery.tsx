@@ -1,8 +1,7 @@
 "use client";
 import styles from "./style.module.css";
 import TransitionLink from "@/components/Transition/TransitionLink";
-import Image from "next/image";
-import GLBViewer from "@/components/GLBViewer/GLBViewer";
+import Image from "next/image"; 
 import { glbProjects } from "@/data/glbProjects";
 
 export default function GLBGallery() {

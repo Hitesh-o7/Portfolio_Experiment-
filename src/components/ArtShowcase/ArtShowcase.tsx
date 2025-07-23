@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
-import { Search, Filter, Grid, X } from "lucide-react";
+import { Search, Grid, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { artworkImages, getArtworkCategories, ArtworkImage } from "@/utils/imageLoader";
