@@ -171,3 +171,96 @@
         display: none;
     }
 }
+
+/* Fixed Logo Styles */
+.fixedLogo {
+    position: fixed;
+    top: 20px;
+    left: 35px;
+    z-index: 50;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 720px) {
+    .fixedLogo {
+        left: 15px;
+        top: 15px;
+    }
+}
+
+.logoContainer {
+    display: flex;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logoContainer:hover {
+    transform: scale(1.05);
+}
+
+.logoImage {
+    width: auto !important;
+    height: 48px !important;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    filter: none;
+    mix-blend-mode: difference;
+    color: rgb(255, 0, 0);
+}
+
+@media (min-width: 768px) {
+    .logoImage {
+        height: 64px !important;
+    }
+}
+
+/* Dark background - invert the logo to make it white */
+.darkBg .logoImage,
+.invertLogo {
+    filter: invert(1) brightness(1.2) contrast(1.1);
+}
+
+/* Light background - keep logo dark */
+.lightBg .logoImage {
+    filter: none;
+}
+
+/* Hover effects */
+.logoImage:hover {
+    transform: scale(1.05);
+}
+
+.darkBg .logoImage:hover {
+    filter: invert(1) brightness(1.4) contrast(1.2);
+}
+
+.lightBg .logoImage:hover {
+    filter: brightness(0.8) contrast(1.1);
+}
+
+/* Additional responsive behavior */
+@media (max-width: 580px) {
+    .logoImage {
+        height: 40px !important;
+    }
+}
+
+/* Enhanced color adaptation using CSS variables */
+.fixedLogo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-color, rgba(255,255,255,0.9));
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Dark background detection for better contrast */
+@media (prefers-color-scheme: dark) {
+    .logoImage {
+        filter: invert(0) contrast(1.5) brightness(1.5);
+    }
+}

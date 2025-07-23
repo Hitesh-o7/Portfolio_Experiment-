@@ -1,0 +1,7 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f3f4f6"/>
+  <circle cx="200" cy="150" r="50" fill="#d1d5db" opacity="0.8"/>
+  <polygon points="200,100 230,170 170,170" fill="#9ca3af" opacity="0.6"/>
+  <text x="200" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#6b7280">3D Model Preview</text>
+  <text x="200" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#9ca3af">Loading...</text>
+</svg> 

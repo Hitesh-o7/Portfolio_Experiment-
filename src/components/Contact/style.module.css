@@ -3,10 +3,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
     position: relative; 
     overflow: hidden; 
     font-family: 'Reddit', sans-serif;
+    background-color: transparent;  
 }
 
 .contact .body {
@@ -51,4 +51,30 @@
   .contact .body {
     height: 30vh;
   }
+}
+
+/* SVG Icon Styles with Mix Blend Mode */
+.socialIcon {
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.logoIcon {
+  transition: all 0.3s ease;
+}
+
+/* For light backgrounds - make icons dark */
+.lightTheme .socialIcon,
+.lightTheme .logoIcon {
+  filter: brightness(0) saturate(100%) invert(0%);
+}
+
+/* For dark backgrounds - make icons light */
+.darkTheme .socialIcon,
+.darkTheme .logoIcon {
+  filter: brightness(0) saturate(100%) invert(100%);
 }

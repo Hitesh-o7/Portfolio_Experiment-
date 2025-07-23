@@ -61,7 +61,11 @@ export default function Home() {
       </section>
       <section data-bgcolor="rgba(0,0,0,0.9)" data-textcolor="rgba(255,255,255,0.9)">
         <Why />
-        <Contact />
+        <Contact 
+          backgroundColor="rgba(0, 0, 0, 0)" 
+          textColor="rgba(255,255,255,0.9)"
+          theme="dark"
+        />
       </section>
     </div>
   );

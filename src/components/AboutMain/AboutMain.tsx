@@ -1,9 +1,11 @@
 import Image from "next/image";
 
+import Contact from "@/components/Contact/Contact";
+
 const AboutMain = () => {
   return (
-    <section className="w-full bg-white flex flex-col items-center px-4 py-16">
-      {/* Heading */}
+    <>
+    <section className="w-full bg-white flex flex-col items-center px-4 py-16"> 
       <div className="w-full flex justify-center mt-[40%] sm:mt-[20%]">
         <h1 className="text-black font-AboutMe font-extrabold tracking-[-8px]  sm:tracking-[-10px] md:tracking-[-24px] text-[74px] sm:text-[80px] md:text-[120px] lg:text-[200px] leading-none text-center">
           ABOUT ME
@@ -47,6 +49,12 @@ const AboutMain = () => {
         </div>
       </div>
     </section>
+    <Contact 
+      backgroundColor="rgba(255,255,255,0.9)" 
+      textColor="rgba(0,0,0,0.9)"
+      theme="light"
+    />
+    </>
   );
 };
 
