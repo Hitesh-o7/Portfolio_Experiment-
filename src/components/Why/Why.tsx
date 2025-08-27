@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import "./Why.css";
 
 type SkillSet = {
@@ -9,10 +10,9 @@ type SkillSet = {
     title: string;
   }>;
 };
-
-// Sketchy Strike-through Component
+ 
 const SketchyStrikethrough: React.FC<{ isVisible: boolean; textWidth: number }> = ({ isVisible, textWidth }) => {
-  // Your custom SVG path
+   
   const customPath = "M17.9455 54.8982C11.5329 46.8381 26.9211 27.3449 17.9455 20.127C12.5389 15.7793 4.46454 29.5015 4.46454 29.5015C-17.8839 72.1766 46.6658 87.9754 131.264 78.5928C290.3 60.9543 627.731 20.5024 930.156 23.6411C930.156 23.6411 233.596 77.3215 264.51 168.013C282.017 219.371 602.204 128.376 536.864 166.645C518.61 177.336 503.868 177.369 483.331 186.767C432.898 209.845 606.146 171.724 610.716 155.705C623.592 110.577 294.012 175.436 286.588 165.864C251.419 109.173 979 46.3037 979 29.5013C979 -64.0825 52.9178 98.8551 17.9455 54.8982Z";
    
   const originalWidth = 979; // Original SVG width
@@ -77,57 +77,7 @@ const SketchyStrikethrough: React.FC<{ isVisible: boolean; textWidth: number }> 
   );
 };
 
-// Typewriter Text Component with Sketchy Strike-through
-const TypewriterText: React.FC<{ text: string; delay?: number; resetKey?: string }> = ({ text, delay = 0, resetKey }) => {
-  const [showStrikethrough, setShowStrikethrough] = React.useState(false);
-  const [textWidth, setTextWidth] = React.useState(0);
-  const textRef = React.useRef<HTMLParagraphElement>(null);
 
-  React.useEffect(() => {
-    if (textRef.current) {
-      setTextWidth(textRef.current.offsetWidth);
-    }
-  }, [text]);
-
-  React.useEffect(() => {
-    // Reset strike-through when resetKey changes
-    setShowStrikethrough(false);
-    
-    // Show strike-through after text is fully typed
-    const strikethroughTimer = setTimeout(() => {
-      setShowStrikethrough(true);
-    }, delay + text.length * 50 + 500); // After typewriter + 500ms delay
-
-    return () => clearTimeout(strikethroughTimer);
-  }, [text, delay, resetKey]);
-
-  return (
-    <div style={{ position: 'relative', display: 'inline-block', zIndex: 1 }}>
-      <motion.p
-        ref={textRef}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay }}
-        style={{ position: 'relative', zIndex: 5 }}
-      >
-        {text.split("").map((char, index) => (
-          <motion.span
-            key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: delay + index * 0.05,
-              duration: 0.1
-            }}
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-        ))}
-      </motion.p>
-      <SketchyStrikethrough isVisible={showStrikethrough} textWidth={textWidth} />
-    </div>
-  );
-};
 
 const Why: React.FC = () => {
   const skillSets: SkillSet[] = [
@@ -252,7 +202,13 @@ const Why: React.FC = () => {
           })}
         </div>
         <div className="responsive-svg">
-          <img src="/Work.svg" alt="Work SVG" style={{ width: "100%", height: "auto", display: "block", margin: "0 auto" }} />
+          <Image 
+            src="/Work.svg" 
+            alt="Work SVG" 
+            width={400} 
+            height={300}
+            style={{ width: "100%", height: "auto", display: "block", margin: "0 auto" }} 
+          />
         </div>
       </div>
     </div>
