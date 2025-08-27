@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import Header from "@/components/Header/Header";
 import { SmoothCursor } from "@/components/ui/Cursor/smooth-cursor";
 import Contact from "@/components/Contact/Contact";
@@ -31,22 +32,22 @@ export default function ErrorPage() {
             Something went wrong
           </h1>
           <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            The page you're looking for doesn't exist or has been moved. 
-            Let's get you back on track.
+            The page you&apos;re looking for doesn&apos;t exist or has been moved. 
+            Let&apos;s get you back on track.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/"
               className="px-8 py-3 bg-white text-black rounded-md hover:bg-gray-200 transition-colors duration-300 font-medium"
             >
               Go Home
-            </a>
-            <a
+            </Link>
+            <Link
               href="/contact"
               className="px-8 py-3 border border-white text-white rounded-md hover:bg-white hover:text-black transition-colors duration-300 font-medium"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>
