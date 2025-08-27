@@ -6,7 +6,7 @@ export default function Work() {
     const workItems = [
         { src: "/Games/MainPage.png", alt: "Work Image 1", type: "image", name: "Crimson Oath"  },
         { src: "/Project1.mp4", alt: "Work Video", type: "video", name: "Page startup" },  
-        { src: "/2dArt/Cute.png", alt: "Work Image 3", type: "image", name: "Cute 2D Art" },
+        { src: "/2dArt/Cute.PNG", alt: "Work Image 3", type: "image", name: "Cute 2D Art" },
         { src: "/wix.jpg", alt: "Work Image 4", type: "image", name: "Portfolio Work" },
     ];
 
