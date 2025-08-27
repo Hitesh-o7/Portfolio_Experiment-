@@ -19,6 +19,7 @@
     max-width: 1800px; 
     height: 50vh;
     position: relative;
+    justify-content: center; 
 }
 
 .logoBottomRight {

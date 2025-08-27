@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export default function Work() {
     const workItems = [
-        { src: "/powell.jpg", alt: "Work Image 1", type: "image" },
-        { src: "/Project1.mp4", alt: "Work Video", type: "video" },  
-        { src: "/wix.jpg", alt: "Work Image 3", type: "image" },
-        { src: "/wix.jpg", alt: "Work Image 4", type: "image" },
+        { src: "/Games/MainPage.png", alt: "Work Image 1", type: "image", name: "Crimson Oath"  },
+        { src: "/Project1.mp4", alt: "Work Video", type: "video", name: "Page startup" },  
+        { src: "/2dArt/Cute.png", alt: "Work Image 3", type: "image", name: "Cute 2D Art" },
+        { src: "/wix.jpg", alt: "Work Image 4", type: "image", name: "Portfolio Work" },
     ];
 
     return (
@@ -15,7 +15,18 @@ export default function Work() {
             <div className={styles.title}>Work of Art</div>
             <div className={styles.work_container}>
                 {workItems.map((work, index) => (
-                    <div key={index} className={styles.card_wrapper}>
+                    <div 
+                        key={index} 
+                        className={styles.card_wrapper}
+                        onClick={() => {
+                            if (work.name === "Crimson Oath") {
+                                window.location.href = "/games/crimson-oath";
+                            } else if (work.name === "Cute 2D Art") {
+                                window.location.href = "/2d-gallery";
+                            }
+                        }}
+                        style={{ cursor: (work.name === "Crimson Oath" || work.name === "Cute 2D Art") ? "pointer" : "default" }}
+                    >
                         <div className={styles.card}>
                             <div className={styles.image_wrapper}>
                                 {work.type === "video" ? (
@@ -44,7 +55,7 @@ export default function Work() {
                             </div>
                         </div>
                         <div className={styles.title1}>
-                            <span className={styles.dashed}>Project Name :</span> About Project
+                            <span className={styles.dashed}>Project Name :</span> {work.name}
                         </div>
                     </div>
                 ))}

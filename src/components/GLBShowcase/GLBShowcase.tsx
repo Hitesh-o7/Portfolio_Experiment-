@@ -4,10 +4,11 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import TransitionLink from "@/components/Transition/TransitionLink";
 import Image from "next/image";
 import { Search, X, Eye } from "lucide-react";
-
+import { SmoothCursor } from "@/components/ui/Cursor/smooth-cursor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { glbProjects  } from "@/data/glbProjects";
+import Contact from "@/components/Contact/Contact";
  
 const categories = ["All", ...Array.from(new Set(glbProjects.map(p => p.category)))];
 const techniques = Array.from(new Set(glbProjects.flatMap(p => p.techniques)));
@@ -105,7 +106,9 @@ export default function GLBShowcase() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+    <div className="min-h-screen bg-white">
+      <SmoothCursor /> 
       {/* Header */}
       <div className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 py-12">
@@ -322,18 +325,13 @@ export default function GLBShowcase() {
             </Button>
           </div>
         )}
-      </div>
-
-      {/* Footer */}
-      <div className="bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-12 text-center">
-          <h2 className="text-3xl font-light text-gray-900 mb-4">Like what you see?</h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Each 3D model represents hours of creative work in Blender. I&apos;m always exploring new techniques and styles.
-          </p>
-          <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full">Get In Touch</Button>
-        </div>
-      </div>
+      </div> 
     </div>
+    <Contact 
+          backgroundColor="rgb(255, 255, 255)" 
+          textColor="rgb(0, 0, 0)"
+          theme="light"
+        />
+    </>
   );
 } 

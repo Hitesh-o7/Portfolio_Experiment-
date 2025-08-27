@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Search, Grid, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { SmoothCursor } from "@/components/ui/Cursor/smooth-cursor";
+import Contact from "@/components/Contact/Contact";
 import { artworkImages, getArtworkCategories, ArtworkImage } from "@/utils/imageLoader";
 
 interface ArtCardProps {
@@ -151,8 +153,10 @@ export default function ArtShowcase() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
+    <>
+    <div className="min-h-screen bg-white">
+      <SmoothCursor /> 
+          {/* Header */}
       <div className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="text-center mt-[20vh] mb-12">
@@ -261,21 +265,14 @@ export default function ArtShowcase() {
             </Button>
           </div>
         )}
-      </div>
-
-      {/* Footer */}
-      <div className="bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-12 text-center">
-          <h2 className="text-3xl font-light text-gray-900 mb-4">Love what you see?</h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Each piece represents my artistic journey and creative exploration. I&apos;m always experimenting with new styles and techniques.
-          </p>
-          <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full">Get In Touch</Button>
-        </div>
-      </div>
-
-      {/* Modal */}
+      </div> 
       <ArtModal artwork={selectedArtwork} onClose={() => setSelectedArtwork(null)} />
     </div>
+    <Contact 
+          backgroundColor="rgb(255, 255, 255)" 
+          textColor="rgb(0, 0, 0)"
+          theme="light"
+        />
+    </>
   );
 } 

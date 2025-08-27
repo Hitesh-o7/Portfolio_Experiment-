@@ -4,7 +4,8 @@ import { useState, useMemo, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Search, ExternalLink, Github, X } from "lucide-react"
-
+import { SmoothCursor } from "@/components/ui/Cursor/smooth-cursor"
+import Contact from "@/components/Contact/Contact"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -195,7 +196,8 @@ export default function Work() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
+      <SmoothCursor /> 
       {/* Header */}
       <div className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 py-12">
@@ -285,7 +287,7 @@ export default function Work() {
       </div>
 
       {/* Projects Grid */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-16 mb-20">
         {filteredProjects.length > 0 ? (
           <div className="space-y-20">
             {filteredProjects.map((project) => (
@@ -430,15 +432,11 @@ export default function Work() {
       </div>
 
       {/* Footer */}
-      <div className="bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-12 text-center">
-          <h2 className="text-3xl font-light text-gray-900 mb-4">Interested in working together?</h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            I&apos;m always open to discussing new opportunities and interesting projects.
-          </p>
-          <Button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full">Get In Touch</Button>
-        </div>
-      </div>
+      <Contact 
+      backgroundColor="rgba(255,255,255,1)" 
+      textColor="rgba(0,0,0,0.9)"
+      theme="light"
+    />
     </div>
   )
 }

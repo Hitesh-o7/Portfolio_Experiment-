@@ -4,7 +4,7 @@
   height: auto;
   position: relative;
   z-index: 1;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
   padding: 100px; 
 }
 
@@ -25,7 +25,7 @@
   position: relative;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1300px) { 
   .left-section {
     padding: 10px;
     margin-bottom: 20px;
@@ -53,6 +53,34 @@
   margin: 0;
   padding: 10px;
   font-family: 'Reddit', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.sticky-text.active {
+  opacity: 1;
+  color: inherit;
+  transform: scale(1.1);
+  font-weight: 900;
+}
+
+.sticky-text.inactive {
+  opacity: 0.4;
+  color: #666;
+  transform: scale(1);
+}
+
+.sticky-text:hover {
+  opacity: 1;
+}
+
+.sticky-text.inactive:hover {
+  transform: scale(1.05) translateX(10px);
+}
+
+.sticky-text.active:hover {
+  transform: scale(1.15) translateX(5px);
 }
 
 @media (min-width: 1441px) {

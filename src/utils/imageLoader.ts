@@ -71,6 +71,24 @@ export const artworkImages: ArtworkImage[] = [
     year: "2024",
     medium: "Digital"
   }, 
+  {
+    id: "my-artwork-7", 
+    src: "/2dArt/Cute.PNG",
+    title: "Cutei",
+    description: "Your character design description and inspiration.",
+    category: "Digital Painting",
+    year: "2024",
+    medium: "Digital"
+  }, 
+  {
+    id: "my-artwork-8", 
+    src: "/2dArt/Stunt.PNG",
+    title: "Stunt",
+    description: "Your character design description and inspiration.",
+    category: "Digital Painting",
+    year: "2024",
+    medium: "Digital"
+  }, 
   
 ];
 

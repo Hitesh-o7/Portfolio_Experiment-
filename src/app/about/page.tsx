@@ -4,7 +4,7 @@ import { SmoothCursor } from "@/components/ui/Cursor/smooth-cursor";
 
 export default function About() {
   return (
-    <main data-scroll-container className="min-h-screen">
+    <main data-scroll-container className="min-h-screen bg-white">
       <SmoothCursor /> 
       <Header />
       <AboutMain />

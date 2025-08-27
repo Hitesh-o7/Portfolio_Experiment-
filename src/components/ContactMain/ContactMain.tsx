@@ -114,7 +114,7 @@ export default function ContactMain() {
                     <Magnetic>
                         <h2>Contact  Details</h2>
                     </Magnetic>
-                    <p>hiteshthakur695@gmail.com</p>
+                    <p>hitesh.design7@gmail.com</p>
                     <p>+91 78761 80311</p>
                 </div>
                 <div className={styles.socialLinks}>
@@ -138,7 +138,7 @@ export default function ContactMain() {
             <div className={styles.bottom}>
                 <div className={styles.round}>
                     <Rounded>
-                        <p>@hiteshthakur695@gmail.com</p>
+                        <p>@hitesh.design7@gmail.com</p>
                     </Rounded>
                     <Rounded>
                         <p>+91 7876180311</p>

@@ -111,7 +111,7 @@ body {
   background-repeat: repeat;
   background-attachment: scroll;
   background-blend-mode: multiply;
-  font-family: Manrope, sans-serif;
+  font-family: reddit, sans-serif;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
 }

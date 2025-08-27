@@ -231,6 +231,7 @@
 .Main .work_container .card .work_img {
     pointer-events: none;
     object-fit: cover;
+    object-position: top;
     border-radius: 0.em;
     position: absolute;
     top: 0;
@@ -274,4 +275,14 @@
     .Main .work_container .card .work_img {
         border-radius: 0.4em;
     }
+}
+
+/* Clickable card styling */
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
 }
