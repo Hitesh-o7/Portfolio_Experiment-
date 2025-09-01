@@ -5,6 +5,7 @@ import { AnimationProvider } from "@/context/AnimationContext";
 import TransitionOverlay from "@/components/Transition/TransitionOverlay";
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
+import { Analytics } from "@vercel/analytics/next"
 
 export default function RootLayout({
   children,
@@ -34,6 +35,7 @@ export default function RootLayout({
         <AnimationProvider>
           <TransitionOverlay />
           {children}
+          <Analytics />
         </AnimationProvider>
       </body>
     </html>
