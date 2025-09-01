@@ -36,7 +36,15 @@ export default function Contact({
         >
             <div className={styles.body}>
                 <div className="flex flex-col w-full items-center justify-center">
-                    <h1 className="text-lg font-bold" style={{ color: textColor }}>hitesh.design7@gmail.com</h1> 
+                    <a 
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=hitesh.design7@gmail.com" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg font-bold hover:text-blue-500 hover:scale-105 transition-all duration-300 cursor-pointer" 
+                        style={{ color: textColor }}
+                    >
+                        hitesh.design7@gmail.com
+                    </a> 
                     <div className="flex flex-row gap-4 mt-6">
                         <a href="https://www.linkedin.com/in/hitesh-thakur07/" target="_blank" rel="noopener noreferrer">
                             <Image src="/linkedin.svg" alt="LinkedIn" width={24} height={24} className={`w-6 h-6 ${styles.socialIcon}`} />

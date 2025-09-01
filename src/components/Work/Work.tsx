@@ -13,73 +13,77 @@ import { Input } from "@/components/ui/input"
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Dashboard",
-    description: "A comprehensive admin dashboard for managing online stores with real-time analytics.",
-    image: "/powell.jpg",
+    title: "CVE",
+    description: "CVE (Common Vulnerabilities and Exposures) is a list of publicly known cybersecurity vulnerabilities.",
+    image: "/projects/CVE.png",
+    video: "/projects/CVE.mp4",
+    type: "video",
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
     category: "Web Application",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
-    date: "2024-01-15",
+    liveUrl: "https://cve-hazel.vercel.app/",
+    githubUrl: "https://github.com/Hitesh-o7/CVE.git",
+    date: "2024-11-22",
     featured: true,
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "Collaborative task management with drag-and-drop functionality.",
+    title: "Transition Website",
+    description: "Transition website is a website that is used to transition from one page to another.",
     image: "/powell.jpg",
-    technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+    video: "/project1.mp4",
+    type: "video",
+    technologies: ["React", "Node.js","Tailwind CSS","Framer Motion"],
     category: "Web Application",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
-    date: "2023-11-20",
-    featured: false,
+    liveUrl: "/error",
+    githubUrl: "/error",
+    date: "2024-12-20",
+    featured: true,
   },
   {
     id: 3,
-    title: "Weather Mobile App",
-    description: "Beautiful weather application with location-based forecasts.",
-    image: "/wix.jpg",
-    technologies: ["React Native", "TypeScript", "Redux"],
+    title: "Crimson Oath",
+    description: "Crimson Oath is a 2D Souls-Like game.",
+    image: "/Games/MainPage.png ",
+    technologies: ["Unity", "Blender", "Photoshop"],
     category: "Mobile App",
-    liveUrl: "https://example.com",
+    liveUrl: "/games/crimson-oath",
     githubUrl: "https://github.com/username/project",
-    date: "2023-09-10",
+    date: "2025-04-10",
     featured: true,
   },
   {
     id: 4,
-    title: "Portfolio Website",
-    description: "Responsive portfolio website with smooth animations.",
-    image: "/powell.jpg",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    title: "JobSeek",
+    description: "JobSeek is a job portal website.",
+    image: "/projects/JobSeek.png",
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion","MongoDB","Node.js"],
     category: "Website",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
+    liveUrl: "https://github.com/Hitesh-o7/JobSeek",
+    githubUrl: "https://github.com/Hitesh-o7/JobSeek",
     date: "2023-07-05",
     featured: false,
   },
   {
     id: 5,
-    title: "AI Chat Bot",
-    description: "Intelligent chatbot powered by machine learning.",
+    title: "UI/UX",
+    description: "Website made to showcase my UI/UX skills.",
     image: "/silencio.png",
-    technologies: ["Python", "TensorFlow", "React", "OpenAI API"],
+    technologies: ["React", "Tailwind CSS", "Framer Motion"],
     category: "AI/ML",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
+    liveUrl: "/error",
+    githubUrl: "/error  ",
     date: "2024-03-12",
     featured: true,
   },
   {
     id: 6,
-    title: "Blockchain Voting System",
-    description: "Secure voting system built on blockchain technology.",
-    image: "/lanyard.png",
-    technologies: ["Solidity", "Web3.js", "React", "Ethereum"],
+    title: "Readers",
+    description: "Readers is site which extract the data from mutiple files extension like yaml, json, csv, xml, etc.",
+    image: "/projects/Readers.png",
+    technologies: ["Solidity", "Web3.js", "React", "Ethereum","Tailwind CSS","Framer Motion"],
     category: "Blockchain",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
+    liveUrl: "https://readers-seven.vercel.app/",
+    githubUrl: "https://github.com/Hitesh-o7/Readers",
     date: "2023-12-08",
     featured: false,
   },
@@ -294,16 +298,27 @@ export default function Work() {
               <div key={project.id} className="group flex items-end gap-8 md:gap-8">
                 {/* Project Image Card */}
                 <div
-                  className="flex-1 relative overflow-hidden bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-500"
+                  className="flex-1 relative overflow-hidden bg-white rounded-xl shadow-lg hover:shadow-2xl backdrop-blur-sm border border-gray-100/50 transition-all duration-500"
                   data-project-id={project.id}
                 >
-                  <div className="aspect-[16/10] relative">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                  <div className={project.type === "video" ? "relative" : "aspect-[16/10] relative"}>
+                    {project.type === "video" && project.video ? (
+                      <video
+                        src={project.video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <Image
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    )}
 
                     {/* Featured Badge */}
                     {project.featured && (
