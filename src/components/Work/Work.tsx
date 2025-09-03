@@ -98,7 +98,42 @@ export default function Work() {
   const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>([])
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false)
   const [centeredProjectId, setCenteredProjectId] = useState<number | null>(null)
+  const [imagesLoaded, setImagesLoaded] = useState<Set<number>>(new Set())
+  const [initialLoading, setInitialLoading] = useState(true)
   const observerRef = useRef<IntersectionObserver | null>(null)
+
+  // Preload images on component mount
+  useEffect(() => {
+    const preloadImages = async () => {
+      const imagePromises = projects.map((project) => {
+        return new Promise((resolve) => {
+          if (project.image) {
+            const img = new window.Image()
+            img.onload = () => {
+              setImagesLoaded(prev => new Set(prev).add(project.id))
+              resolve(true)
+            }
+            img.onerror = () => resolve(false)
+            img.src = project.image
+          } else {
+            resolve(true)
+          }
+        })
+      })
+      
+      await Promise.all(imagePromises)
+      setInitialLoading(false)
+    }
+
+    preloadImages()
+    
+    // Set a timeout to remove loading state even if some images fail
+    const timeout = setTimeout(() => {
+      setInitialLoading(false)
+    }, 3000)
+
+    return () => clearTimeout(timeout)
+  }, [])
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
@@ -309,15 +344,34 @@ export default function Work() {
                         loop
                         muted
                         playsInline
+                        preload="metadata"
                         className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
                       />
                     ) : (
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
+                      <div className="relative w-full h-full">
+                        {/* Loading skeleton */}
+                        {!imagesLoaded.has(project.id) && (
+                          <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                            <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+                          </div>
+                        )}
+                        <Image
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          fill
+                          priority={project.featured} // Priority loading for featured projects
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          quality={85}
+                          className={`object-cover transition-all duration-700 group-hover:scale-105 ${
+                            imagesLoaded.has(project.id) 
+                              ? "opacity-100" 
+                              : "opacity-0"
+                          }`}
+                          onLoad={() => {
+                            setImagesLoaded(prev => new Set(prev).add(project.id))
+                          }}
+                        />
+                      </div>
                     )}
 
                     {/* Featured Badge */}
@@ -357,10 +411,33 @@ export default function Work() {
                           : "opacity-0 translate-y-4 pointer-events-none"
                       }`}
                     >
-                      <div className="p-4 text-right text-white">
+                      <div className="p-4 text-right text-white relative">
                         <h3 className="text-xl font-light mb-2 leading-tight">{project.title}</h3>
-                        <p className="text-sm text-gray-200 mb-3 leading-relaxed line-clamp-2">{project.description}</p>
-                        <div className="flex flex-wrap justify-end gap-1 mb-2">
+                        <p className="text-sm text-gray-200 leading-relaxed">
+                          {project.description.length > 60 
+                            ? `${project.description.substring(0, 60)}...` 
+                            : project.description}
+                        </p>
+                        {/* Action buttons - absolute positioned left bottom */}
+                        <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                          <Link
+                            href={project.liveUrl}
+                            target="_blank"
+                            className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                          >
+                            <ExternalLink className="w-4 h-4 text-white" />
+                          </Link>
+                          <Link
+                            href={project.githubUrl}
+                            target="_blank"
+                            className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                          >
+                            <Github className="w-4 h-4 text-white" />
+                          </Link>
+                        </div>
+                        
+                        {/* Hidden technologies */}
+                        <div className="hidden flex-wrap justify-end gap-1 mb-2">
                           {project.technologies.slice(0, 3).map((tech) => (
                             <span
                               key={tech}
@@ -370,32 +447,15 @@ export default function Work() {
                             </span>
                           ))}
                         </div>
-                        <div className="flex items-center justify-between">
-                          <div className="flex gap-2">
-                            <Link
-                              href={project.liveUrl}
-                              target="_blank"
-                              className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                            >
-                              <ExternalLink className="w-4 h-4 text-white" />
-                            </Link>
-                            <Link
-                              href={project.githubUrl}
-                              target="_blank"
-                              className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
-                            >
-                              <Github className="w-4 h-4 text-white" />
-                            </Link>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-xs text-gray-300">
-                              {new Date(project.date).toLocaleDateString("en-US", {
-                                year: "numeric",
-                                month: "short",
-                              })}
-                            </p>
-                            <p className="text-xs text-gray-400">{project.category}</p>
-                          </div>
+                        {/* Hidden metadata */}
+                        <div className="hidden text-right">
+                          <p className="text-xs text-gray-300">
+                            {new Date(project.date).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "short",
+                            })}
+                          </p>
+                          <p className="text-xs text-gray-400">{project.category}</p>
                         </div>
                       </div>
                     </div>
