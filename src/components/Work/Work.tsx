@@ -99,7 +99,6 @@ export default function Work() {
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false)
   const [centeredProjectId, setCenteredProjectId] = useState<number | null>(null)
   const [imagesLoaded, setImagesLoaded] = useState<Set<number>>(new Set())
-  const [initialLoading, setInitialLoading] = useState(true)
   const observerRef = useRef<IntersectionObserver | null>(null)
 
   // Preload images on component mount
@@ -122,17 +121,9 @@ export default function Work() {
       })
       
       await Promise.all(imagePromises)
-      setInitialLoading(false)
     }
 
     preloadImages()
-    
-    // Set a timeout to remove loading state even if some images fail
-    const timeout = setTimeout(() => {
-      setInitialLoading(false)
-    }, 3000)
-
-    return () => clearTimeout(timeout)
   }, [])
 
   const filteredProjects = useMemo(() => {
