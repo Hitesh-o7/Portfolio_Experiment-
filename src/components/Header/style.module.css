@@ -20,54 +20,12 @@
     }
 }
 
-/* .header .testLogo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-    color: white;
-    text-align: center;
-} */
-
-/* @media (max-width: 720px) {
-    .header .testLogo {
-        margin-top: 10px;
-        left: 25%;
-    }
-} */
-
-/* .header .testLogo p {
-    color: white;
-    font-size: 3rem;
-    rotate: -8deg;
-    font-weight: 900;
-    font-family: 'Gistesy', sans-serif;
-} */
 
 .header .logo {
     display: flex;
     cursor: pointer;
 }
- 
-/* .header .logo p {
-    margin: 0px;
-    transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-} */
 
-/* .header .logo .name {
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-    margin-left: 5px;
-    transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-} */
-
-/* .header .logo .name p {
-    position: relative;
-    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-} */
 
 .header .logo .name p:nth-of-type(2) {
     padding-left: 0.3em;
@@ -111,7 +69,7 @@
     margin: 20px;
     width: 80px;
     height: 80px;
-    border-radius: 50%; 
+    border-radius: 50%;
     background-color: transparent;
     border-color: rgb(90, 90, 90);
     border-width: 2.5px;
@@ -172,7 +130,7 @@
     }
 }
 
-/* Fixed Logo Styles */
+
 .fixedLogo {
     position: fixed;
     top: 20px;
@@ -204,7 +162,7 @@
     transition: filter 0.3s ease, transform 0.3s ease;
     filter: none;
     mix-blend-mode: difference;
-    color: rgb(255, 0, 0);
+    color: rgb(202, 0, 0);
 }
 
 @media (min-width: 768px) {
@@ -213,13 +171,12 @@
     }
 }
 
-/* Dark background - invert the logo to make it white */
+ 
 .darkBg .logoImage,
 .invertLogo {
     filter: invert(1) brightness(1.2) contrast(1.1);
 }
 
-/* Light background - keep logo dark */
 .lightBg .logoImage {
     filter: none;
 }

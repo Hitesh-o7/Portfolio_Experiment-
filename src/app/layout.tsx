@@ -1,44 +1,27 @@
-"use client";
-
 import "./globals.css";
-import { AnimationProvider } from "@/context/AnimationContext";
-import TransitionOverlay from "@/components/Transition/TransitionOverlay";
-import { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import ClientLayout from "@/components/ClientLayout";
+
+export const metadata = {
+  title: "Hitesh Thakur",
+  description: "Creative Portfolio showcasing 3D art, games, and development work",
+  icons: {
+    icon: "/BottomLogo.svg",
+    shortcut: "/BottomLogo.svg",
+    apple: "/BottomLogo.svg",
+  },
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.1,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
   return (
     <html lang="en">
       <body>
-        <AnimationProvider>
-          <TransitionOverlay />
+        <ClientLayout>
           {children}
-          <Analytics />
-          <SpeedInsights />
-        </AnimationProvider>
+        </ClientLayout>
       </body>
     </html>
   );

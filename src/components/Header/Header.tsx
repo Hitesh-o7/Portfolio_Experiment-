@@ -5,7 +5,7 @@ import styles from './style.module.css';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
 import Nav from './nav/Nav';
-import gsap from 'gsap';
+import gsap from 'gsap'; 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Rounded from '../ui/RoundedButton/Roundend';
 import Magnetic from '../ui/Magnetic/Magnetic';
