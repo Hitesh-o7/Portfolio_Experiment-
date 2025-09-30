@@ -47,7 +47,7 @@ export const artworkImages: ArtworkImage[] = [
     title: "Makima",
     description: "Pencil sketch of Makima from Chainsaw Man, focusing on facial expression, posture, and accurate manga-style line work.",
     category: "Digital Painting",
-    year: "2024",
+    year: "2025",
     medium: "Digital"
   }, 
   {
@@ -56,7 +56,7 @@ export const artworkImages: ArtworkImage[] = [
     title: "Makima Poster",
     description: "Poster-style illustration of Makima with bold contrasts and clean composition inspired by official manga covers.",
     category: "Digital Painting",
-    year: "2024",
+    year: "2025",
     medium: "Digital"
   }, 
   {
@@ -65,7 +65,7 @@ export const artworkImages: ArtworkImage[] = [
     title: "Stunt Dude",
     description: "Energetic character artwork capturing dynamic motion, casual attire, and expressive proportions.",
     category: "Digital Painting",
-    year: "2024",
+    year: "2025",
     medium: "Digital"
   }, 
   {
@@ -74,7 +74,7 @@ export const artworkImages: ArtworkImage[] = [
     title: "Cutei",
     description: "A soft-shaded character illustration exploring pastel tones, stylized anatomy, and a warm, inviting vibe.",
     category: "Digital Painting",
-    year: "2024",
+    year: "2025",
     medium: "Digital"
   }, 
   {
@@ -83,7 +83,7 @@ export const artworkImages: ArtworkImage[] = [
     title: "Stunt",
     description: "Stylized character sketch with an emphasis on exaggerated proportions, confident stance, and urban clothing design.",
     category: "Digital Painting",
-    year: "2024",
+    year: "2025",
     medium: "Digital"
   }, 
   {
@@ -92,7 +92,7 @@ export const artworkImages: ArtworkImage[] = [
     title: "Archer",
     description: "A fantasy archer concept inspired by Genshin Impact and World of Warcraft, with ornate armor and layered clothing for storytelling.",
     category: "Character Design",
-    year: "2024",
+    year: "2025",
     medium: "Digital"
   }, 
   {
@@ -101,7 +101,7 @@ export const artworkImages: ArtworkImage[] = [
     title: "Smith",
     description: "Dwarf blacksmith character illustration featuring a strong silhouette, detailed props, and stylization inspired by fantasy RPGs.",
     category: "Character Design",
-    year: "2024",
+    year: "2025",
     medium: "Digital"
   }, 
 ];
