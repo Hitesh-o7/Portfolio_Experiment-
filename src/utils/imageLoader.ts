@@ -16,7 +16,7 @@ export interface ArtworkImage {
 export const artworkImages: ArtworkImage[] = [
   {
     id: "my-artwork-1",
-    src: "/2dArt/2B.JPG",
+    src: "/2dArt/2B.avif",
     title: "2B",
     description: "A digital fanart of 2B, focusing on lighting, costume details, and rendering inspired by NieR: Automata’s aesthetic.",
     category: "Digital Painting",
@@ -25,7 +25,7 @@ export const artworkImages: ArtworkImage[] = [
   },
   {
     id: "my-artwork-2", 
-    src: "/2dArt/CamGirl.JPG",
+    src: "/2dArt/CamGirl.avif",
     title: "CamGirl",
     description: "Original cyberpunk-inspired character design exploring futuristic street fashion, layered accessories, and attitude.",
     category: "Character Design",
@@ -34,7 +34,7 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-3", 
-    src: "/2dArt/CyberGirl.PNG",
+    src: "/2dArt/CyberGirl.avif",
     title: "CyberGirl",
     description: "A character concept blending sci-fi and modern streetwear, emphasizing neon color palettes and clean rendering.",
     category: "Digital Painting",
@@ -43,7 +43,7 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-4", 
-    src: "/2dArt/Makima.JPG",
+    src: "/2dArt/Makima.avif",
     title: "Makima",
     description: "Pencil sketch of Makima from Chainsaw Man, focusing on facial expression, posture, and accurate manga-style line work.",
     category: "Digital Painting",
@@ -52,7 +52,7 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-5", 
-    src: "/2dArt/MakimaPoster.JPG",
+    src: "/2dArt/MakimaPoster.avif",
     title: "Makima Poster",
     description: "Poster-style illustration of Makima with bold contrasts and clean composition inspired by official manga covers.",
     category: "Digital Painting",
@@ -61,7 +61,7 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-6", 
-    src: "/2dArt/StuntDude.JPG",
+    src: "/2dArt/StuntDude.avif",
     title: "Stunt Dude",
     description: "Energetic character artwork capturing dynamic motion, casual attire, and expressive proportions.",
     category: "Digital Painting",
@@ -70,7 +70,7 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-7", 
-    src: "/2dArt/Cute.PNG",
+    src: "/2dArt/Cute.avif",
     title: "Cutei",
     description: "A soft-shaded character illustration exploring pastel tones, stylized anatomy, and a warm, inviting vibe.",
     category: "Digital Painting",
@@ -79,7 +79,7 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-8", 
-    src: "/2dArt/Stunt.PNG",
+    src: "/2dArt/Stunt.avif",
     title: "Stunt",
     description: "Stylized character sketch with an emphasis on exaggerated proportions, confident stance, and urban clothing design.",
     category: "Digital Painting",
@@ -88,7 +88,7 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-9", 
-    src: "/2dArt/Archer.png",
+    src: "/2dArt/Archer.avif",
     title: "Archer",
     description: "A fantasy archer concept inspired by Genshin Impact and World of Warcraft, with ornate armor and layered clothing for storytelling.",
     category: "Character Design",
@@ -97,7 +97,7 @@ export const artworkImages: ArtworkImage[] = [
   }, 
   {
     id: "my-artwork-10", 
-    src: "/2dArt/Smith.jpg",
+    src: "/2dArt/Smith.avif",
     title: "Smith",
     description: "Dwarf blacksmith character illustration featuring a strong silhouette, detailed props, and stylization inspired by fantasy RPGs.",
     category: "Character Design",

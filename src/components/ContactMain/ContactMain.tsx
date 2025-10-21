@@ -107,7 +107,7 @@ export default function ContactMain() {
             </div>
             <div className={styles.right}>
                 <div className={styles.profileContainer}>
-                    <Image src="/MainPic.jpg" alt="Profile" className={styles.profileImage} width={300} height={300} />
+                    <Image src="/MainPic.avif" alt="Profile" className={styles.profileImage} width={300} height={300} />
                     <div className={styles.arrow}>&#8600;</div>
                 </div>
                 <div className={styles.contactDetails}>

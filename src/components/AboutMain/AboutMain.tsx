@@ -22,7 +22,7 @@ const AboutMain = () => {
       <div className="mt-[20%] px-4 flex flex-col justify-center items-center w-full max-w-6xl">
         <div className="flex justify-center flex-col md:flex-row items-center md:items-start  md:gap-[-14px]">
           <Image
-            src="/MainPic.jpg"
+            src="/MainPic.avif"
             alt="Profile"
             width={256}
             height={256}

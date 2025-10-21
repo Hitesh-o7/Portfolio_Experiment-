@@ -10,7 +10,7 @@ import "./Lanyard.css"
 extend({ MeshLineGeometry, MeshLineMaterial })
 
 const cardGLB = "/cardmain.glb"
-const lanyardTexturePath = "/lanyard.png"
+const lanyardTexturePath = "/lanyard.avif"
 
 export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true }) {
   return (
