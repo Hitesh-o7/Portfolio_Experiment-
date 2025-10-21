@@ -22,10 +22,10 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
           gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)
           gl.outputColorSpace = THREE.SRGBColorSpace
           gl.toneMapping = THREE.ACESFilmicToneMapping
-          gl.toneMappingExposure = 1
+          gl.toneMappingExposure = 1.08
         }}
       >
-        <ambientLight intensity={Math.PI} />
+        <ambientLight intensity={Math.PI * 1.15} />
         <Physics gravity={gravity} timeStep={1 / 60}>
           <Band />
         </Physics>
@@ -245,10 +245,10 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
               <meshPhysicalMaterial
                 map={materials.base.map}
                 map-anisotropy={16}
-                clearcoat={1}
-                clearcoatRoughness={0.15}
-                roughness={0.9}
-                metalness={0.8}
+                clearcoat={0.85}
+                clearcoatRoughness={0.12}
+                roughness={0.75}
+                metalness={0.65}
               />
             </mesh>
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />

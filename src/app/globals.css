@@ -6,74 +6,13 @@
     cursor: none !important;
   }
   
-@font-face {
-    font-family: 'Rosca';
-    src: url('/fonts/rosca.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'ux';
-    src: url('/fonts/UIUX.otf') format('opentype'); 
-}
-
-@font-face {
-    font-family: 'zen';
-    src: url('/fonts/zevant.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'Gistesy';
-    src: url('/fonts/Gistesy.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
+ @font-face {
     font-family: 'Comic';
     src: url('/fonts/comic.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-}
-@font-face {
-    font-family: 'About';
-    src: url('/fonts/about.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'AboutME';
-    src: url('/fonts/aboutme.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Manrope';
-    src: url('/fonts/Manrope.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 } 
-@font-face {
-    font-family: 'Artine-L';
-    src: url('/fonts/Artine-Light.ttf') format('truetype'); 
-}
-
-@font-face {
-    font-family: 'Sage';
-    src: url('/fonts/Sagewold.ttf') format('truetype');
-    font-weight: normal;  
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'super';
-    src: url('/fonts/Super.ttf') format('truetype');
-    font-weight: normal;  
-    font-style: normal;
-  }
-  @font-face { 
+@font-face { 
     font-family: 'reddit';
     src: url('/fonts/RedditSans.ttf') format('truetype');
     font-weight: normal;  

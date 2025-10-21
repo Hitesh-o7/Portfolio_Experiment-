@@ -10,30 +10,10 @@ export default {
   theme: {
   	extend: {
   		fontFamily: {
-  			sage: [
-  				'Sage',
-  				'sans-serif'
-  			],
-  			super: [
-  				'Super',
-  				'sans-serif'
-  			],
-  			rosca: [
-  				'Rosca',
-  				'sans-serif'
-  			],
-  			zen: [
-  				'zen',
-  				'sans-serif'
-  			],
-  			ux: [
-  				'UIUX',
-  				'sans-serif'
-  			],
-  			AboutMe: [
-  				'aboutme',
-  				'sans-serif'
-  			],
+			comic: [
+				'Comic',
+				'sans-serif'
+			],
   			reddit: [
   				'RedditSans',
   				'sans-serif'

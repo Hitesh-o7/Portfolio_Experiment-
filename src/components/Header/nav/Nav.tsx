@@ -15,10 +15,8 @@ const navItems: NavItem[] = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
   { title: "Work", href: "/work" },
-  // { title: "3D Showcase", href: "/3d-showcase" }, 
   { title: "Games", href: "/games" },
   { title: "2D Gallery", href: "/2d-gallery" },
-  // { title: "Contact", href: "/contact" },
 ];
 
 export default function Nav() {
