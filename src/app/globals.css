@@ -19,6 +19,9 @@
     font-weight: normal;  
     font-style: normal;
     font-display: swap;
+    -moz-font-feature-settings: "liga" 1;
+    -webkit-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga" 1;
   }
   @font-face {
     font-family: 'NeueBold';
@@ -26,6 +29,9 @@
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+    -moz-font-feature-settings: "liga" 1;
+    -webkit-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga" 1;
 }
 @font-face {
     font-family: 'NeueMed';
@@ -33,6 +39,9 @@
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+    -moz-font-feature-settings: "liga" 1;
+    -webkit-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga" 1;
 }
 
 @font-face {
@@ -41,22 +50,31 @@
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+    -moz-font-feature-settings: "liga" 1;
+    -webkit-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga" 1;
 }
 html{
     scroll-behavior: smooth;
+    -moz-scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
 }
 body {
   color: #FFF7E9;
-  background: #0a0a0a;
+  background: #101010;
   background-position: center;
   background-repeat: repeat;
   background-attachment: scroll;
   background-blend-mode: multiply;
-  font-family: reddit, sans-serif;
+  font-family: 'reddit', 'RedditSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
   touch-action: pan-y;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Ensure proper scrolling on touch devices */
@@ -74,6 +92,7 @@ body {
 /* Touch scroll enabled class */
 .touch-scroll-enabled {
   -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
   touch-action: pan-y;
   overflow-x: hidden;
   overflow-y: auto;
@@ -83,6 +102,7 @@ body {
 @media (min-width: 768px) and (max-width: 1024px) {
   .touch-scroll-enabled {
     -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
     touch-action: pan-y;
   }
 }
@@ -150,5 +170,40 @@ body {
   body {
     @apply bg-background text-foreground;
     }
+}
+
+/* Firefox-specific fixes for better compatibility */
+@-moz-document url-prefix() {
+  body {
+    -moz-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga" 1;
+    -moz-font-smoothing: antialiased;
+  }
+  
+  * {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+/* Ensure proper rendering in Firefox-based browsers */
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+/* Additional Zen browser compatibility fixes */
+@supports (-moz-appearance: none) {
+  body {
+    -moz-font-feature-settings: "liga" 1, "kern" 1;
+    font-feature-settings: "liga" 1, "kern" 1;
+  }
+  
+  /* Ensure proper text rendering */
+  * {
+    -moz-font-feature-settings: "liga" 1, "kern" 1;
+    font-feature-settings: "liga" 1, "kern" 1;
+  }
 }
 

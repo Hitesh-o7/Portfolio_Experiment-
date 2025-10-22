@@ -4,7 +4,7 @@
     z-index: 20;
     top: 30px; 
     color: rgb(231, 231, 231);
-    padding: 35px;
+    padding: 35px; 
     width: 100%;
     height: 30px;
     font-size: 23px;
@@ -56,17 +56,18 @@
 .header .logo:hover .name .Thakur {
     transform: translateX(-100px);
 }
+/* Align centers with the logo on desktop/tablet */
 .headerButtonContainer {
     transform: scale(1);
     position: fixed;
-    right: 0px;
-    top: 20px;
+    right: 20px;        /* give consistent right padding */
+    top: 12px;          /* centers 80px button with 64px logo */
     z-index: 20;
 }
 
 .headerButtonContainer .button {
     position: relative;
-    margin: 20px;
+    margin: 0;          /* remove extra vertical offset */
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -79,7 +80,20 @@
     justify-content: center;
 }
 
+/* Tablet and below (match 48px logo center) */
+@media (max-width: 768px) {
+    .headerButtonContainer .button {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+/* Mobile fine-tune to match smaller logo sizing and top */
 @media (max-width: 580px) {
+    .headerButtonContainer {
+        top: 5px;       /* centers 60px button with ~40px logo at top:15px */
+        right: 15px;
+    }
     .headerButtonContainer .button {
         width: 60px;
         height: 60px;

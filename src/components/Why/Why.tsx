@@ -57,7 +57,7 @@ const SketchyStrikethrough: React.FC<{ isVisible: boolean; textWidth: number }> 
       {/* The filled path that gets revealed along the curve */}
       <motion.path
         d={customPath}
-        fill="red"
+        fill="gray"  // Changed from "red" to "gray"
         mask="url(#path-mask)"
         initial={{ opacity: 0 }}
         animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
@@ -90,42 +90,42 @@ const Why: React.FC = () => {
         { id: "04", title: "NO-CODE DEVELOPMENT" }
       ]
     },
-    {
-      name: "Game Dev",
-      skills: [
-        { id: "01", title: "UNITY 3D" },
-        { id: "02", title: "C# SCRIPTING" },
-        { id: "03", title: "GAME ENGINE" },
-        { id: "04", title: "LEVEL DESIGN" }
-      ]
-    },
-    {
-      name: "3D Art",
-      skills: [
-        { id: "01", title: "BLENDER" },
-        { id: "02", title: "3D MODELING" },
-        { id: "03", title: "TEXTURING" },
-        { id: "04", title: "ANIMATION" }
-      ]
-    },
-    {
-      name: "2D Art",
-      skills: [
-        { id: "01", title: "PHOTOSHOP" },
-        { id: "02", title: "ILLUSTRATOR" },
-        { id: "03", title: "CONCEPT ART" },
-        { id: "04", title: "DIGITAL PAINTING" }
-      ]
-    },
-    {
-      name: "Game Design",
-      skills: [
-        { id: "01", title: "MECHANICS" },
-        { id: "02", title: "NARRATIVE" },
-        { id: "03", title: "BALANCING" },
-        { id: "04", title: "USER EXPERIENCE" }
-      ]
-    }
+    // {
+    //   name: "Game Dev",
+    //   skills: [
+    //     { id: "01", title: "UNITY 3D" },
+    //     { id: "02", title: "C# SCRIPTING" },
+    //     { id: "03", title: "GAME ENGINE" },
+    //     { id: "04", title: "LEVEL DESIGN" }
+    //   ]
+    // },
+    // {
+    //   name: "3D Art",
+    //   skills: [
+    //     { id: "01", title: "BLENDER" },
+    //     { id: "02", title: "3D MODELING" },
+    //     { id: "03", title: "TEXTURING" },
+    //     { id: "04", title: "ANIMATION" }
+    //   ]
+    // },
+    // {
+    //   name: "2D Art",
+    //   skills: [
+    //     { id: "01", title: "PHOTOSHOP" },
+    //     { id: "02", title: "ILLUSTRATOR" },
+    //     { id: "03", title: "CONCEPT ART" },
+    //     { id: "04", title: "DIGITAL PAINTING" }
+    //   ]
+    // },
+    // {
+    //   name: "Game Design",
+    //   skills: [
+    //     { id: "01", title: "MECHANICS" },
+    //     { id: "02", title: "NARRATIVE" },
+    //     { id: "03", title: "BALANCING" },
+    //     { id: "04", title: "USER EXPERIENCE" }
+    //   ]
+    // }
   ];
 
   const [activeSkillSet, setActiveSkillSet] = useState<number>(0);

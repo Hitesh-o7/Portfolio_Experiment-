@@ -13,12 +13,12 @@ export default function ErrorPage() {
 
   useEffect(() => {
     // Set dark background context for proper header theming
-    setCurrentBg("rgba(0,0,0,0.9)");
+    setCurrentBg("rgba(16,16,16,0.9)");
     setCurrentTextColor("rgba(255,255,255,0.9)");
   }, [setCurrentBg, setCurrentTextColor]);
 
   return (
-    <main data-scroll-container className="min-h-screen bg-black text-white">
+    <main data-scroll-container className="min-h-screen text-white" style={{backgroundColor: '#101010'}}>
       <SmoothCursor />
       <Header />
       

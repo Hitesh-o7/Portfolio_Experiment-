@@ -12,7 +12,7 @@ export default function Work() {
 
     return (
         <main className={styles.Main}>
-            <div className={styles.title}>Work of Art</div>
+            <div className={styles.title}>WORK OF ART</div>
             <div className={styles.work_container}>
                 {workItems.map((work, index) => (
                     <div 

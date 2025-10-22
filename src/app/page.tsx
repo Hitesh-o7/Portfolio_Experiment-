@@ -53,13 +53,13 @@ export default function Home() {
         <Header />
         <Preloader /> 
       </section>
-      <section data-bgcolor="rgba(0,0,0,0.9)" data-textcolor="rgba(255,255,255,0.9)">
+      <section data-bgcolor="rgba(16,16,16,0.9)" data-textcolor="rgba(255,255,255,0.9)">
         <About />
       </section>
       <section data-bgcolor="rgba(255,255,255,0.9)" data-textcolor="rgba(0,0,0,0.9)">
         <Work />
       </section>
-      <section data-bgcolor="rgba(0,0,0,0.9)" data-textcolor="rgba(255,255,255,0.9)">
+      <section data-bgcolor="rgba(16,16,16,0.9)" data-textcolor="rgba(255,255,255,0.9)">
         <Why />
         <Contact 
           backgroundColor="rgba(0, 0, 0, 0)" 
