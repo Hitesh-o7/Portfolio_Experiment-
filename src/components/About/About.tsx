@@ -116,7 +116,7 @@ export default function About() {
                 HELLO!
               </h2>
               <h2 className="animate-element text-base sm:text-lg md:text-xl font-normal tracking-[0.2em] text-inherit">
-                I'M HITESH THAKUR
+                I&apos;M HITESH THAKUR
               </h2>
               
               <div className="animate-element mt-8 sm:mt-12 md:mt-16 lg:mt-20 my-6">
@@ -146,8 +146,8 @@ export default function About() {
           {/* Large Text */}
           <div className="animate-element">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-7xl font-normal leading-tight tracking-wide text-inherit text-center lg:text-left">
-              IT'S NOT JUST A<br />
-              PROFESSION - IT'S A WAY<br />
+              IT&apos;S NOT JUST A<br />
+              PROFESSION - IT&apos;S A WAY<br />
               OF THINKING.
             </h2>
           </div>
@@ -222,7 +222,7 @@ export default function About() {
             <div className="animate-element flex justify-center lg:justify-start">
               <div className="flex items-center gap-3">
                 <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-normal tracking-wide text-inherit border-b border-white/50 pb-1">
-                  LETS CONTACT
+                  LET&rsquo;S CONTACT
                 </span>
                 <span className="text-lg sm:text-xl md:text-2xl text-inherit">↗</span>
               </div>
@@ -247,15 +247,15 @@ export default function About() {
                 <span className="sm:hidden"> </span>DETAILS OF ARCHITECTURE, IN THE<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>COLORS OF CITY STREETS, AND EVEN<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>IN THE SIMPLE THINGS OF EVERYDAY<br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>LIFE. IT'S NOT JUST A HOBBY -<br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>IT'S A WAY OF SEEING THE WORLD.
+                <span className="sm:hidden"> </span>LIFE. IT&apos;S NOT JUST A HOBBY -<br className="hidden sm:block" />
+                <span className="sm:hidden"> </span>IT&apos;S A WAY OF SEEING THE WORLD.
               </p>
             </div>
             
             <div className="animate-element">
               <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl leading-relaxed tracking-wide text-inherit">
                 EVERY PROJECT FOR ME IS MORE THAN<br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>A TASK. IT'S A STORY THAT I HELP<br className="hidden sm:block" />
+                <span className="sm:hidden"> </span>A TASK. IT&apos;S A STORY THAT I HELP<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>TELL THROUGH DESIGN.<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>I BELIEVE THAT A GOOD INTERFACE<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>IS NOT JUST ABOUT COLORS AND<br className="hidden sm:block" />
