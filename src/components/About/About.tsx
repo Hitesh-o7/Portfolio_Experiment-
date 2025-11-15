@@ -129,7 +129,7 @@ export default function About() {
               </div>
               
               <p className="animate-element text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed tracking-wide text-left max-w-xl text-inherit px-0">
-                A SENIOR UX/UI DESIGNER WITH OVER 1<br className="hidden sm:block" />
+                A UX/UI DESIGNER WITH OVER 1<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>YEARS OF EXPERIENCE IN CREATING DIGITAL<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>PRODUCTS FOR INTERNATIONAL COMPANIES.
               </p>
