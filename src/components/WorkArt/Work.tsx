@@ -17,7 +17,7 @@ export default function Work() {
             url: "/work/heart"
         },
         { 
-            src: "/work/Sunsoft_Main.avif", 
+            src: "/Work/Sunsoft_Main.avif", 
             alt: "SunSoft", 
             type: "image", 
             name: "SunSoft",
