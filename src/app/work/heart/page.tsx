@@ -56,8 +56,9 @@ export default function HeartProjectPage() {
                     // Force garbage collection hint for mobile devices
                     if (isMobile && 'gc' in window) {
                       try {
-                        (window as any).gc();
-                      } catch (e) {
+                        // @ts-expect-error - gc() is a non-standard API for garbage collection
+                        window.gc();
+                      } catch {
                         // Ignore if gc is not available
                       }
                     }
