@@ -12,8 +12,7 @@ type Props = {
   style?: React.CSSProperties;
   onMouseEnter?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   onMouseLeave?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
-  [key: string]: any; // Allow other HTML anchor attributes
-};
+} & React.ComponentPropsWithoutRef<typeof Link>;
 
 export default function TransitionLink({ href, children, className, style, onMouseEnter, onMouseLeave, ...otherProps }: Props) {
   const router = useRouter();
