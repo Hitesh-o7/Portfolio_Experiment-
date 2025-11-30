@@ -10,7 +10,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Rounded from '../ui/RoundedButton/Roundend';
 import Magnetic from '../ui/Magnetic/Magnetic';
 import Image from 'next/image';
-import Link from 'next/link';
+import TransitionLink from '@/components/Transition/TransitionLink';
 import { useAnimationContext } from '@/context/AnimationContext';
 
 export default function Header() {
@@ -72,7 +72,7 @@ export default function Header() {
                 } as React.CSSProperties & { '--bg-color': string }}
             >
                 <Magnetic>
-                    <Link href="/" className={styles.logoContainer}>
+                    <TransitionLink href="/" className={styles.logoContainer}>
                         <Image 
                             src="/BlackMain.svg" 
                             alt="Logo" 
@@ -82,7 +82,7 @@ export default function Header() {
                             priority
                             style={{ objectFit: 'contain' }}
                         />
-                    </Link>
+                    </TransitionLink>
                 </Magnetic>
             </div>
 

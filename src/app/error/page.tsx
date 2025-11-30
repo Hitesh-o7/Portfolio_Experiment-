@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
+import TransitionLink from "@/components/Transition/TransitionLink";
 import Header from "@/components/Header/Header";
 import { SmoothCursor } from "@/components/ui/Cursor/smooth-cursor";
 import Contact from "@/components/Contact/Contact";
@@ -36,18 +36,18 @@ export default function ErrorPage() {
             Let&apos;s get you back on track.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <TransitionLink
               href="/"
               className="px-8 py-3 bg-white text-black rounded-md hover:bg-gray-200 transition-colors duration-300 font-medium"
             >
               Go Home
-            </Link>
-            <Link
+            </TransitionLink>
+            <TransitionLink
               href="/contact"
               className="px-8 py-3 border border-white text-white rounded-md hover:bg-white hover:text-black transition-colors duration-300 font-medium"
             >
               Contact Us
-            </Link>
+            </TransitionLink>
           </div>
         </div>
       </section>

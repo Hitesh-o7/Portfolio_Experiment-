@@ -3,6 +3,9 @@
 import { useState, useMemo, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import TransitionLink from "@/components/Transition/TransitionLink"
+import { performTransitionAndNavigate } from "@/utils/transition"
 import { Search, ExternalLink, Github, X } from "lucide-react"
 import { SmoothCursor } from "@/components/ui/Cursor/smooth-cursor"
 import Contact from "@/components/Contact/Contact"
@@ -12,47 +15,72 @@ import { Input } from "@/components/ui/input"
 // Sample project data - replace with your actual projects
 const projects = [
   {
-    id: 1,
-    title: "CVE",
-    description: "CVE (Common Vulnerabilities and Exposures) is a list of publicly known cybersecurity vulnerabilities.",
-    image: "/projects/CVE.avif",
-    video: "/projects/CVE.webm",
-    type: "video",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
+    id: 0,
+    title: "Heart Project",
+    description: "A site for helping people cheer up.",
+    image: "/Heart.avif",
+    technologies: ["React", "Next.js", "TypeScript", "UI/UX Design", "Graphic Design"],
     category: "Web Application",
-    liveUrl: "https://cve-hazel.vercel.app/",
-    githubUrl: "https://github.com/Hitesh-o7/CVE.git",
-    date: "2024-11-22",
+    liveUrl: "/work/heart",
+    githubUrl: "/error",
+    date: "2025-01-15",
     featured: true,
   },
-    {
-      id: 2,
-      title: "Transition Website",
-      description: "Transition website is a website that is used to transition from one page to another.",
-      image: "/powell.avif",
-      video: "/Project1.webm",
-      type: "video",
-      technologies: ["React", "Node.js","Tailwind CSS","Framer Motion"],
-      category: "Web Application",
-      liveUrl: "/error",
-      githubUrl: "/error",
-      date: "2024-12-20",
-      featured: true,
-    },
-    {
-      id: 3,
-      title: "Crimson Oath",
-      description: "Crimson Oath is a 2D Souls-Like game.",
-      image: "/Games/MainPage.png",
-      technologies: ["Unity", "Blender", "Photoshop"],
-      category: "Mobile App",
-      liveUrl: "/games/crimson-oath",
-      githubUrl: "https://github.com/username/project",
-      date: "2025-04-10",
-      featured: true,
-    },
+  {
+    id: 1,
+    title: "Sunsoft",
+    description: "A coding learning platform providing comprehensive programming education.",
+    image: "/work/sunsoft.avif",  
+    technologies: ["React", "Node.js","Tailwind CSS","Framer Motion", "UI/UX Design", "Graphic Design"],
+    category: "Web Application",
+    liveUrl: "/work/sunsoft",
+    githubUrl: "/error",
+    date: "2024-12-20",
+    featured: true,
+    
+  },
+  {
+    id: 2,
+    title: "Transition Website",
+    description: "Transition website is a website that is used to transition from one page to another.",
+    image: "/powell.avif",
+    video: "/Project1.webm",
+    type: "video",
+    technologies: ["React", "Node.js","Tailwind CSS","Framer Motion"],
+    category: "Web Application",
+    liveUrl: "/error",
+    githubUrl: "/error",
+    date: "2024-12-20",
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "Funky",
+    description: "A mood chilling site designed for relaxation and entertainment.",
+    image: "/work/funo.avif",
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion","MongoDB","Node.js", "UI/UX Design", "Graphic Design"],
+    category: "Website",
+    liveUrl: "/work/funky",
+    githubUrl: "https://github.com/Hitesh-o7/JobSeek",
+    date: "2023-07-05",
+    featured: false,
+  },
   {
     id: 4,
+    title: "Imigration",
+    description: "A website for immigration queries and information services.",
+    image: "/work/imi.avif",
+    technologies: ["React", "Tailwind CSS", "Framer Motion", "UI/UX Design", "Graphic Design"],
+    category: "AI/ML",
+    liveUrl: "/work/Imigration",
+    githubUrl: "/error",
+    date: "2024-03-12",
+    featured: true,
+   
+  },
+
+  {
+    id: 5,
     title: "JobSeek",
     description: "JobSeek is a job portal website.",
     image: "/projects/JobSeek.avif",
@@ -63,18 +91,7 @@ const projects = [
     date: "2023-07-05",
     featured: false,
   },
-  {
-    id: 5,
-    title: "UI/UX",
-    description: "Website made to showcase my UI/UX skills.",
-    image: "/wix.avif",
-    technologies: ["React", "Tailwind CSS", "Framer Motion"],
-    category: "AI/ML",
-    liveUrl: "/error",
-    githubUrl: "/error  ",
-    date: "2024-03-12",
-    featured: true,
-  },
+   
   {
     id: 6,
     title: "Readers",
@@ -87,12 +104,41 @@ const projects = [
     date: "2023-12-08",
     featured: false,
   },
+  
+  {
+    id: 7,
+    title: "Crimson Oath",
+    description: "Crimson Oath is a 2D Souls-Like game.",
+    image: "/Games/MainPage.png",
+    technologies: ["Unity", "Blender", "Photoshop"],
+    category: "Mobile App",
+    liveUrl: "/games/crimson-oath",
+    githubUrl: "https://github.com/username/project",
+    date: "2025-04-10",
+    featured: true,
+  },
+  {
+    id: 8
+    ,
+    title: "CVE",
+    description: "CVE (Common Vulnerabilities and Exposures) is a list of publicly known cybersecurity vulnerabilities.",
+    image: "/projects/CVE.avif",
+    video: "/projects/CVE.webm",
+    type: "video",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
+    category: "Web Application",
+    liveUrl: "https://cve-hazel.vercel.app/",
+    githubUrl: "https://github.com/Hitesh-o7/CVE.git",
+    date: "2024-11-22",
+    featured: true,
+  },
 ]
 
 const categories = ["All", "Web Application", "Mobile App", "Website", "AI/ML", "Blockchain"]
 const technologies = ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Python", "Solidity"]
 
 export default function Work() {
+  const router = useRouter()
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategories, setSelectedCategories] = useState<string[]>(["All"])
   const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>([])
@@ -320,141 +366,324 @@ export default function Work() {
       <div className="max-w-7xl mx-auto px-6 py-16 mb-20">
         {filteredProjects.length > 0 ? (
           <div className="space-y-20">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project) => {
+              const isExternalUrl = project.liveUrl.startsWith('http://') || project.liveUrl.startsWith('https://');
+              
+              return (
               <div key={project.id} className="group flex items-end gap-8 md:gap-8">
                 {/* Project Image Card */}
-                <div
-                  className="flex-1 relative overflow-hidden bg-white rounded-xl shadow-lg hover:shadow-2xl backdrop-blur-sm border border-gray-100/50 transition-all duration-500"
-                  data-project-id={project.id}
-                >
-                  <div className={project.type === "video" ? "relative" : "aspect-[16/10] relative"}>
-                    {project.type === "video" && project.video ? (
-                      <video
-                        src={project.video}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="metadata"
-                        className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="relative w-full h-full">
-                        {/* Loading skeleton */}
-                        {!imagesLoaded.has(project.id) && (
-                          <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-                            <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
-                          </div>
-                        )}
-                        <Image
-                          src={project.image || "/placeholder.svg"}
-                          alt={project.title}
-                          fill
-                          priority={project.featured} // Priority loading for featured projects
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          quality={85}
-                          className={`object-cover transition-all duration-700 group-hover:scale-105 ${
-                            imagesLoaded.has(project.id) 
-                              ? "opacity-100" 
-                              : "opacity-0"
-                          }`}
-                          onLoad={() => {
-                            setImagesLoaded(prev => new Set(prev).add(project.id))
-                          }}
+                {isExternalUrl ? (
+                  <Link
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 max-w-2xl relative overflow-hidden bg-white rounded-xl shadow-lg hover:shadow-2xl backdrop-blur-sm border border-gray-100/50 transition-all duration-500 cursor-pointer"
+                    data-project-id={project.id}
+                  >
+                    <div className={project.type === "video" ? "relative" : "aspect-[16/9] relative"}>
+                      {project.type === "video" && project.video ? (
+                        <video
+                          src={project.video}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="metadata"
+                          className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
                         />
-                      </div>
-                    )}
-
-                    {/* Featured Badge */}
-                    {project.featured && (
-                      <div className="absolute top-4 left-4 z-10">
-                        <div className="bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-semibold">
-                          ★ Featured
+                      ) : (
+                        <div className="relative w-full h-full">
+                          {/* Loading skeleton */}
+                          {!imagesLoaded.has(project.id) && (
+                            <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                              <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+                            </div>
+                          )}
+                          <Image
+                            src={project.image || "/placeholder.svg"}
+                            alt={project.title}
+                            fill
+                            priority={project.featured} // Priority loading for featured projects
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            quality={85}
+                            className={`object-cover transition-all duration-700 group-hover:scale-105 ${
+                              imagesLoaded.has(project.id) 
+                                ? "opacity-100" 
+                                : "opacity-0"
+                            }`}
+                            onLoad={() => {
+                              setImagesLoaded(prev => new Set(prev).add(project.id))
+                            }}
+                          />
                         </div>
-                      </div>
-                    )}
+                      )}
 
-                    {/* Desktop Hover Overlay */}
-                    <div className="hidden md:flex absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 items-center justify-center opacity-0 group-hover:opacity-100">
-                      <div className="flex gap-3">
-                        <Link
-                          href={project.liveUrl}
-                          target="_blank"
-                          className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg"
-                        >
-                          <ExternalLink className="w-5 h-5 text-gray-700" />
-                        </Link>
-                        <Link
-                          href={project.githubUrl}
-                          target="_blank"
-                          className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg"
-                        >
-                          <Github className="w-5 h-5 text-gray-700" />
-                        </Link>
-                      </div>
-                    </div>
+                      {/* Featured Badge */}
+                      {project.featured && (
+                        <div className="absolute top-4 left-4 z-10">
+                          <div className="bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-semibold">
+                            ★ Featured
+                          </div>
+                        </div>
+                      )}
 
-                    {/* Mobile Auto-Reveal Overlay */}
-                    <div
-                      className={`md:hidden absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent transition-all duration-500 ${
-                        centeredProjectId === project.id
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 translate-y-4 pointer-events-none"
-                      }`}
-                    >
-                      <div className="p-4 text-right text-white relative">
-                        <h3 className="text-xl font-light mb-2 leading-tight">{project.title}</h3>
-                        <p className="text-sm text-gray-200 leading-relaxed">
-                          {project.description.length > 60 
-                            ? `${project.description.substring(0, 60)}...` 
-                            : project.description}
-                        </p>
-                        {/* Action buttons - absolute positioned left bottom */}
-                        <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                          <Link
-                            href={project.liveUrl}
-                            target="_blank"
-                            className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                      {/* Desktop Hover Overlay */}
+                      <div 
+                        className="hidden md:flex absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto"
+                      >
+                        <div className="flex gap-3">
+                          <div
+                            onClick={async (e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              if (isExternalUrl) {
+                                window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
+                              } else {
+                                await performTransitionAndNavigate(router, project.liveUrl)
+                              }
+                            }}
+                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg cursor-pointer"
                           >
-                            <ExternalLink className="w-4 h-4 text-white" />
-                          </Link>
-                          <Link
-                            href={project.githubUrl}
-                            target="_blank"
-                            className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                            <ExternalLink className="w-5 h-5 text-gray-700" />
+                          </div>
+                          <div
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              window.open(project.githubUrl, '_blank', 'noopener,noreferrer')
+                            }}
+                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg cursor-pointer"
                           >
-                            <Github className="w-4 h-4 text-white" />
-                          </Link>
+                            <Github className="w-5 h-5 text-gray-700" />
+                          </div>
                         </div>
-                        
-                        {/* Hidden technologies */}
-                        <div className="hidden flex-wrap justify-end gap-1 mb-2">
-                          {project.technologies.slice(0, 3).map((tech) => (
-                            <span
-                              key={tech}
-                              className="text-xs text-white/80 bg-white/20 px-2 py-1 rounded backdrop-blur-sm"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                        {/* Hidden metadata */}
-                        <div className="hidden text-right">
-                          <p className="text-xs text-gray-300">
-                            {new Date(project.date).toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "short",
-                            })}
+                      </div>
+
+                      {/* Mobile Auto-Reveal Overlay */}
+                      <div
+                        className={`md:hidden absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent transition-all duration-500 ${
+                          centeredProjectId === project.id
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-0 translate-y-4 pointer-events-none"
+                        }`}
+                      >
+                        <div className="p-4 text-right text-white relative">
+                          <h3 className="text-xl font-light mb-2 leading-tight">{project.title}</h3>
+                          <p className="text-sm text-gray-200 leading-relaxed">
+                            {project.description.length > 60 
+                              ? `${project.description.substring(0, 60)}...` 
+                              : project.description}
                           </p>
-                          <p className="text-xs text-gray-400">{project.category}</p>
+                          {/* Action buttons - absolute positioned left bottom */}
+                          <div className="absolute bottom-4 left-4 flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                            <div
+                              onClick={async (e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                if (isExternalUrl) {
+                                  window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
+                                } else {
+                                  await performTransitionAndNavigate(router, project.liveUrl)
+                                }
+                              }}
+                              className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer"
+                            >
+                              <ExternalLink className="w-4 h-4 text-white" />
+                            </div>
+                            <div
+                              onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                window.open(project.githubUrl, '_blank', 'noopener,noreferrer')
+                              }}
+                              className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer"
+                            >
+                              <Github className="w-4 h-4 text-white" />
+                            </div>
+                          </div>
+                          
+                          {/* Hidden technologies */}
+                          <div className="hidden flex-wrap justify-end gap-1 mb-2">
+                            {project.technologies.slice(0, 3).map((tech) => (
+                              <span
+                                key={tech}
+                                className="text-xs text-white/80 bg-white/20 px-2 py-1 rounded backdrop-blur-sm"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                          {/* Hidden metadata */}
+                          <div className="hidden text-right">
+                            <p className="text-xs text-gray-300">
+                              {new Date(project.date).toLocaleDateString("en-US", {
+                                year: "numeric",
+                                month: "short",
+                              })}
+                            </p>
+                            <p className="text-xs text-gray-400">{project.category}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </Link>
+                ) : (
+                  <TransitionLink
+                    href={project.liveUrl}
+                    className="flex-1 max-w-2xl relative overflow-hidden bg-white rounded-xl shadow-lg hover:shadow-2xl backdrop-blur-sm border border-gray-100/50 transition-all duration-500 cursor-pointer block"
+                    data-project-id={project.id}
+                  >
+                    <div className={project.type === "video" ? "relative" : "aspect-[16/9] relative"}>
+                      {project.type === "video" && project.video ? (
+                        <video
+                          src={project.video}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="metadata"
+                          className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="relative w-full h-full">
+                          {/* Loading skeleton */}
+                          {!imagesLoaded.has(project.id) && (
+                            <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                              <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+                            </div>
+                          )}
+                          <Image
+                            src={project.image || "/placeholder.svg"}
+                            alt={project.title}
+                            fill
+                            priority={project.featured} // Priority loading for featured projects
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            quality={85}
+                            className={`object-cover transition-all duration-700 group-hover:scale-105 ${
+                              imagesLoaded.has(project.id) 
+                                ? "opacity-100" 
+                                : "opacity-0"
+                            }`}
+                            onLoad={() => {
+                              setImagesLoaded(prev => new Set(prev).add(project.id))
+                            }}
+                          />
+                        </div>
+                      )}
+
+                      {/* Featured Badge */}
+                      {project.featured && (
+                        <div className="absolute top-4 left-4 z-10">
+                          <div className="bg-yellow-400 text-yellow-900 px-2 py-1 rounded-full text-xs font-semibold">
+                            ★ Featured
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Desktop Hover Overlay */}
+                      <div 
+                        className="hidden md:flex absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto"
+                      >
+                        <div className="flex gap-3">
+                          <div
+                            onClick={async (e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              if (isExternalUrl) {
+                                window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
+                              } else {
+                                await performTransitionAndNavigate(router, project.liveUrl)
+                              }
+                            }}
+                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg cursor-pointer"
+                          >
+                            <ExternalLink className="w-5 h-5 text-gray-700" />
+                          </div>
+                          <div
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              window.open(project.githubUrl, '_blank', 'noopener,noreferrer')
+                            }}
+                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg cursor-pointer"
+                          >
+                            <Github className="w-5 h-5 text-gray-700" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Mobile Auto-Reveal Overlay */}
+                      <div
+                        className={`md:hidden absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent transition-all duration-500 ${
+                          centeredProjectId === project.id
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-0 translate-y-4 pointer-events-none"
+                        }`}
+                      >
+                        <div className="p-4 text-right text-white relative">
+                          <h3 className="text-xl font-light mb-2 leading-tight">{project.title}</h3>
+                          <p className="text-sm text-gray-200 leading-relaxed">
+                            {project.description.length > 60 
+                              ? `${project.description.substring(0, 60)}...` 
+                              : project.description}
+                          </p>
+                          {/* Action buttons - absolute positioned left bottom */}
+                          <div className="absolute bottom-4 left-4 flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                            <div
+                              onClick={async (e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                if (isExternalUrl) {
+                                  window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
+                                } else {
+                                  await performTransitionAndNavigate(router, project.liveUrl)
+                                }
+                              }}
+                              className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer"
+                            >
+                              <ExternalLink className="w-4 h-4 text-white" />
+                            </div>
+                            <div
+                              onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                window.open(project.githubUrl, '_blank', 'noopener,noreferrer')
+                              }}
+                              className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer"
+                            >
+                              <Github className="w-4 h-4 text-white" />
+                            </div>
+                          </div>
+                          
+                          {/* Hidden technologies */}
+                          <div className="hidden flex-wrap justify-end gap-1 mb-2">
+                            {project.technologies.slice(0, 3).map((tech) => (
+                              <span
+                                key={tech}
+                                className="text-xs text-white/80 bg-white/20 px-2 py-1 rounded backdrop-blur-sm"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                          {/* Hidden metadata */}
+                          <div className="hidden text-right">
+                            <p className="text-xs text-gray-300">
+                              {new Date(project.date).toLocaleDateString("en-US", {
+                                year: "numeric",
+                                month: "short",
+                              })}
+                            </p>
+                            <p className="text-xs text-gray-400">{project.category}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </TransitionLink>
+                )}
 
                 {/* Desktop Project Title - Hidden on Mobile */}
-                <div className="hidden md:block w-60 lg:w-80 text-right pb-8">
+                <div className="hidden md:block w-60 lg:w-80 text-right pb-8 ml-auto">
                   <h3 className="text-xl md:text-2xl lg:text-3xl font-light text-gray-900 mb-2 lg:mb-3 group-hover:text-gray-600 transition-colors duration-200 leading-tight">
                     {project.title}
                   </h3>
@@ -477,7 +706,7 @@ export default function Work() {
                   </p>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         ) : (
           <div className="text-center py-20">

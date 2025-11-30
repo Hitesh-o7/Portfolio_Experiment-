@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React from "react";
-import { gsap } from "gsap";
+import { performTransitionAndNavigate } from "@/utils/transition";
 import styles from "./Link.module.css";
 
 type Props = {
@@ -27,27 +27,8 @@ export default function Link({ data, isActive, setSelectedIndicator }: Props) {
       return;
     }
 
-    // GSAP block reveal animation (transition-out effect)
-    const blocks = document.querySelectorAll(".transition-block");
-
-    // Reset blocks to initial state
-    blocks.forEach((block) => {
-      block.setAttribute("style", "visibility: visible; transform: scaleY(0);");
-    });
-
-    // Start the transition-out effect
-    await new Promise<void>((resolve) => {
-      gsap.to(blocks, {
-        scaleY: 1,
-        duration: 1,
-        stagger: { each: 0.1, from: "start" },
-        ease: "power4.inOut",
-        onComplete: resolve,
-      });
-    });
-
-    // After the animation completes, navigate to the new page
-    router.push(data.href);
+    // Perform transition and navigate early for better performance
+    await performTransitionAndNavigate(router, data.href);
   };
 
   return (
