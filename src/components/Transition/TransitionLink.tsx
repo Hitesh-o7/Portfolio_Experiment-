@@ -29,7 +29,7 @@ export default function TransitionLink({ href, children, className, style, onMou
     // Navigate when transition is 70% complete for faster perceived performance
     setTimeout(() => {
       router.push(href);
-    }, 700); // 70% of 1000ms = 700ms
+    }, 350); // 70% of 500ms = 350ms
     
     await transitionPromise;
     isTransitioning.current = false;

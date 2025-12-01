@@ -64,8 +64,7 @@ export default function HeartProjectPage() {
                       try {
                         // @ts-expect-error - gc() is a non-standard API for garbage collection
                         window.gc();
-                      } catch {
-                        // Ignore if gc is not available
+                      } catch { 
                       }
                     }
                   }}

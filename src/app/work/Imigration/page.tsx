@@ -45,22 +45,18 @@ export default function ImigrationProjectPage() {
                 </div>
               )}
               <Image 
-                src="/work/Imi_Main.avif" 
+                src="/Work/Imi_Main.avif" 
                 alt="Immigration Project" 
-                width={2000}
-                height={4000}
+                width={1920}
+                height={1080}
                 className={`w-full h-auto object-contain rounded-xl transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 80vw"
-                priority={!isMobile}
-                loading={isMobile ? "lazy" : "eager"}
-                quality={90}
+                priority={true}
+                quality={75}
                 onLoad={() => setImageLoaded(true)}
-                onError={() => {
-                  // Fallback to PNG if AVIF fails
-                  const img = document.querySelector('img[src="/Work/Imi_Main.avif"]') as HTMLImageElement;
-                  if (img) {
-                    img.src = "/Work/Imi_Main.png";
-                  }
+                onError={(e) => {
+                  console.error('Image failed to load:', e);
+                  setImageLoaded(true); // Hide loader even on error
                 }}
               />
             </div>

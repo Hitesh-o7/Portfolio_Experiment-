@@ -19,8 +19,8 @@ export async function performTransition(): Promise<void> {
   return new Promise<void>((resolve) => {
     gsap.to(blocks, {
       scaleY: 1,
-      duration: 1,
-      stagger: { each: 0.1, from: "start", grid: [2, 5] },
+      duration: 0.5,
+      stagger: { each: 0.05, from: "start", grid: [2, 5] },
       ease: "power4.inOut",
       onComplete: resolve,
     });
@@ -40,7 +40,7 @@ export async function performTransitionAndNavigate(
   // Navigate when transition is 70% complete for faster perceived performance
   setTimeout(() => {
     router.push(href);
-  }, 700); // 70% of 1000ms = 700ms
+  }, 350); // 70% of 500ms = 350ms
   
   await transitionPromise;
 }

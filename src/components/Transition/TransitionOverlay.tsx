@@ -22,8 +22,8 @@ export default function TransitionOverlay() {
       // Start animation immediately - no delay for better performance
       gsap.to(blocksRef.current, {
         scaleY: 0,
-        duration: 1,
-        stagger: { each: 0.1, from: "start", grid: "auto" },
+        duration: 0.5,
+        stagger: { each: 0.05, from: "start", grid: "auto" },
         ease: "power4.inOut",
         onComplete: resolve,
       });
