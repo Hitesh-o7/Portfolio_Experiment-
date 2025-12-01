@@ -377,7 +377,7 @@ export default function Work() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 max-w-2xl relative overflow-hidden bg-white rounded-xl shadow-lg hover:shadow-2xl backdrop-blur-sm border border-gray-100/50 transition-all duration-500 cursor-pointer"
+                    className="flex-1 max-w-2xl relative overflow-hidden bg-white rounded-xl shadow-lg hover:shadow-2xl backdrop-blur-sm border border-gray-100/50 transition-all duration-700 cursor-pointer"
                     data-project-id={project.id}
                   >
                     <div className={project.type === "video" ? "relative" : "aspect-[16/9] relative"}>
@@ -389,7 +389,7 @@ export default function Work() {
                           muted
                           playsInline
                           preload="metadata"
-                          className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                          className="w-full h-auto transition-transform duration-1000 group-hover:scale-105"
                         />
                       ) : (
                         <div className="relative w-full h-full">
@@ -406,7 +406,7 @@ export default function Work() {
                             priority={project.featured} // Priority loading for featured projects
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             quality={85}
-                            className={`object-cover transition-all duration-700 group-hover:scale-105 ${
+                            className={`object-cover transition-all duration-1000 group-hover:scale-105 ${
                               imagesLoaded.has(project.id) 
                                 ? "opacity-100" 
                                 : "opacity-0"
@@ -429,7 +429,7 @@ export default function Work() {
 
                       {/* Desktop Hover Overlay */}
                       <div 
-                        className="hidden md:flex absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto"
+                        className="hidden md:flex absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto"
                       >
                         <div className="flex gap-3">
                           <div
@@ -461,7 +461,7 @@ export default function Work() {
 
                       {/* Mobile Auto-Reveal Overlay */}
                       <div
-                        className={`md:hidden absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent transition-all duration-500 ${
+                        className={`md:hidden absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent transition-all duration-700 ${
                           centeredProjectId === project.id
                             ? "opacity-100 translate-y-0"
                             : "opacity-0 translate-y-4 pointer-events-none"
@@ -542,7 +542,7 @@ export default function Work() {
                           muted
                           playsInline
                           preload="metadata"
-                          className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                          className="w-full h-auto transition-transform duration-1000 group-hover:scale-105"
                         />
                       ) : (
                         <div className="relative w-full h-full">
@@ -559,7 +559,7 @@ export default function Work() {
                             priority={project.featured} // Priority loading for featured projects
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             quality={85}
-                            className={`object-cover transition-all duration-700 group-hover:scale-105 ${
+                            className={`object-cover transition-all duration-1000 group-hover:scale-105 ${
                               imagesLoaded.has(project.id) 
                                 ? "opacity-100" 
                                 : "opacity-0"
@@ -582,7 +582,7 @@ export default function Work() {
 
                       {/* Desktop Hover Overlay */}
                       <div 
-                        className="hidden md:flex absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto"
+                        className="hidden md:flex absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto"
                       >
                         <div className="flex gap-3">
                           <div
@@ -614,7 +614,7 @@ export default function Work() {
 
                       {/* Mobile Auto-Reveal Overlay */}
                       <div
-                        className={`md:hidden absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent transition-all duration-500 ${
+                        className={`md:hidden absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent transition-all duration-700 ${
                           centeredProjectId === project.id
                             ? "opacity-100 translate-y-0"
                             : "opacity-0 translate-y-4 pointer-events-none"

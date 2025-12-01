@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import { SmoothCursor } from "@/components/ui/Cursor/smooth-cursor";
 import Contact from "@/components/Contact/Contact";
 import Image from "next/image";
+import Link from "next/link";
 import { useAnimationContext } from "@/context/AnimationContext";
 
 export default function ImigrationProjectPage() {
@@ -34,7 +35,12 @@ export default function ImigrationProjectPage() {
     >
       {!isMobile && <SmoothCursor />}
       <Header />
-      <section className="max-w-full mx-auto px-4 sm:px-[8%] md:px-[12%] lg:px-[15%] py-8 sm:py-[10%] md:py-[15%] lg:py-[20%]">
+      <div className="max-w-full mt-32 mx-auto px-4 sm:px-[8%] md:px-[12%] lg:px-[5%] pt-6">
+        <Link href="/work" className="text-sm text-gray-600 hover:text-black hover:underline underline-offset-4">
+          ← Back to all projects
+        </Link>
+      </div>
+      <section className="max-w-full mx-auto -mt-[15%] px-4 sm:px-[8%] md:px-[12%] lg:px-[15%] py-8 sm:py-[10%] md:py-[15%] lg:py-[20%]">
         <div className="flex flex-col gap-4 h-full">
           <div className="flex flex-col gap-4 h-full justify-center items-center mb-10 relative max-md:mt-10">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-black font-bold mb-[-1rem] sm:mb-[-1.5rem] md:mb-[-2rem] lg:mb-[-2.5rem] max-md:mt-8 relative z-0">Immigration</h1>
