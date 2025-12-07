@@ -71,10 +71,13 @@ export default function Work() {
                                         loop
                                         muted
                                         playsInline
+                                        preload="metadata"
                                         style={{ 
                                             width: "100%",
                                             height: "100%",
                                             display: "block",
+                                            willChange: "auto",
+                                            transform: "translateZ(0)", // Hardware acceleration for iPad
                                         }}
                                     />
                                 ) : (
@@ -83,7 +86,11 @@ export default function Work() {
                                         alt={work.alt}
                                         className={styles.work_img}
                                         fill
-                                        style={{ objectFit: "cover" }}
+                                        style={{ 
+                                            objectFit: "cover",
+                                            willChange: "auto",
+                                            transform: "translateZ(0)", // Hardware acceleration for iPad
+                                        }}
                                     />
                                 )}
                             </div>

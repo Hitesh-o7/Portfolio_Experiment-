@@ -118,6 +118,8 @@ export function SmoothCursor({
   useEffect(() => {
     if (!isMouseDevice) return;
 
+    let scaleTimeout: NodeJS.Timeout | null = null;
+
     const updateVelocity = (currentPos: Position) => {
       const currentTime = Date.now();
       const deltaTime = currentTime - lastUpdateTime.current;
@@ -158,11 +160,10 @@ export function SmoothCursor({
 
         scale.set(0.95);
 
-        const timeout = setTimeout(() => {
+        if (scaleTimeout) clearTimeout(scaleTimeout);
+        scaleTimeout = setTimeout(() => {
           scale.set(1);
         }, 150);
-
-        return () => clearTimeout(timeout);
       }
     };
 
@@ -183,6 +184,7 @@ export function SmoothCursor({
       window.removeEventListener("mousemove", throttledMouseMove);
       document.body.style.cursor = "auto";
       if (rafId) cancelAnimationFrame(rafId);
+      if (scaleTimeout) clearTimeout(scaleTimeout);
     };
   }, [cursorX, cursorY, rotation, scale, isMouseDevice]);
 

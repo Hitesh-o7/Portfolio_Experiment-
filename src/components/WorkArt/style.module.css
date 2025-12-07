@@ -53,6 +53,10 @@
     gap: 150px;
     justify-content: center;
     transition: background-color 0.5s ease;
+    /* iPad scrolling optimizations */
+    -webkit-overflow-scrolling: touch;
+    transform: translateZ(0);
+    will-change: scroll-position;
 }
 @media (max-width: 750px) {
     .Main .work_container {
@@ -166,6 +170,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* iPad performance optimizations */
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 @media (min-width: 1441px) {
     .Main .work_container .card {

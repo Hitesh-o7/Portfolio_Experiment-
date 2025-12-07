@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useMemo } from "react";
 
 interface AnimationContextType {
   currentBg: string;
@@ -15,8 +15,14 @@ export const AnimationProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const [currentBg, setCurrentBg] = useState<string>("#ffffff");
   const [currentTextColor, setCurrentTextColor] = useState<string>("#000000");
 
+  // Memoize context value to prevent unnecessary re-renders
+  const value = useMemo(
+    () => ({ currentBg, setCurrentBg, currentTextColor, setCurrentTextColor }),
+    [currentBg, currentTextColor]
+  );
+
   return (
-    <AnimationContext.Provider value={{ currentBg, setCurrentBg, currentTextColor, setCurrentTextColor }}>
+    <AnimationContext.Provider value={value}>
       {children}
     </AnimationContext.Provider>
   );

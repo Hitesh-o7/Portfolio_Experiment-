@@ -11,131 +11,17 @@ import { SmoothCursor } from "@/components/ui/Cursor/smooth-cursor"
 import Contact from "@/components/Contact/Contact"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-
-// Sample project data - replace with your actual projects
-const projects = [
-  {
-    id: 0,
-    title: "Heart Project",
-    description: "A site for helping people cheer up.",
-    image: "/Heart.avif",
-    technologies: ["React", "Next.js", "TypeScript", "UI/UX Design", "Graphic Design"],
-    category: "Web Application",
-    liveUrl: "/work/heart",
-    githubUrl: "/error",
-    date: "2025-01-15",
-    featured: true,
-  },
-  {
-    id: 1,
-    title: "Sunsoft",
-    description: "A coding learning platform providing comprehensive programming education.",
-    image: "/Work/sunsoft.avif",  
-    technologies: ["React", "Node.js","Tailwind CSS","Framer Motion", "UI/UX Design", "Graphic Design"],
-    category: "Web Application",
-    liveUrl: "/work/sunsoft",
-    githubUrl: "/error",
-    date: "2024-12-20",
-    featured: true,
-    
-  },
-  {
-    id: 2,
-    title: "Transition Website",
-    description: "Transition website is a website that is used to transition from one page to another.",
-    image: "/powell.avif",
-    video: "/Project1.webm",
-    type: "video",
-    technologies: ["React", "Node.js","Tailwind CSS","Framer Motion"],
-    category: "Web Application",
-    liveUrl: "/error",
-    githubUrl: "/error",
-    date: "2024-12-20",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "Funky",
-    description: "A mood chilling site designed for relaxation and entertainment.",
-    image: "/Work/funo.avif",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion","MongoDB","Node.js", "UI/UX Design", "Graphic Design"],
-    category: "Website",
-    liveUrl: "/work/funky",
-    githubUrl: "https://github.com/Hitesh-o7/JobSeek",
-    date: "2023-07-05",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Immigration",
-    description: "A website for immigration queries and information services.",
-    image: "/Work/imi.avif",
-    technologies: ["React", "Tailwind CSS", "Framer Motion", "UI/UX Design", "Graphic Design"],
-    category: "AI/ML",
-    liveUrl: "/work/Imigration",
-    githubUrl: "/error",
-    date: "2024-03-12",
-    featured: true,
-   
-  },
-
-  {
-    id: 5,
-    title: "JobSeek",
-    description: "JobSeek is a job portal website.",
-    image: "/projects/JobSeek.avif",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion","MongoDB","Node.js"],
-    category: "Website",
-    liveUrl: "https://github.com/Hitesh-o7/JobSeek",
-    githubUrl: "https://github.com/Hitesh-o7/JobSeek",
-    date: "2023-07-05",
-    featured: false,
-  },
-   
-  {
-    id: 6,
-    title: "Readers",
-    description: "Readers is site which extract the data from mutiple files extension like yaml, json, csv, xml, etc.",
-    image: "/projects/Readers.avif",
-    technologies: ["Solidity", "Web3.js", "React", "Ethereum","Tailwind CSS","Framer Motion"],
-    category: "Blockchain",
-    liveUrl: "https://readers-seven.vercel.app/",
-    githubUrl: "https://github.com/Hitesh-o7/Readers",
-    date: "2023-12-08",
-    featured: false,
-  },
-  
-  {
-    id: 7,
-    title: "Crimson Oath",
-    description: "Crimson Oath is a 2D Souls-Like game.",
-    image: "/Games/MainPage.png",
-    technologies: ["Unity", "Blender", "Photoshop"],
-    category: "Mobile App",
-    liveUrl: "/games/crimson-oath",
-    githubUrl: "https://github.com/username/project",
-    date: "2025-04-10",
-    featured: true,
-  },
-  {
-    id: 8
-    ,
-    title: "CVE",
-    description: "CVE (Common Vulnerabilities and Exposures) is a list of publicly known cybersecurity vulnerabilities.",
-    image: "/projects/CVE.avif",
-    video: "/projects/CVE.webm",
-    type: "video",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
-    category: "Web Application",
-    liveUrl: "https://cve-hazel.vercel.app/",
-    githubUrl: "https://github.com/Hitesh-o7/CVE.git",
-    date: "2024-11-22",
-    featured: true,
-  },
-]
-
-const categories = ["All", "Web Application", "Mobile App", "Website", "AI/ML", "Blockchain"]
-const technologies = ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Python", "Solidity"]
+import { isValidUrl, isExternalUrl } from "@/utils/urlValidation"
+import { projects, categories, technologies } from "@/data/projects"
+import { isTouchDevice, isIPad } from "@/utils/touchDevice"
+import { 
+  IMAGE_BATCH_SIZE_IPAD, 
+  IMAGE_QUALITY_FEATURED, 
+  BATCH_DELAY,
+  RESIZE_DEBOUNCE_DELAY,
+  OBSERVER_THRESHOLD,
+  OBSERVER_ROOT_MARGIN
+} from "@/constants"
 
 export default function Work() {
   const router = useRouter()
@@ -147,30 +33,62 @@ export default function Work() {
   const [imagesLoaded, setImagesLoaded] = useState<Set<number>>(new Set())
   const observerRef = useRef<IntersectionObserver | null>(null)
 
-  // Preload images on component mount
+  // Preload images on component mount (with iPad optimization)
   useEffect(() => {
+    const touchDevice = isTouchDevice();
+    const iPad = isIPad();
+    
+    // For iPad, only preload featured images to prevent memory issues
+    // Filter out already loaded images to avoid redundant loading
+    const imagesToPreload = (iPad || (touchDevice && window.innerWidth < 1024)
+      ? projects.filter(p => p.featured && !imagesLoaded.has(p.id) && p.image)
+      : projects.filter(p => !imagesLoaded.has(p.id) && p.image));
+    
+    if (imagesToPreload.length === 0) return;
+    
+    let isMounted = true;
+    
     const preloadImages = async () => {
-      const imagePromises = projects.map((project) => {
-        return new Promise((resolve) => {
-          if (project.image) {
-            const img = new window.Image()
-            img.onload = () => {
-              setImagesLoaded(prev => new Set(prev).add(project.id))
+      // Load images in batches for iPad to prevent memory issues
+      const batchSize = iPad ? IMAGE_BATCH_SIZE_IPAD : imagesToPreload.length;
+      
+      for (let i = 0; i < imagesToPreload.length; i += batchSize) {
+        if (!isMounted) break;
+        
+        const batch = imagesToPreload.slice(i, i + batchSize);
+        const imagePromises = batch.map((project) => {
+          return new Promise<boolean>((resolve) => {
+            if (project.image && !imagesLoaded.has(project.id)) {
+              const img = new window.Image()
+              img.onload = () => {
+                if (isMounted) {
+                  setImagesLoaded(prev => new Set(prev).add(project.id))
+                }
+                resolve(true)
+              }
+              img.onerror = () => resolve(false)
+              img.src = project.image
+            } else {
               resolve(true)
             }
-            img.onerror = () => resolve(false)
-            img.src = project.image
-          } else {
-            resolve(true)
-          }
+          })
         })
-      })
-      
-      await Promise.all(imagePromises)
+        
+        await Promise.all(imagePromises)
+        
+        // Small delay between batches for iPad
+        if (iPad && i + batchSize < imagesToPreload.length) {
+          await new Promise(resolve => setTimeout(resolve, BATCH_DELAY))
+        }
+      }
     }
 
     preloadImages()
-  }, [])
+    
+    return () => {
+      isMounted = false;
+    };
+  }, []) // imagesLoaded intentionally excluded to prevent re-running
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
@@ -188,61 +106,89 @@ export default function Work() {
     })
   }, [searchTerm, selectedCategories, selectedTechnologies, showFeaturedOnly])
 
-  // Set up Intersection Observer for mobile
+
+  // Set up Intersection Observer for mobile and iPad
   useEffect(() => {
     if (typeof window === "undefined") return
 
-    const isMobile = window.innerWidth < 768
+    // Check if it's a touch device (mobile or iPad) or small screen
+    const isTouch = isTouchDevice()
+    const isSmallScreen = window.innerWidth < 1024 // Include iPad in this range
+    const shouldUseObserver = isTouch || isSmallScreen
 
-    if (isMobile) {
-      observerRef.current = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const projectId = Number.parseInt(entry.target.getAttribute("data-project-id") || "0")
+    if (!shouldUseObserver) return
 
-            if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-              setCenteredProjectId(projectId)
-            } else if (centeredProjectId === projectId && !entry.isIntersecting) {
-              setCenteredProjectId(null)
-            }
-          })
-        },
-        {
-          threshold: [0.6, 0.8],
-          rootMargin: "-20% 0px -20% 0px", // Only trigger when in center 60% of viewport
-        },
-      )
-
-      // Observe all project cards
-      const projectCards = document.querySelectorAll("[data-project-id]")
-      projectCards.forEach((card) => {
-        if (observerRef.current) {
-          observerRef.current.observe(card)
-        }
-      })
+    // Clean up previous observer
+    if (observerRef.current) {
+      observerRef.current.disconnect()
     }
 
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const projectId = Number.parseInt(entry.target.getAttribute("data-project-id") || "0")
+
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            setCenteredProjectId((prev) => prev !== projectId ? projectId : prev)
+          } else if (centeredProjectId === projectId && !entry.isIntersecting) {
+            setCenteredProjectId((prev) => prev === projectId ? null : prev)
+          }
+        })
+      },
+      {
+        threshold: OBSERVER_THRESHOLD,
+        rootMargin: OBSERVER_ROOT_MARGIN, // More lenient for iPad
+      },
+    )
+
+    // Use requestAnimationFrame instead of setTimeout for better timing and cleanup
+    let rafId: number
+    const setupObserver = () => {
+      rafId = requestAnimationFrame(() => {
+        const projectCards = document.querySelectorAll("[data-project-id]")
+        projectCards.forEach((card) => {
+          if (observerRef.current) {
+            observerRef.current.observe(card)
+          }
+        })
+      })
+    }
+    
+    setupObserver()
+
     return () => {
+      if (rafId) cancelAnimationFrame(rafId)
       if (observerRef.current) {
         observerRef.current.disconnect()
       }
     }
-  }, [filteredProjects, centeredProjectId])
+  }, [filteredProjects]) // Removed centeredProjectId from dependencies to prevent infinite loops
 
-  // Handle window resize
+  // Handle window resize with debouncing
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+    
     const handleResize = () => {
-      const isMobile = window.innerWidth < 768
-      if (!isMobile) {
-        setCenteredProjectId(null)
-        if (observerRef.current) {
-          observerRef.current.disconnect()
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        const isTouch = isTouchDevice()
+        const isSmallScreen = window.innerWidth < 1024
+        const shouldUseObserver = isTouch || isSmallScreen
+        
+        if (!shouldUseObserver) {
+          setCenteredProjectId(null)
+          if (observerRef.current) {
+            observerRef.current.disconnect()
+          }
         }
-      }
+      }, RESIZE_DEBOUNCE_DELAY)
     }
 
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+    window.addEventListener("resize", handleResize, { passive: true })
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
   const toggleCategory = (category: string) => {
@@ -367,12 +313,13 @@ export default function Work() {
         {filteredProjects.length > 0 ? (
           <div className="space-y-20">
             {filteredProjects.map((project) => {
-              const isExternalUrl = project.liveUrl.startsWith('http://') || project.liveUrl.startsWith('https://');
+              const isExternal = isExternalUrl(project.liveUrl || '');
+              const urlIsValid = isValidUrl(project.liveUrl || '');
               
               return (
               <div key={project.id} className="group flex items-end gap-8 md:gap-8">
                 {/* Project Image Card */}
-                {isExternalUrl ? (
+                {isExternal ? (
                   <Link
                     href={project.liveUrl}
                     target="_blank"
@@ -389,7 +336,12 @@ export default function Work() {
                           muted
                           playsInline
                           preload="metadata"
+                          aria-label={`Video preview for ${project.title}`}
                           className="w-full h-auto transition-transform duration-1000 group-hover:scale-105"
+                          style={{ 
+                            willChange: "auto",
+                            transform: "translateZ(0)" // Hardware acceleration for iPad
+                          }}
                         />
                       ) : (
                         <div className="relative w-full h-full">
@@ -405,13 +357,20 @@ export default function Work() {
                             fill
                             priority={project.featured} // Priority loading for featured projects
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            quality={85}
+                            quality={IMAGE_QUALITY_FEATURED}
                             className={`object-cover transition-all duration-1000 group-hover:scale-105 ${
                               imagesLoaded.has(project.id) 
                                 ? "opacity-100" 
                                 : "opacity-0"
                             }`}
+                            style={{ 
+                              willChange: "auto",
+                              transform: "translateZ(0)" // Hardware acceleration for iPad
+                            }}
                             onLoad={() => {
+                              setImagesLoaded(prev => new Set(prev).add(project.id))
+                            }}
+                            onError={() => {
                               setImagesLoaded(prev => new Set(prev).add(project.id))
                             }}
                           />
@@ -436,9 +395,9 @@ export default function Work() {
                             onClick={async (e) => {
                               e.preventDefault()
                               e.stopPropagation()
-                              if (isExternalUrl) {
+                              if (isExternal && urlIsValid) {
                                 window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
-                              } else {
+                              } else if (urlIsValid) {
                                 await performTransitionAndNavigate(router, project.liveUrl)
                               }
                             }}
@@ -450,7 +409,9 @@ export default function Work() {
                             onClick={(e) => {
                               e.preventDefault()
                               e.stopPropagation()
-                              window.open(project.githubUrl, '_blank', 'noopener,noreferrer')
+                              if (isValidUrl(project.githubUrl)) {
+                                window.open(project.githubUrl, '_blank', 'noopener,noreferrer')
+                              }
                             }}
                             className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg cursor-pointer"
                           >
@@ -480,21 +441,26 @@ export default function Work() {
                               onClick={async (e) => {
                                 e.preventDefault()
                                 e.stopPropagation()
-                                if (isExternalUrl) {
+                                if (isExternal && urlIsValid) {
                                   window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
-                                } else {
+                                } else if (urlIsValid) {
                                   await performTransitionAndNavigate(router, project.liveUrl)
                                 }
                               }}
                               className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer"
+                              role="button"
+                              aria-label={`Open ${project.title} in new tab`}
+                              tabIndex={0}
                             >
-                              <ExternalLink className="w-4 h-4 text-white" />
+                              <ExternalLink className="w-4 h-4 text-white" aria-hidden="true" />
                             </div>
                             <div
                               onClick={(e) => {
                                 e.preventDefault()
                                 e.stopPropagation()
+                                if (isValidUrl(project.githubUrl)) {
                                 window.open(project.githubUrl, '_blank', 'noopener,noreferrer')
+                              }
                               }}
                               className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer"
                             >
@@ -542,7 +508,12 @@ export default function Work() {
                           muted
                           playsInline
                           preload="metadata"
+                          aria-label={`Video preview for ${project.title}`}
                           className="w-full h-auto transition-transform duration-1000 group-hover:scale-105"
+                          style={{ 
+                            willChange: "auto",
+                            transform: "translateZ(0)" // Hardware acceleration for iPad
+                          }}
                         />
                       ) : (
                         <div className="relative w-full h-full">
@@ -558,13 +529,20 @@ export default function Work() {
                             fill
                             priority={project.featured} // Priority loading for featured projects
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            quality={85}
+                            quality={IMAGE_QUALITY_FEATURED}
                             className={`object-cover transition-all duration-1000 group-hover:scale-105 ${
                               imagesLoaded.has(project.id) 
                                 ? "opacity-100" 
                                 : "opacity-0"
                             }`}
+                            style={{ 
+                              willChange: "auto",
+                              transform: "translateZ(0)" // Hardware acceleration for iPad
+                            }}
                             onLoad={() => {
+                              setImagesLoaded(prev => new Set(prev).add(project.id))
+                            }}
+                            onError={() => {
                               setImagesLoaded(prev => new Set(prev).add(project.id))
                             }}
                           />
@@ -589,9 +567,9 @@ export default function Work() {
                             onClick={async (e) => {
                               e.preventDefault()
                               e.stopPropagation()
-                              if (isExternalUrl) {
+                              if (isExternal && urlIsValid) {
                                 window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
-                              } else {
+                              } else if (urlIsValid) {
                                 await performTransitionAndNavigate(router, project.liveUrl)
                               }
                             }}
@@ -603,7 +581,9 @@ export default function Work() {
                             onClick={(e) => {
                               e.preventDefault()
                               e.stopPropagation()
-                              window.open(project.githubUrl, '_blank', 'noopener,noreferrer')
+                              if (isValidUrl(project.githubUrl)) {
+                                window.open(project.githubUrl, '_blank', 'noopener,noreferrer')
+                              }
                             }}
                             className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg cursor-pointer"
                           >
@@ -633,21 +613,26 @@ export default function Work() {
                               onClick={async (e) => {
                                 e.preventDefault()
                                 e.stopPropagation()
-                                if (isExternalUrl) {
+                                if (isExternal && urlIsValid) {
                                   window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
-                                } else {
+                                } else if (urlIsValid) {
                                   await performTransitionAndNavigate(router, project.liveUrl)
                                 }
                               }}
                               className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer"
+                              role="button"
+                              aria-label={`Open ${project.title} in new tab`}
+                              tabIndex={0}
                             >
-                              <ExternalLink className="w-4 h-4 text-white" />
+                              <ExternalLink className="w-4 h-4 text-white" aria-hidden="true" />
                             </div>
                             <div
                               onClick={(e) => {
                                 e.preventDefault()
                                 e.stopPropagation()
+                                if (isValidUrl(project.githubUrl)) {
                                 window.open(project.githubUrl, '_blank', 'noopener,noreferrer')
+                              }
                               }}
                               className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer"
                             >

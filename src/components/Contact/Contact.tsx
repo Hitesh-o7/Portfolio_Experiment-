@@ -58,7 +58,14 @@ export default function Contact({
                     </div>
                 </div>
                 <div className={styles.logoBottomRight}>
-                    <Image src="/GreenLogo.svg" alt="Logo" width={80} height={80} className={`w-20 h-20 ${styles.logoIcon}`} />
+                    <Image 
+                      src="/GreenLogo.svg" 
+                      alt="" 
+                      aria-hidden="true"
+                      width={80} 
+                      height={80} 
+                      className={`w-20 h-20 ${styles.logoIcon}`} 
+                    />
                 </div>
             </div>
         </motion.div>

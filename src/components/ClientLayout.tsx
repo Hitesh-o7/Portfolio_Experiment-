@@ -6,6 +6,7 @@ import { AnimationProvider } from "@/context/AnimationContext";
 import TransitionOverlay from "@/components/Transition/TransitionOverlay";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 export default function ClientLayout({
   children,
@@ -30,11 +31,13 @@ export default function ClientLayout({
   }, []);
 
   return (
-    <AnimationProvider>
-      <TransitionOverlay />
-      {children}
-      <Analytics />
-      <SpeedInsights />
-    </AnimationProvider>
+    <ErrorBoundary>
+      <AnimationProvider>
+        <TransitionOverlay />
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </AnimationProvider>
+    </ErrorBoundary>
   );
 }

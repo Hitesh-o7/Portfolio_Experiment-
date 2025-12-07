@@ -60,8 +60,10 @@ export default function ImigrationProjectPage() {
                 priority={true}
                 quality={75}
                 onLoad={() => setImageLoaded(true)}
-                onError={(e) => {
-                  console.error('Image failed to load:', e);
+                onError={() => {
+                  if (process.env.NODE_ENV === 'development') {
+                    console.error('Image failed to load');
+                  }
                   setImageLoaded(true); // Hide loader even on error
                 }}
               />
