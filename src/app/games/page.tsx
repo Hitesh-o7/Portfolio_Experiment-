@@ -21,8 +21,7 @@ export default function GamesPage() {
     <main data-scroll-container>
       <SmoothCursor />
       <Header />
-      <GamesShowcase />
-      <Contact />
+      <GamesShowcase /> 
     </main>
   );
 }
