@@ -9,19 +9,20 @@ import { useAnimationContext } from "@/context/AnimationContext";
 import { Glitchy404 } from "@/components/ui/glitchy";
 
 export default function ErrorPage() {
-  const { setCurrentBg, setCurrentTextColor } = useAnimationContext();
+  const { currentBg, currentTextColor, setCurrentBg, setCurrentTextColor } = useAnimationContext();
 
   useEffect(() => {
     // Set dark background context for proper header theming
     // Only update if values are different to prevent infinite loops
-    setCurrentBg((prev) => {
-      const newBg = "rgba(16,16,16,0.9)";
-      return prev !== newBg ? newBg : prev;
-    });
-    setCurrentTextColor((prev) => {
-      const newTextColor = "rgba(255,255,255,0.9)";
-      return prev !== newTextColor ? newTextColor : prev;
-    });
+    const newBg = "rgba(16,16,16,0.9)";
+    const newTextColor = "rgba(255,255,255,0.9)";
+    
+    if (currentBg !== newBg) {
+      setCurrentBg(newBg);
+    }
+    if (currentTextColor !== newTextColor) {
+      setCurrentTextColor(newTextColor);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty deps - only run once on mount
 

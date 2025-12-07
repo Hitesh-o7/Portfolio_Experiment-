@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useAnimationContext } from "@/context/AnimationContext";
 
 export default function HeartProjectPage() {
-  const { setCurrentBg, setCurrentTextColor, currentBg } = useAnimationContext();
+  const { currentBg, currentTextColor, setCurrentBg, setCurrentTextColor } = useAnimationContext();
   const [isMobile, setIsMobile] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -26,14 +26,15 @@ export default function HeartProjectPage() {
 
   useEffect(() => {
     // Only update if values are different to prevent infinite loops
-    setCurrentBg((prev) => {
-      const newBg = "rgba(255,255,255,0.9)";
-      return prev !== newBg ? newBg : prev;
-    });
-    setCurrentTextColor((prev) => {
-      const newTextColor = "rgba(0,0,0,0.9)";
-      return prev !== newTextColor ? newTextColor : prev;
-    });
+    const newBg = "rgba(255,255,255,0.9)";
+    const newTextColor = "rgba(0,0,0,0.9)";
+    
+    if (currentBg !== newBg) {
+      setCurrentBg(newBg);
+    }
+    if (currentTextColor !== newTextColor) {
+      setCurrentTextColor(newTextColor);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty deps - only run once on mount
 
