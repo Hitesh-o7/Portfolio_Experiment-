@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useAnimationContext } from "@/context/AnimationContext";
@@ -17,8 +17,24 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   const { currentBg, setCurrentBg, currentTextColor, setCurrentTextColor } =
     useAnimationContext();
+  const scrollTriggersRef = useRef<ScrollTrigger[]>([]);
+  const scrollHandlerRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
+    // Clean up any existing ScrollTriggers first
+    scrollTriggersRef.current.forEach((trigger) => {
+      if (trigger && trigger.kill) {
+        trigger.kill();
+      }
+    });
+    scrollTriggersRef.current = [];
+
+    // Clean up any existing scroll handler
+    if (scrollHandlerRef.current) {
+      window.removeEventListener("scroll", scrollHandlerRef.current);
+      scrollHandlerRef.current = null;
+    }
+
     // Detect if device is iPad or touch device
     const touchDevice = isTouchDevice();
     const iPad = isIPad();
@@ -40,10 +56,12 @@ export default function Home() {
           if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
             if (currentSection !== section) {
               currentSection = section;
-              setCurrentBg(section.getAttribute("data-bgcolor") || "rgba(255,255,255,0.9)");
-              setCurrentTextColor(
-                section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)"
-              );
+              const bgColor = section.getAttribute("data-bgcolor") || "rgba(255,255,255,0.9)";
+              const textColor = section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)";
+              
+              // Only update if values actually changed to prevent unnecessary re-renders
+              setCurrentBg((prev) => prev !== bgColor ? bgColor : prev);
+              setCurrentTextColor((prev) => prev !== textColor ? textColor : prev);
             }
           }
         });
@@ -61,35 +79,48 @@ export default function Home() {
         }
       };
       
+      scrollHandlerRef.current = throttledScroll;
       window.addEventListener("scroll", throttledScroll, { passive: true });
       handleScroll(); // Initial check
       
       return () => {
-        window.removeEventListener("scroll", throttledScroll);
+        if (scrollHandlerRef.current) {
+          window.removeEventListener("scroll", scrollHandlerRef.current);
+          scrollHandlerRef.current = null;
+        }
       };
     } else {
       // Use ScrollTrigger for desktop
+      // Store all created triggers for proper cleanup
       sections.forEach((section) => {
-        ScrollTrigger.create({
+        const trigger = ScrollTrigger.create({
           trigger: section,
           start: "top 50%",
           end: "bottom 50%",
           onEnter: () => {
-            setCurrentBg(section.getAttribute("data-bgcolor") || "rgba(255,255,255,0.9)");
-            setCurrentTextColor(
-              section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)"
-            );
+            const bgColor = section.getAttribute("data-bgcolor") || "rgba(255,255,255,0.9)";
+            const textColor = section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)";
+            setCurrentBg((prev) => prev !== bgColor ? bgColor : prev);
+            setCurrentTextColor((prev) => prev !== textColor ? textColor : prev);
           },
           onEnterBack: () => {
-            setCurrentBg(section.getAttribute("data-bgcolor") || "rgba(255,255,255,0.9)");
-            setCurrentTextColor(
-              section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)"
-            );
+            const bgColor = section.getAttribute("data-bgcolor") || "rgba(255,255,255,0.9)";
+            const textColor = section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)";
+            setCurrentBg((prev) => prev !== bgColor ? bgColor : prev);
+            setCurrentTextColor((prev) => prev !== textColor ? textColor : prev);
           },
         });
+        scrollTriggersRef.current.push(trigger);
       });
 
-      return () => ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      return () => {
+        scrollTriggersRef.current.forEach((trigger) => {
+          if (trigger && trigger.kill) {
+            trigger.kill();
+          }
+        });
+        scrollTriggersRef.current = [];
+      };
     }
   }, [setCurrentBg, setCurrentTextColor]);
 

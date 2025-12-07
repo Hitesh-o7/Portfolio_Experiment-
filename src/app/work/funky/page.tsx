@@ -23,9 +23,17 @@ export default function FunkyProjectPage() {
   }, []);
 
   useEffect(() => {
-    setCurrentBg("rgba(255,255,255,0.9)");
-    setCurrentTextColor("rgba(0,0,0,0.9)");
-  }, [setCurrentBg, setCurrentTextColor]);
+    // Only update if values are different to prevent infinite loops
+    setCurrentBg((prev) => {
+      const newBg = "rgba(255,255,255,0.9)";
+      return prev !== newBg ? newBg : prev;
+    });
+    setCurrentTextColor((prev) => {
+      const newTextColor = "rgba(0,0,0,0.9)";
+      return prev !== newTextColor ? newTextColor : prev;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty deps - only run once on mount
 
   return (
     <main 

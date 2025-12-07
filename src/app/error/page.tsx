@@ -13,9 +13,17 @@ export default function ErrorPage() {
 
   useEffect(() => {
     // Set dark background context for proper header theming
-    setCurrentBg("rgba(16,16,16,0.9)");
-    setCurrentTextColor("rgba(255,255,255,0.9)");
-  }, [setCurrentBg, setCurrentTextColor]);
+    // Only update if values are different to prevent infinite loops
+    setCurrentBg((prev) => {
+      const newBg = "rgba(16,16,16,0.9)";
+      return prev !== newBg ? newBg : prev;
+    });
+    setCurrentTextColor((prev) => {
+      const newTextColor = "rgba(255,255,255,0.9)";
+      return prev !== newTextColor ? newTextColor : prev;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty deps - only run once on mount
 
   return (
     <main data-scroll-container className="min-h-screen text-white" style={{backgroundColor: '#101010'}}>
