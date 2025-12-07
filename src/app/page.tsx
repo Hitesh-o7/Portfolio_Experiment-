@@ -19,6 +19,14 @@ export default function Home() {
     useAnimationContext();
   const scrollTriggersRef = useRef<ScrollTrigger[]>([]);
   const scrollHandlerRef = useRef<(() => void) | null>(null);
+  const currentBgRef = useRef<string>(currentBg);
+  const currentTextColorRef = useRef<string>(currentTextColor);
+  
+  // Keep refs in sync with state
+  useEffect(() => {
+    currentBgRef.current = currentBg;
+    currentTextColorRef.current = currentTextColor;
+  }, [currentBg, currentTextColor]);
 
   useEffect(() => {
     // Clean up any existing ScrollTriggers first
@@ -60,8 +68,12 @@ export default function Home() {
               const textColor = section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)";
               
               // Only update if values actually changed to prevent unnecessary re-renders
-              setCurrentBg((prev) => prev !== bgColor ? bgColor : prev);
-              setCurrentTextColor((prev) => prev !== textColor ? textColor : prev);
+              if (currentBg !== bgColor) {
+                setCurrentBg(bgColor);
+              }
+              if (currentTextColor !== textColor) {
+                setCurrentTextColor(textColor);
+              }
             }
           }
         });
@@ -100,14 +112,24 @@ export default function Home() {
           onEnter: () => {
             const bgColor = section.getAttribute("data-bgcolor") || "rgba(255,255,255,0.9)";
             const textColor = section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)";
-            setCurrentBg((prev) => prev !== bgColor ? bgColor : prev);
-            setCurrentTextColor((prev) => prev !== textColor ? textColor : prev);
+            // Only update if values actually changed to prevent unnecessary re-renders
+            if (currentBgRef.current !== bgColor) {
+              setCurrentBg(bgColor);
+            }
+            if (currentTextColorRef.current !== textColor) {
+              setCurrentTextColor(textColor);
+            }
           },
           onEnterBack: () => {
             const bgColor = section.getAttribute("data-bgcolor") || "rgba(255,255,255,0.9)";
             const textColor = section.getAttribute("data-textcolor") || "rgba(0,0,0,0.9)";
-            setCurrentBg((prev) => prev !== bgColor ? bgColor : prev);
-            setCurrentTextColor((prev) => prev !== textColor ? textColor : prev);
+            // Only update if values actually changed to prevent unnecessary re-renders
+            if (currentBgRef.current !== bgColor) {
+              setCurrentBg(bgColor);
+            }
+            if (currentTextColorRef.current !== textColor) {
+              setCurrentTextColor(textColor);
+            }
           },
         });
         scrollTriggersRef.current.push(trigger);
