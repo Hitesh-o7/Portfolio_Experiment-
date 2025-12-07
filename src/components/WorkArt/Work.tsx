@@ -4,9 +4,11 @@ import Image from "next/image";
 import TransitionLink from "@/components/Transition/TransitionLink";
 import { useRouter } from "next/navigation";
 import { performTransitionAndNavigate } from "@/utils/transition";
+import { useAnimationContext } from "@/context/AnimationContext";
 
 export default function Work() {
     const router = useRouter();
+    const { currentTextColor } = useAnimationContext();
     
     const workItems = [
         { 
@@ -28,7 +30,7 @@ export default function Work() {
             alt: "Page startup", 
             type: "video", 
             name: "Page startup",
-            url: "/error" // or whatever URL you want for page startup
+            url: "/error"  
         },
         { 
             src: "/2dArt/Cute.avif", 
@@ -49,7 +51,12 @@ export default function Work() {
                         className={`${styles.card_wrapper} ${styles.clickable}`}
                         onClick={async () => {
                             if (work.url && work.url !== "/error") {
-                                await performTransitionAndNavigate(router, work.url);
+                                const isExternalUrl = work.url.startsWith('http://') || work.url.startsWith('https://');
+                                if (isExternalUrl) {
+                                    window.open(work.url, '_blank', 'noopener,noreferrer');
+                                } else {
+                                    await performTransitionAndNavigate(router, work.url);
+                                }
                             }
                         }}
                         style={{ cursor: work.url && work.url !== "/error" ? "pointer" : "default" }}
@@ -100,24 +107,15 @@ export default function Work() {
                         padding: "12px 32px",
                         fontSize: "1.1rem",
                         fontWeight: "600",
-                        color: "#000",
-                        backgroundColor: "transparent",
-                        border: "2px solid #d7d7d7",
+                        color: currentTextColor,
+                        backgroundColor: "transparent", 
                         borderRadius: "8px",
                         cursor: "pointer",
                         textDecoration: "none",
                         display: "inline-block",
                         transition: "all 0.3s ease",
                         fontFamily: "'Reddit', sans-serif"
-                    }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = "#f5f5f5";
-                        e.currentTarget.style.borderColor = "#000";
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = "transparent";
-                        e.currentTarget.style.borderColor = "#d7d7d7";
-                    }}
+                    }} 
                 >
                     More Projects
                 </TransitionLink>
