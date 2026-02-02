@@ -126,6 +126,30 @@ export const projects: Project[] = [
     date: "2024-11-22",
     featured: true,
   },
+  {
+    id: 9,
+    title: "SoulScan",
+    description: "SoulScan is a SaaS platform that automates LinkedIn messaging and outreach workflows.",
+    image: "/Work/Soulscan.avif",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
+    category: "Web Application",
+    liveUrl: "/work/soulscan",
+    githubUrl: "/error",
+    date: "2025-06-10",
+    featured: true,
+  },
+  {
+    id: 10,
+    title: "Perfume Store",
+    description: "An e-commerce site for perfumers to showcase and sell their perfumes directly to merchants.",
+    image: "/Work/Perfume%20Store%20Atlanta.avif",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    category: "Website",
+    liveUrl: "/work/perfume",
+    githubUrl: "/error",
+    date: "2025-08-05",
+    featured: true,
+  },
 ];
 
 export const categories = ["All", "Web Application", "Mobile App", "Website", "AI/ML", "Blockchain"] as const;

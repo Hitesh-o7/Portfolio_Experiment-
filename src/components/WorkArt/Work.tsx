@@ -26,18 +26,18 @@ export default function Work() {
             url: "/work/sunsoft"
         },
         { 
-            src: "/Project1.webm", 
-            alt: "Page startup", 
-            type: "video", 
-            name: "Page startup",
-            url: "/error"  
+            src: "/Work/Soulscan.avif", 
+            alt: "SoulScan SaaS Platform", 
+            type: "image", 
+            name: "SoulScan",
+            url: "/work/soulscan"  
         },
         { 
-            src: "/2dArt/Cute.avif", 
-            alt: "Cute 2D Art", 
+            src: "/Work/Perfume%20Store%20Atlanta.avif", 
+            alt: "Perfume Commerce Site", 
             type: "image", 
-            name: "Cute 2D Art",
-            url: "/2d-gallery"
+            name: "Perfume Store",
+            url: "/work/perfume"
         },
     ];
 
